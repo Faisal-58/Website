@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CUZEC — Automating Businesses. Accelerating Growth.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F8FAFC;--bg2:#EEF2F5;--card:#fff;
+  --text:#0F172A;--text2:#475569;--text3:#64748B;
+  --accent:#0F766E;--accent2:#14B8A6;--accent3:#0891B2;
+  --border:#E2E8F0;--success:#10B981;--hover:#0D9488;
+  --r:12px;--r2:8px;--r3:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;font-size:16px;line-height:1.6}
+h1,h2,h3{font-family:'Inter Tight',sans-serif;line-height:1.1}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,250,252,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.nav-logo svg{width:32px;height:32px}
+.nav-brand{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px;color:var(--text)}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text2);font-size:14px;font-weight:500;padding:6px 12px;border-radius:6px;transition:all .2s}
+.nav-links a:hover{background:var(--bg2);color:var(--text)}
+.nav-cta{background:var(--text);color:#fff!important;border-radius:8px;font-weight:600!important}
+.nav-cta:hover{background:#1e293b!important;color:#fff!important}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 80px;text-align:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(15,118,110,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(15,118,110,0.08);border:1px solid rgba(15,118,110,0.2);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--accent);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:28px}
+.hero-badge-dot{width:6px;height:6px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(1.3)}}
+.hero h1{font-size:clamp(44px,6vw,80px);font-weight:800;letter-spacing:-0.02em;color:var(--text);max-width:820px;margin-bottom:24px;line-height:1.05}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:18px;color:var(--text2);max-width:560px;line-height:1.65;margin-bottom:40px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:64px}
+.btn-primary{background:var(--text);color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:#1e293b;transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--text);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--text3);background:var(--bg2)}
+.hero-network{width:100%;max-width:780px;height:280px;position:relative;border:1px solid var(--border);border-radius:20px;background:var(--card);overflow:hidden;box-shadow:0 4px 40px rgba(15,118,110,0.08)}
+.network-canvas{width:100%;height:100%}
+
+/* TRUST */
+.trust{padding:48px 40px;border-bottom:1px solid var(--border)}
+.trust-label{text-align:center;font-size:12px;font-weight:600;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:28px}
+.trust-logos{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;align-items:center}
+.trust-logo{padding:10px 20px;border-radius:8px;border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text3);background:var(--card);transition:all .2s;cursor:default}
+.trust-logo:hover{border-color:var(--accent2);color:var(--accent);background:rgba(15,118,110,0.04)}
+
+/* SECTIONS */
+section{padding:100px 40px}
+.section-center{text-align:center;max-width:680px;margin:0 auto 64px}
+.label{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:rgba(15,118,110,0.08);border:1px solid rgba(15,118,110,0.15);padding:5px 12px;border-radius:100px;margin-bottom:16px}
+.section-title{font-size:clamp(36px,4vw,52px);font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:16px}
+.section-sub{font-size:17px;color:var(--text2);line-height:1.65}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto}
+.about-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.stat-card{background:var(--bg2);border-radius:var(--r);padding:24px;border:1px solid var(--border)}
+.stat-num{font-family:'Inter Tight',sans-serif;font-size:42px;font-weight:800;color:var(--accent);letter-spacing:-0.02em;line-height:1}
+.stat-label{font-size:13px;color:var(--text2);margin-top:6px}
+.about-visual{background:var(--card);border-radius:var(--r3);border:1px solid var(--border);overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative}
+
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.product-card{background:var(--card);border-radius:var(--r3);border:1px solid var(--border);padding:32px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.product-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,118,110,0.04) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.product-card:hover{border-color:var(--accent2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(15,118,110,0.1)}
+.product-card:hover::before{opacity:1}
+.product-icon{width:48px;height:48px;background:rgba(15,118,110,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1px solid rgba(15,118,110,0.15)}
+.product-tag{font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.product-name{font-family:'Inter Tight',sans-serif;font-size:20px;font-weight:700;margin-bottom:10px}
+.product-desc{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:20px}
+.product-link{font-size:13px;font-weight:600;color:var(--accent);display:flex;align-items:center;gap:4px}
+.product-stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.stack-tag{font-size:11px;background:var(--bg2);border:1px solid var(--border);padding:3px 8px;border-radius:4px;color:var(--text3);font-weight:500}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.service-card{background:var(--card);border-radius:var(--r);border:1px solid var(--border);padding:28px;transition:all .25s}
+.service-card:hover{border-color:var(--accent2);background:rgba(15,118,110,0.02)}
+.service-icon{width:40px;height:40px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:18px}
+.service-name{font-weight:700;font-size:16px;margin-bottom:8px}
+.service-desc{font-size:13px;color:var(--text2);line-height:1.55}
+
+/* PROCESS */
+.process-track{max-width:900px;margin:0 auto;position:relative}
+.process-line{position:absolute;left:27px;top:24px;bottom:24px;width:2px;background:linear-gradient(to bottom,var(--accent2),var(--border));z-index:0}
+.process-step{display:flex;gap:24px;margin-bottom:36px;position:relative;z-index:1;cursor:pointer}
+.process-num{width:54px;height:54px;border-radius:50%;background:var(--card);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Inter Tight',sans-serif;font-weight:800;font-size:16px;color:var(--text3);flex-shrink:0;transition:all .3s}
+.process-step.active .process-num,.process-step:hover .process-num{background:var(--accent);border-color:var(--accent);color:#fff}
+.process-content{padding-top:12px}
+.process-title{font-weight:700;font-size:16px;margin-bottom:4px}
+.process-desc{font-size:14px;color:var(--text2);max-width:500px}
+
+/* TECH ECOSYSTEM */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;max-width:900px;margin:0 auto}
+.tech-node{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:16px;text-align:center;transition:all .25s;cursor:default}
+.tech-node:hover{border-color:var(--accent2);transform:translateY(-2px);box-shadow:0 4px 20px rgba(15,118,110,0.1)}
+.tech-node-icon{font-size:24px;margin-bottom:8px}
+.tech-node-name{font-size:12px;font-weight:600;color:var(--text2)}
+
+/* CASE STUDIES */
+.cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.case-card{background:var(--card);border-radius:var(--r3);border:1px solid var(--border);padding:36px;overflow:hidden;position:relative}
+.case-card::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--accent2),var(--accent3))}
+.case-industry{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.case-title{font-size:18px;font-weight:700;margin-bottom:12px}
+.case-desc{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:24px}
+.case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.metric{text-align:center;background:var(--bg2);border-radius:8px;padding:12px 8px}
+.metric-val{font-family:'Inter Tight',sans-serif;font-size:22px;font-weight:800;color:var(--accent);line-height:1}
+.metric-lbl{font-size:11px;color:var(--text3);margin-top:4px}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.testi-card{background:var(--card);border-radius:var(--r3);border:1px solid var(--border);padding:28px;position:relative;overflow:hidden}
+.testi-card::before{content:'"';position:absolute;top:-8px;left:20px;font-size:80px;font-family:'Inter Tight',sans-serif;font-weight:800;color:rgba(15,118,110,0.06);line-height:1;pointer-events:none}
+.testi-text{font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:20px;position:relative;z-index:1}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff}
+.testi-name{font-weight:600;font-size:14px}
+.testi-role{font-size:12px;color:var(--text3)}
+
+/* CONTACT */
+.contact-inner{max-width:700px;margin:0 auto;background:var(--card);border-radius:var(--r3);border:1px solid var(--border);padding:52px;text-align:center}
+.contact-title{font-size:36px;font-weight:800;letter-spacing:-0.02em;margin-bottom:12px}
+.contact-sub{color:var(--text2);margin-bottom:36px}
+.contact-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+.contact-btn{padding:14px 20px;border-radius:10px;border:1.5px solid var(--border);background:var(--bg);font-size:14px;font-weight:600;color:var(--text);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.contact-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(15,118,110,0.04)}
+.contact-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.contact-primary:hover{background:var(--hover);border-color:var(--hover);color:#fff}
+
+/* FOOTER */
+footer{background:var(--text);color:#94a3b8;padding:60px 40px 36px;margin-top:0}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;flex-wrap:wrap;gap:32px}
+.footer-brand{max-width:260px}
+.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.footer-brand-name{font-family:'Inter Tight',sans-serif;font-weight:800;font-size:18px;color:#fff}
+.footer-tagline{font-size:13px;line-height:1.6}
+.footer-links h4{font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#64748b;margin-bottom:16px}
+.footer-links a{display:block;font-size:14px;color:#94a3b8;text-decoration:none;margin-bottom:10px;transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;flex-wrap:wrap;gap:12px}
+.footer-copy{color:#475569}
+.footer-social{display:flex;gap:12px}
+.footer-social a{color:#64748b;text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.footer-social a:hover{color:#fff}
+
+/* BG SECTION ALTERNATION */
+.bg-alt{background:var(--bg2)}
+
+/* ANIMATIONS */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.anim-float{animation:float 4s ease-in-out infinite}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.fade-in.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  section{padding:72px 20px}
+  .about-grid{grid-template-columns:1fr}
+  .about-visual{display:none}
+  .hero{padding:100px 20px 60px}
+  .contact-inner{padding:36px 24px}
+  .contact-options{grid-template-columns:1fr}
+  .footer-top{flex-direction:column}
+  trust{padding:40px 20px}
+  .trust-logos{gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="32" height="32" rx="8" fill="#0F172A"/>
+      <circle cx="16" cy="16" r="3.5" fill="#14B8A6"/>
+      <circle cx="8" cy="10" r="2" fill="#0F766E" opacity="0.7"/>
+      <circle cx="24" cy="10" r="2" fill="#0F766E" opacity="0.7"/>
+      <circle cx="8" cy="22" r="2" fill="#0891B2" opacity="0.7"/>
+      <circle cx="24" cy="22" r="2" fill="#0891B2" opacity="0.7"/>
+      <line x1="10" y1="10.8" x2="13.1" y2="13.5" stroke="#14B8A6" stroke-width="1.2" opacity="0.6"/>
+      <line x1="22" y1="10.8" x2="18.9" y2="13.5" stroke="#14B8A6" stroke-width="1.2" opacity="0.6"/>
+      <line x1="10" y1="21.2" x2="13.1" y2="18.5" stroke="#0891B2" stroke-width="1.2" opacity="0.6"/>
+      <line x1="22" y1="21.2" x2="18.9" y2="18.5" stroke="#0891B2" stroke-width="1.2" opacity="0.6"/>
+    </svg>
+    <span class="nav-brand">CUZEC</span>
+  </a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+    <a href="#cases">Case Studies</a>
+    <a href="#contact" class="nav-cta">Book a Demo →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+  <div class="hero-badge"><span class="hero-badge-dot"></span>Enterprise Automation Platform</div>
+  <h1>Business Automation<br>That Works <span>While You Sleep.</span></h1>
+  <p class="hero-sub">We design and deploy intelligent automation systems that eliminate repetitive work, connect your business tools, and unlock operational efficiency at scale.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Book a Demo <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="#products" class="btn-secondary">Explore Products</a>
+  </div>
+
+  <!-- Network Visualization -->
+  <div class="hero-network">
+    <canvas class="network-canvas" id="networkCanvas"></canvas>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-label">Integrated with your existing ecosystem</div>
+  <div class="trust-logos">
+    <div class="trust-logo">Shopify</div>
+    <div class="trust-logo">OpenAI</div>
+    <div class="trust-logo">Claude AI</div>
+    <div class="trust-logo">WhatsApp</div>
+    <div class="trust-logo">Slack</div>
+    <div class="trust-logo">HubSpot</div>
+    <div class="trust-logo">Google Workspace</div>
+    <div class="trust-logo">Stripe</div>
+    <div class="trust-logo">Zapier</div>
+    <div class="trust-logo">n8n</div>
+    <div class="trust-logo">Microsoft 365</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="fade-in">
+      <div class="label">About CUZEC</div>
+      <h2 class="section-title">Built to eliminate operational drag.</h2>
+      <p class="section-sub" style="margin-bottom:20px">Most businesses lose 30–40% of productive capacity to repetitive manual operations — data entry, handoffs, status checks, report generation. CUZEC builds the systems that make that waste disappear.</p>
+      <p style="font-size:15px;color:var(--text2);line-height:1.65">We architect, develop, and deploy intelligent automation systems that connect your existing software stack, trigger actions automatically, and give your team back the time they need to build.</p>
+      <div class="about-stat-grid">
+        <div class="stat-card"><div class="stat-num">85%</div><div class="stat-label">Average reduction in manual processing time</div></div>
+        <div class="stat-card"><div class="stat-num">3×</div><div class="stat-label">Faster operational scale after deployment</div></div>
+        <div class="stat-card"><div class="stat-num">200+</div><div class="stat-label">Automation workflows deployed</div></div>
+        <div class="stat-card"><div class="stat-num">99.7%</div><div class="stat-label">System uptime across all productions</div></div>
+      </div>
+    </div>
+    <div class="about-visual fade-in">
+      <canvas id="infraCanvas" style="width:100%;height:100%"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="bg-alt">
+  <div class="section-center fade-in">
+    <div class="label">Products</div>
+    <h2 class="section-title">Intelligent automation systems built to scale.</h2>
+    <p class="section-sub">Each product is an end-to-end automation solution engineered for a specific business problem — not a template, not a plugin.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-in">
+      <div class="product-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="3" stroke="#0F766E" stroke-width="1.5"/><path d="M11 3V5M11 17V19M3 11H5M17 11H19M5.64 5.64L7.05 7.05M14.95 14.95L16.36 16.36M5.64 16.36L7.05 14.95M14.95 7.05L16.36 5.64" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      <div class="product-tag">AI Automation</div>
+      <div class="product-name">Nexus AI Agent Platform</div>
+      <div class="product-desc">Deploy autonomous AI agents that handle complex multi-step workflows — from lead qualification to customer onboarding — without human intervention.</div>
+      <div class="product-stack"><span class="stack-tag">OpenAI</span><span class="stack-tag">Claude</span><span class="stack-tag">n8n</span><span class="stack-tag">Webhooks</span></div>
+      <div class="product-link" style="margin-top:16px">View Product →</div>
+    </div>
+    <div class="product-card fade-in">
+      <div class="product-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="8" width="4" height="6" rx="1" stroke="#0891B2" stroke-width="1.5"/><rect x="9" y="5" width="4" height="12" rx="1" stroke="#0891B2" stroke-width="1.5"/><rect x="15" y="10" width="4" height="4" rx="1" stroke="#0891B2" stroke-width="1.5"/><path d="M7 11H9M13 11H15" stroke="#0891B2" stroke-width="1.5"/></svg></div>
+      <div class="product-tag">CRM Automation</div>
+      <div class="product-name">Pipeline Intelligence Engine</div>
+      <div class="product-desc">Automatically qualify leads, update CRM records, trigger nurture sequences, and escalate high-value opportunities — all in real time.</div>
+      <div class="product-stack"><span class="stack-tag">HubSpot</span><span class="stack-tag">Salesforce</span><span class="stack-tag">OpenAI</span><span class="stack-tag">Zapier</span></div>
+      <div class="product-link" style="margin-top:16px">View Product →</div>
+    </div>
+    <div class="product-card fade-in">
+      <div class="product-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4L10 10M18 4L12 10M4 18L10 12M18 18L12 12" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="2.5" stroke="#10B981" stroke-width="1.5"/></svg></div>
+      <div class="product-tag">E-commerce</div>
+      <div class="product-name">Commerce Flow Suite</div>
+      <div class="product-desc">End-to-end e-commerce automation covering inventory sync, order routing, fulfillment updates, abandoned cart recovery, and customer comms.</div>
+      <div class="product-stack"><span class="stack-tag">Shopify</span><span class="stack-tag">Stripe</span><span class="stack-tag">WhatsApp</span><span class="stack-tag">Make</span></div>
+      <div class="product-link" style="margin-top:16px">View Product →</div>
+    </div>
+    <div class="product-card fade-in">
+      <div class="product-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11C3 7 7 3 11 3M11 3C15 3 19 7 19 11M11 3V7M11 19V15M3 11H7M19 11H15" stroke="#0F766E" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="11" r="2" fill="#0F766E"/></svg></div>
+      <div class="product-tag">WhatsApp Automation</div>
+      <div class="product-name">Conversational Operations Hub</div>
+      <div class="product-desc">Transform WhatsApp into an enterprise operations channel — automated support, order tracking, appointment booking, and AI-driven triage.</div>
+      <div class="product-stack"><span class="stack-tag">WhatsApp API</span><span class="stack-tag">Claude</span><span class="stack-tag">Twilio</span></div>
+      <div class="product-link" style="margin-top:16px">View Product →</div>
+    </div>
+    <div class="product-card fade-in">
+      <div class="product-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="7" height="7" rx="2" stroke="#0891B2" stroke-width="1.5"/><rect x="12" y="3" width="7" height="7" rx="2" stroke="#0891B2" stroke-width="1.5"/><rect x="3" y="12" width="7" height="7" rx="2" stroke="#0891B2" stroke-width="1.5"/><rect x="12" y="12" width="7" height="7" rx="2" stroke="#0891B2" stroke-width="1.5"/></svg></div>
+      <div class="product-tag">Operations</div>
+      <div class="product-name">OpsMatrix Workflow Engine</div>
+      <div class="product-desc">Orchestrate complex cross-department workflows — from HR onboarding to finance approvals — with full audit trails and exception handling.</div>
+      <div class="product-stack"><span class="stack-tag">Slack</span><span class="stack-tag">Microsoft 365</span><span class="stack-tag">n8n</span><span class="stack-tag">Notion</span></div>
+      <div class="product-link" style="margin-top:16px">View Product →</div>
+    </div>
+    <div class="product-card fade-in">
+      <div class="product-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3L20 7.5V14.5L11 19L2 14.5V7.5L11 3Z" stroke="#10B981" stroke-width="1.5"/><path d="M11 3V19M2 7.5L11 12M20 7.5L11 12" stroke="#10B981" stroke-width="1.5"/></svg></div>
+      <div class="product-tag">Analytics</div>
+      <div class="product-name">DataSync Intelligence</div>
+      <div class="product-desc">Automate data pipelines across your entire tool stack. Keep dashboards current, trigger alerts on anomalies, and auto-generate executive reports.</div>
+      <div class="product-stack"><span class="stack-tag">Google Workspace</span><span class="stack-tag">Sheets API</span><span class="stack-tag">BigQuery</span></div>
+      <div class="product-link" style="margin-top:16px">View Product →</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-center fade-in">
+    <div class="label">Services</div>
+    <h2 class="section-title">Every automation challenge, solved.</h2>
+    <p class="section-sub">We specialize in high-impact automation implementations across the full spectrum of business operations.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in"><div class="service-icon">🤖</div><div class="service-name">AI Agent Development</div><div class="service-desc">Custom AI agents trained on your business context, integrated into your workflows, and operating autonomously 24/7.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">⚙️</div><div class="service-name">Business Process Automation</div><div class="service-desc">End-to-end mapping and automation of your core operational processes, eliminating bottlenecks and manual handoffs.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">🔗</div><div class="service-name">CRM Automation</div><div class="service-desc">Full-stack CRM automation including lead scoring, pipeline management, follow-up sequences, and reporting.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">📊</div><div class="service-name">Lead Generation Systems</div><div class="service-desc">Automated prospecting, outreach, qualification, and handoff systems that fill your pipeline without headcount.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">💬</div><div class="service-name">WhatsApp Automation</div><div class="service-desc">Enterprise-grade WhatsApp integrations for customer support, operations, notifications, and AI-driven conversations.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">🛒</div><div class="service-name">E-commerce Automation</div><div class="service-desc">Full commerce stack automation from order management and fulfillment to post-purchase customer journeys.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">🏗️</div><div class="service-name">Internal Operations</div><div class="service-desc">HR workflows, finance approvals, project coordination, and cross-team communication — fully automated.</div></div>
+    <div class="service-card fade-in"><div class="service-icon">🔄</div><div class="service-name">System Integrations</div><div class="service-desc">Connect any combination of tools in your tech stack with bidirectional data sync and real-time triggers.</div></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="bg-alt">
+  <div class="section-center fade-in">
+    <div class="label">How We Work</div>
+    <h2 class="section-title">From discovery to deployment in weeks.</h2>
+    <p class="section-sub">Our proven methodology takes you from workflow audit to live automation with minimal disruption to your operations.</p>
+  </div>
+  <div class="process-track">
+    <div class="process-line"></div>
+    <div class="process-step active fade-in"><div class="process-num">01</div><div class="process-content"><div class="process-title">Discovery & Audit</div><div class="process-desc">We map your current processes, identify automation opportunities, and calculate ROI potential.</div></div></div>
+    <div class="process-step fade-in"><div class="process-num">02</div><div class="process-content"><div class="process-title">Workflow Mapping</div><div class="process-desc">Detailed architecture of every trigger, condition, action, and exception in your future system.</div></div></div>
+    <div class="process-step fade-in"><div class="process-num">03</div><div class="process-content"><div class="process-title">Automation Design</div><div class="process-desc">We design the logic, data models, and integration architecture before writing a single line of code.</div></div></div>
+    <div class="process-step fade-in"><div class="process-num">04</div><div class="process-content"><div class="process-title">Development</div><div class="process-desc">Full-stack development of workflows, AI agents, integrations, and custom logic in your chosen tools.</div></div></div>
+    <div class="process-step fade-in"><div class="process-num">05</div><div class="process-content"><div class="process-title">Testing & QA</div><div class="process-desc">Comprehensive testing across all edge cases, error states, and volume scenarios before go-live.</div></div></div>
+    <div class="process-step fade-in"><div class="process-num">06</div><div class="process-content"><div class="process-title">Deployment</div><div class="process-desc">Staged rollout with monitoring, team training, and documentation to ensure smooth adoption.</div></div></div>
+    <div class="process-step fade-in"><div class="process-num">07</div><div class="process-content"><div class="process-title">Optimization</div><div class="process-desc">Ongoing monitoring, performance tuning, and iteration as your business evolves and scales.</div></div></div>
+  </div>
+</section>
+
+<!-- TECH ECOSYSTEM -->
+<section>
+  <div class="section-center fade-in">
+    <div class="label">Technology Ecosystem</div>
+    <h2 class="section-title">Built on the tools you already use.</h2>
+    <p class="section-sub">We work across the entire modern SaaS stack — no rip-and-replace, no new tools to learn.</p>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-node"><div class="tech-node-icon">🧠</div><div class="tech-node-name">OpenAI</div></div>
+    <div class="tech-node"><div class="tech-node-icon">⚡</div><div class="tech-node-name">Claude AI</div></div>
+    <div class="tech-node"><div class="tech-node-icon">🔀</div><div class="tech-node-name">n8n</div></div>
+    <div class="tech-node"><div class="tech-node-icon">✨</div><div class="tech-node-name">Make</div></div>
+    <div class="tech-node"><div class="tech-node-icon">⚡</div><div class="tech-node-name">Zapier</div></div>
+    <div class="tech-node"><div class="tech-node-icon">💬</div><div class="tech-node-name">Slack</div></div>
+    <div class="tech-node"><div class="tech-node-icon">🛒</div><div class="tech-node-name">Shopify</div></div>
+    <div class="tech-node"><div class="tech-node-icon">💳</div><div class="tech-node-name">Stripe</div></div>
+    <div class="tech-node"><div class="tech-node-icon">📧</div><div class="tech-node-name">Google Workspace</div></div>
+    <div class="tech-node"><div class="tech-node-icon">🎯</div><div class="tech-node-name">HubSpot</div></div>
+    <div class="tech-node"><div class="tech-node-icon">📱</div><div class="tech-node-name">WhatsApp API</div></div>
+    <div class="tech-node"><div class="tech-node-icon">🏢</div><div class="tech-node-name">Microsoft 365</div></div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases" class="bg-alt">
+  <div class="section-center fade-in">
+    <div class="label">Case Studies</div>
+    <h2 class="section-title">Results that compound over time.</h2>
+    <p class="section-sub">Every engagement delivers measurable outcomes. Here's what we've built for businesses like yours.</p>
+  </div>
+  <div class="cases-grid">
+    <div class="case-card fade-in">
+      <div class="case-industry">E-commerce</div>
+      <div class="case-title">Regional retailer eliminates manual order processing entirely</div>
+      <div class="case-desc">A 12-person e-commerce team was spending 4 hours daily on order routing, inventory updates, and customer notifications. We automated the entire pipeline with Shopify + n8n + WhatsApp.</div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">94%</div><div class="metric-lbl">Time Saved</div></div>
+        <div class="metric"><div class="metric-val">4.2×</div><div class="metric-lbl">Order Capacity</div></div>
+        <div class="metric"><div class="metric-val">3 wks</div><div class="metric-lbl">To Deploy</div></div>
+      </div>
+    </div>
+    <div class="case-card fade-in">
+      <div class="case-industry">Professional Services</div>
+      <div class="case-title">B2B agency automates client reporting and reduces overhead by 60%</div>
+      <div class="case-desc">Monthly reporting across 40+ clients was consuming 80+ hours. We built automated data collection, report generation, and delivery — triggered monthly without human input.</div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">80h</div><div class="metric-lbl">Saved/Month</div></div>
+        <div class="metric"><div class="metric-val">60%</div><div class="metric-lbl">Cost Reduction</div></div>
+        <div class="metric"><div class="metric-val">100%</div><div class="metric-lbl">On-time Delivery</div></div>
+      </div>
+    </div>
+    <div class="case-card fade-in">
+      <div class="case-industry">SaaS</div>
+      <div class="case-title">SaaS startup deploys AI-driven onboarding that converts 3× better</div>
+      <div class="case-desc">New signups were dropping off in the first 72 hours. We built an intelligent onboarding system that detects behavior signals and triggers personalized outreach via Claude AI.</div>
+      <div class="case-metrics">
+        <div class="metric"><div class="metric-val">3×</div><div class="metric-lbl">Conversion Rate</div></div>
+        <div class="metric"><div class="metric-val">72%</div><div class="metric-lbl">Churn Reduction</div></div>
+        <div class="metric"><div class="metric-val">0 FTE</div><div class="metric-lbl">Added Headcount</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-center fade-in">
+    <div class="label">Testimonials</div>
+    <h2 class="section-title">Trusted by operators who move fast.</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fade-in">
+      <p class="testi-text">CUZEC didn't just automate our process — they redesigned how our business operates. The ROI was visible within the first 2 weeks of deployment.</p>
+      <div class="testi-author"><div class="testi-avatar">SR</div><div><div class="testi-name">Sarah R.</div><div class="testi-role">COO, Logistics Startup</div></div></div>
+    </div>
+    <div class="testi-card fade-in">
+      <p class="testi-text">We were skeptical about AI automation, but the system CUZEC built is rock solid. It handles thousands of transactions a day without a single failure.</p>
+      <div class="testi-author"><div class="testi-avatar">JK</div><div><div class="testi-name">James K.</div><div class="testi-role">Founder, E-commerce Brand</div></div></div>
+    </div>
+    <div class="testi-card fade-in">
+      <p class="testi-text">The team understood our workflows deeply before building anything. The result felt custom-made because it was. Our ops team actually looks forward to Mondays now.</p>
+      <div class="testi-author"><div class="testi-avatar">MP</div><div><div class="testi-name">Maya P.</div><div class="testi-role">VP Operations, B2B SaaS</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-alt">
+  <div class="contact-inner fade-in">
+    <div class="label" style="margin-bottom:20px">Work With Us</div>
+    <h2 class="contact-title">Ready to automate?</h2>
+    <p class="contact-sub">Book a strategy session. We'll map your highest-impact automation opportunities in 45 minutes — no pitch, just value.</p>
+    <div class="contact-options">
+      <button class="contact-btn contact-primary">📅 Book Strategy Call</button>
+      <button class="contact-btn contact-primary">🎥 Schedule Demo</button>
+      <button class="contact-btn">💬 WhatsApp</button>
+      <button class="contact-btn">✉️ Send Email</button>
+    </div>
+    <p style="font-size:13px;color:var(--text3)">Or reach us at <strong style="color:var(--text2)">hello@cuzec.com</strong> · Usually responds within 2 hours</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#1e293b"/><circle cx="16" cy="16" r="3.5" fill="#14B8A6"/><circle cx="8" cy="10" r="2" fill="#0F766E" opacity="0.7"/><circle cx="24" cy="10" r="2" fill="#0F766E" opacity="0.7"/><circle cx="8" cy="22" r="2" fill="#0891B2" opacity="0.7"/><circle cx="24" cy="22" r="2" fill="#0891B2" opacity="0.7"/><line x1="10" y1="10.8" x2="13.1" y2="13.5" stroke="#14B8A6" stroke-width="1.2" opacity="0.6"/><line x1="22" y1="10.8" x2="18.9" y2="13.5" stroke="#14B8A6" stroke-width="1.2" opacity="0.6"/><line x1="10" y1="21.2" x2="13.1" y2="18.5" stroke="#0891B2" stroke-width="1.2" opacity="0.6"/><line x1="22" y1="21.2" x2="18.9" y2="18.5" stroke="#0891B2" stroke-width="1.2" opacity="0.6"/></svg>
+          <span class="footer-brand-name">CUZEC</span>
+        </div>
+        <p class="footer-tagline">Automating Businesses.<br>Accelerating Growth.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Products</h4>
+        <a href="#">Nexus AI Agent</a>
+        <a href="#">Pipeline Intelligence</a>
+        <a href="#">Commerce Flow Suite</a>
+        <a href="#">OpsMatrix Engine</a>
+        <a href="#">DataSync Intelligence</a>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="#">AI Agents</a>
+        <a href="#">CRM Automation</a>
+        <a href="#">WhatsApp Automation</a>
+        <a href="#">E-commerce Automation</a>
+        <a href="#">Process Automation</a>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Case Studies</a>
+        <a href="#">Documentation</a>
+        <a href="#">Contact</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 CUZEC. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Intersection Observer for fade-in
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero Network Canvas
+const canvas = document.getElementById('networkCanvas');
+const ctx = canvas.getContext('2d');
+let W, H, nodes, animFrame;
+
+function resize() {
+  W = canvas.offsetWidth; H = canvas.offsetHeight;
+  canvas.width = W * devicePixelRatio; canvas.height = H * devicePixelRatio;
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  initNodes();
+}
+
+const NODE_LABELS = ['Trigger','AI Agent','CRM','Shopify','WhatsApp','Slack','HubSpot','Stripe','n8n','Output','OpenAI','Webhook'];
+function initNodes() {
+  nodes = [];
+  const count = Math.min(12, Math.floor(W / 60));
+  for(let i = 0; i < count; i++) {
+    nodes.push({
+      x: 60 + Math.random() * (W - 120),
+      y: 30 + Math.random() * (H - 60),
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: 4 + Math.random() * 3,
+      label: NODE_LABELS[i % NODE_LABELS.length],
+      pulse: Math.random() * Math.PI * 2,
+      color: i % 3 === 0 ? '#0F766E' : i % 3 === 1 ? '#14B8A6' : '#0891B2'
+    });
+  }
+}
+
+function drawNetwork() {
+  ctx.clearRect(0, 0, W, H);
+  const t = Date.now() / 1000;
+
+  // Move nodes
+  nodes.forEach(n => {
+    n.x += n.vx; n.y += n.vy;
+    if(n.x < 40 || n.x > W - 40) n.vx *= -1;
+    if(n.y < 20 || n.y > H - 20) n.vy *= -1;
+    n.pulse += 0.02;
+  });
+
+  // Draw connections
+  nodes.forEach((a, i) => {
+    nodes.forEach((b, j) => {
+      if(j <= i) return;
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if(dist < 160) {
+        const alpha = (1 - dist / 160) * 0.35;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(15,118,110,${alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Animated data packet
+        const progress = ((t * 0.4 + i * 0.3 + j * 0.2) % 1);
+        const px = a.x + dx * progress, py = a.y + dy * progress;
+        ctx.beginPath();
+        ctx.arc(px, py, 2, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(20,184,166,${alpha * 2})`;
+        ctx.fill();
+      }
+    });
+  });
+
+  // Draw nodes
+  nodes.forEach(n => {
+    const pulseR = n.r + Math.sin(n.pulse) * 1.5;
+    // Pulse ring
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, pulseR + 8, 0, Math.PI*2);
+    ctx.strokeStyle = n.color + '22';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    // Node
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, pulseR, 0, Math.PI*2);
+    ctx.fillStyle = n.color;
+    ctx.fill();
+    // Label
+    ctx.font = '11px Inter,sans-serif';
+    ctx.fillStyle = '#475569';
+    ctx.textAlign = 'center';
+    ctx.fillText(n.label, n.x, n.y - pulseR - 7);
+  });
+
+  animFrame = requestAnimationFrame(drawNetwork);
+}
+
+window.addEventListener('resize', () => { cancelAnimationFrame(animFrame); resize(); drawNetwork(); });
+resize();
+drawNetwork();
+
+// About Infrastructure Canvas
+const infraCanvas = document.getElementById('infraCanvas');
+if(infraCanvas) {
+  const ic = infraCanvas.getContext('2d');
+  infraCanvas.width = 500; infraCanvas.height = 380;
+  const layers = [
+    {y:40,label:'Data Sources',items:['CRM','Shopify','APIs','DB'],color:'#0891B2'},
+    {y:140,label:'Automation Layer',items:['Triggers','Workflows','AI Agents','Logic'],color:'#0F766E'},
+    {y:240,label:'Actions & Outputs',items:['Notify','Update','Create','Report'],color:'#10B981'},
+  ];
+  layers.forEach(layer => {
+    ic.fillStyle = layer.color + '12';
+    ic.strokeStyle = layer.color + '40';
+    ic.lineWidth = 1;
+    roundRect(ic, 20, layer.y, 460, 70, 12);
+    ic.fill(); ic.stroke();
+    ic.font = '600 12px Inter,sans-serif';
+    ic.fillStyle = layer.color;
+    ic.fillText(layer.label, 36, layer.y + 22);
+    layer.items.forEach((item, i) => {
+      const bx = 36 + i * 108, by = layer.y + 36;
+      ic.fillStyle = layer.color + '18';
+      ic.strokeStyle = layer.color + '50';
+      roundRect(ic, bx, by, 96, 24, 6);
+      ic.fill(); ic.stroke();
+      ic.font = '500 11px Inter,sans-serif';
+      ic.fillStyle = '#475569';
+      ic.textAlign = 'center';
+      ic.fillText(item, bx + 48, by + 16);
+    });
+    // Arrows between layers
+    if(layer.y < 240) {
+      ic.beginPath();
+      ic.moveTo(250, layer.y + 70);
+      ic.lineTo(250, layer.y + 100);
+      ic.strokeStyle = layer.color + '60';
+      ic.lineWidth = 2;
+      ic.stroke();
+      ic.beginPath();
+      ic.moveTo(244, layer.y + 96);
+      ic.lineTo(250, layer.y + 102);
+      ic.lineTo(256, layer.y + 96);
+      ic.strokeStyle = layer.color + '80';
+      ic.lineWidth = 1.5;
+      ic.stroke();
+    }
+  });
+  ic.textAlign = 'left';
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y);
+  ctx.arcTo(x+w, y, x+w, y+r, r);
+  ctx.lineTo(x+w, y+h-r);
+  ctx.arcTo(x+w, y+h, x+w-r, y+h, r);
+  ctx.lineTo(x+r, y+h);
+  ctx.arcTo(x, y+h, x, y+h-r, r);
+  ctx.lineTo(x, y+r);
+  ctx.arcTo(x, y, x+r, y, r);
+  ctx.closePath();
+}
+
+// Process step hover
+document.querySelectorAll('.process-step').forEach(step => {
+  step.addEventListener('click', () => {
+    document.querySelectorAll('.process-step').forEach(s => s.classList.remove('active'));
+    step.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
