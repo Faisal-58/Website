@@ -9,7 +9,31 @@ import { AnimatedNetworkCanvas } from "@/components/shared/AnimatedNetwork";
 import { getFeaturedProducts } from "@/data/products";
 import { services } from "@/data/services";
 import { getFeaturedCaseStudies } from "@/data/case-studies";
-import { testimonials } from "@/data/blog";
+import { testimonials, technologies } from "@/data/blog";
+import {
+  Brain,
+  Zap,
+  Network,
+  MessageCircle,
+  Globe,
+  TrendingUp,
+  Map,
+  Mail,
+} from "lucide-react";
+
+function getTechIcon(techName: string) {
+  const iconMap: Record<string, React.ReactNode> = {
+    "OpenAI GPT-4": <Brain className="w-8 h-8 text-orange-500" />,
+    Claude: <Zap className="w-8 h-8 text-amber-500" />,
+    n8n: <Network className="w-8 h-8 text-red-500" />,
+    Slack: <MessageCircle className="w-8 h-8 text-blue-600" />,
+    WhatsApp: <MessageCircle className="w-8 h-8 text-green-500" />,
+    GoHighLevel: <TrendingUp className="w-8 h-8 text-purple-600" />,
+    "Google Maps": <Map className="w-8 h-8 text-blue-500" />,
+    "Google Workspace": <Mail className="w-8 h-8 text-yellow-500" />,
+  };
+  return iconMap[techName] || <Globe className="w-8 h-8 text-gray-500" />;
+}
 
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts();
@@ -90,7 +114,7 @@ export default function HomePage() {
           </div>
           <div className="text-center">
             <button className="border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
-              View All Products &rarr;
+              View All Products
             </button>
           </div>
         </Container>
@@ -187,58 +211,18 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="section-label">Technology Ecosystem</div>
             <h2 className="section-title">Built on the tools you already use.</h2>
-            <p className="section-subtitle">We work across the entire modern SaaS stack — no rip-and-replace, no new tools to learn.</p>
+            <p className="section-subtitle">We work across the entire modern SaaS stack. No rip-and-replace, no new tools to learn.</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">🧠</div>
-              <div className="text-xs font-semibold text-[#475569]">OpenAI</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">⚡</div>
-              <div className="text-xs font-semibold text-[#475569]">Claude AI</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">🔀</div>
-              <div className="text-xs font-semibold text-[#475569]">n8n</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">✨</div>
-              <div className="text-xs font-semibold text-[#475569]">Make</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">⚡</div>
-              <div className="text-xs font-semibold text-[#475569]">Zapier</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">💬</div>
-              <div className="text-xs font-semibold text-[#475569]">Slack</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">🛒</div>
-              <div className="text-xs font-semibold text-[#475569]">Shopify</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">💳</div>
-              <div className="text-xs font-semibold text-[#475569]">Stripe</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">📧</div>
-              <div className="text-xs font-semibold text-[#475569]">Google Workspace</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">🎯</div>
-              <div className="text-xs font-semibold text-[#475569]">HubSpot</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">📱</div>
-              <div className="text-xs font-semibold text-[#475569]">WhatsApp API</div>
-            </div>
-            <div className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
-              <div className="text-3xl mb-2">🏢</div>
-              <div className="text-xs font-semibold text-[#475569]">Microsoft 365</div>
-            </div>
+            {technologies.map((tech) => (
+              <div key={tech.name} className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
+                <div className="flex justify-center mb-2">
+                  {getTechIcon(tech.name)}
+                </div>
+                <div className="text-xs font-semibold text-[#475569]">{tech.name}</div>
+              </div>
+            ))}
           </div>
         </Container>
       </section>
@@ -249,7 +233,7 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="section-label">Case Studies</div>
             <h2 className="section-title">Results that compound over time</h2>
-            <p className="section-subtitle">Every engagement delivers measurable outcomes. Here&apos;s what we&apos;ve built for businesses like yours.</p>
+            <p className="section-subtitle">Every engagement delivers measurable outcomes. See what we&apos;ve built for businesses like yours.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto mb-10">

@@ -4,9 +4,6 @@ export const productCategories = [
   "AI Agents",
   "Workflow Automation",
   "CRM Tools",
-  "E-commerce",
-  "Operations",
-  "Analytics",
 ] as const;
 
 export const products: Product[] = [
@@ -144,119 +141,6 @@ export const products: Product[] = [
       },
     ],
     caseStudySlug: "saas-crm-automation",
-  },
-  {
-    slug: "commerce-flow",
-    name: "Commerce Flow",
-    shortDescription: "End-to-end e-commerce automation from order to fulfillment.",
-    description:
-      "Commerce Flow automates your entire e-commerce operation — inventory management, order processing, customer communications, and analytics — across all sales channels.",
-    category: "E-commerce",
-    featured: false,
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    liveUrl: "https://demo.cuzec.com/commerce-flow",
-    features: [
-      "Multi-channel order sync",
-      "Inventory automation",
-      "Automated customer notifications",
-      "Returns processing",
-      "Dynamic pricing rules",
-      "Analytics dashboard",
-    ],
-    techStack: ["Shopify", "Stripe", "n8n", "Node.js", "PostgreSQL"],
-    problem:
-      "E-commerce businesses struggle to manage orders, inventory, and customer communications across multiple channels manually.",
-    howItWorks: [
-      "Connect your e-commerce platforms",
-      "Configure automation rules for orders and inventory",
-      "Set up customer communication templates",
-      "Monitor and optimize with real-time analytics",
-    ],
-    workflowSteps: [
-      { title: "Order", description: "Order received from any sales channel" },
-      { title: "Validate", description: "Inventory checked and payment verified" },
-      { title: "Fulfill", description: "Fulfillment triggered automatically" },
-      { title: "Communicate", description: "Customer notified at each milestone" },
-    ],
-    screenshots: ["/screenshots/commerce-1.png"],
-    faq: [
-      {
-        question: "Can Commerce Flow handle multiple storefronts?",
-        answer: "Yes, Commerce Flow supports unlimited storefronts and marketplaces from a single dashboard.",
-      },
-    ],
-  },
-  {
-    slug: "ops-command",
-    name: "Ops Command",
-    shortDescription: "Centralized operations dashboard with intelligent automation.",
-    description:
-      "Ops Command gives operations teams a unified view of all business processes with built-in automation capabilities. Monitor KPIs, trigger workflows, and resolve issues from one platform.",
-    category: "Operations",
-    featured: false,
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    liveUrl: "https://demo.cuzec.com/ops-command",
-    features: [
-      "Unified operations dashboard",
-      "KPI monitoring and alerts",
-      "Process automation triggers",
-      "Team task management",
-      "Incident response automation",
-      "Compliance tracking",
-    ],
-    techStack: ["Slack", "Microsoft 365", "Google Workspace", "n8n", "React"],
-    problem:
-      "Operations teams lack visibility into cross-department processes and spend too much time on manual coordination.",
-    howItWorks: [
-      "Connect all operational systems",
-      "Define KPIs and alert thresholds",
-      "Configure automated response workflows",
-      "Monitor and optimize from central dashboard",
-    ],
-    workflowSteps: [
-      { title: "Monitor", description: "Real-time KPI tracking across all systems" },
-      { title: "Detect", description: "Anomalies and threshold breaches identified" },
-      { title: "Respond", description: "Automated workflows triggered to resolve issues" },
-      { title: "Report", description: "Stakeholders notified with actionable insights" },
-    ],
-    screenshots: ["/screenshots/ops-1.png"],
-    faq: [],
-  },
-  {
-    slug: "insight-analytics",
-    name: "Insight Analytics",
-    shortDescription: "AI-powered business intelligence with automated reporting.",
-    description:
-      "Insight Analytics transforms raw business data into actionable intelligence. Automated reports, predictive analytics, and natural language queries help leaders make data-driven decisions faster.",
-    category: "Analytics",
-    featured: false,
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    liveUrl: "https://demo.cuzec.com/insight-analytics",
-    features: [
-      "Automated report generation",
-      "Predictive analytics",
-      "Natural language queries",
-      "Custom dashboard builder",
-      "Data pipeline automation",
-      "Anomaly detection",
-    ],
-    techStack: ["OpenAI", "Python", "PostgreSQL", "Google Workspace", "React"],
-    problem:
-      "Business leaders wait days or weeks for reports while data sits siloed across multiple systems.",
-    howItWorks: [
-      "Connect data sources across your organization",
-      "Configure automated report schedules",
-      "Enable AI-powered insights and predictions",
-      "Access intelligence via dashboard or natural language",
-    ],
-    workflowSteps: [
-      { title: "Collect", description: "Data aggregated from all connected sources" },
-      { title: "Process", description: "Data cleaned, transformed, and analyzed" },
-      { title: "Insight", description: "AI generates insights and predictions" },
-      { title: "Deliver", description: "Reports delivered to stakeholders automatically" },
-    ],
-    screenshots: ["/screenshots/analytics-1.png"],
-    faq: [],
   },
 ];
 
