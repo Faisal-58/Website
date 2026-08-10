@@ -92,10 +92,10 @@ export function Footer() {
               info@cuzec.io
             </a>
             <a
-              href="tel:+923366761608"
+              href="tel:+923085007407"
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
-              +923366761608
+              +923085007407
             </a>
           </div>
         </div>

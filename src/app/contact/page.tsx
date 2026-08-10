@@ -54,11 +54,11 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="tel:+923366761608"
+                href="tel:+923085007407"
                 className="flex items-center gap-3 text-muted hover:text-foreground transition-colors"
               >
                 <MessageCircle className="w-5 h-5 text-accent-light" />
-                +923366761608
+                +923085007407
               </a>
 
               <a
