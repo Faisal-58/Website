@@ -34,7 +34,7 @@ Companies that embrace intelligent automation are seeing:
 
 The best time to start your automation journey was yesterday. The second best time is now. Begin with a process audit to identify your highest-impact automation opportunities.`,
     category: "Industry Insights",
-    author: { name: "Sarah Chen", role: "CEO & Founder" },
+    author: { name: "Hamza Sattar", role: "CEO" },
     publishedAt: "2026-05-15",
     featured: true,
     readingTime: 8,
@@ -77,7 +77,7 @@ The most effective automation strategies combine both. Use traditional automatio
 
 Start by categorizing your processes: rule-based, decision-heavy, or hybrid. This analysis will guide your automation investment decisions.`,
     category: "Best Practices",
-    author: { name: "Marcus Johnson", role: "VP of Automation" },
+    author: { name: "Faisal Ijaz", role: "CTO" },
     publishedAt: "2026-04-22",
     featured: true,
     readingTime: 6,
@@ -127,7 +127,7 @@ Results typically include:
 - Cleaner, more accurate CRM data
 - Higher forecast accuracy`,
     category: "Best Practices",
-    author: { name: "Emily Rodriguez", role: "Solutions Architect" },
+    author: { name: "Hamza Sattar", role: "CEO" },
     publishedAt: "2026-03-18",
     featured: true,
     readingTime: 7,
@@ -179,22 +179,16 @@ export const blogCategories = ["Industry Insights", "Best Practices", "Case Stud
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Sarah Chen",
-    role: "CEO & Founder",
-    bio: "15+ years in enterprise automation. Previously VP of Automation at Fortune 500 tech company.",
-    image: "/team/sarah-chen.jpg",
+    name: "Hamza Sattar",
+    role: "CEO",
+    bio: "Leads Cuzec’s vision for customer-support automation across chat, voice, and integrations.",
+    image: "/team/hamza-sattar.jpg",
   },
   {
-    name: "Marcus Johnson",
-    role: "VP of Automation",
-    bio: "Expert in workflow design and AI integration. Trained 500+ teams on automation best practices.",
-    image: "/team/marcus-johnson.jpg",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Solutions Architect",
-    bio: "Specializes in large-scale automation deployments. Built automation systems serving 1M+ users.",
-    image: "/team/emily-rodriguez.jpg",
+    name: "Faisal Ijaz",
+    role: "CTO",
+    bio: "Owns product and engineering for Cuzec’s AI agents, workflows, and platform architecture.",
+    image: "/team/faisal-ijaz.jpg",
   },
 ];
 
