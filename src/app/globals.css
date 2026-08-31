@@ -1,54 +1,66 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Clash+Display:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Clash+Display:wght@500;600&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-background: #f8fafc;
-  --color-foreground: #0f172a;
-  --color-muted: #475569;
-  --color-muted-foreground: #64748b;
-  --color-border: #e2e8f0;
-  --color-card: #ffffff;
-  --color-card-hover: #f1f5f9;
+  /* Colour System */
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-mist: #f1f3f5;
+  --color-muted: #5e666d;
+  --color-hairline: rgba(10, 10, 10, 0.1);
   --color-accent: #0f766e;
   --color-accent-light: #14b8a6;
   --color-accent-dark: #0d9488;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
+  --color-secondary-dark: #6b21a8;
+  
+  /* Legacy aliases for compatibility */
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-muted-foreground: #5e666d;
+  --color-border: rgba(10, 10, 10, 0.1);
+  --color-card: #ffffff;
+  --color-card-hover: #f1f3f5;
+  
+  /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
 ::selection {
-  background-color: rgba(15, 118, 110, 0.3);
+  background-color: rgba(15, 118, 110, 0.2);
+  color: var(--color-ink);
 }
 
 /* HERO GRID BG */
 .hero-grid {
   background-image: 
-    linear-gradient(var(--color-border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    linear-gradient(var(--color-hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-hairline) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .hero-glow {
@@ -66,23 +78,23 @@ h1, h2, h3 {
 .section-label {
   display: inline-block;
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-accent);
   background: rgba(15, 118, 110, 0.08);
   border: 1px solid rgba(15, 118, 110, 0.15);
-  padding: 5px 12px;
-  border-radius: 100px;
+  padding: 6px 14px;
+  border-radius: 8px;
   margin-bottom: 16px;
 }
 
 /* SECTION TITLE */
 .section-title {
   font-size: clamp(36px, 4vw, 52px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--color-foreground);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
   margin-bottom: 16px;
 }
 
@@ -103,36 +115,44 @@ h1, h2, h3 {
   box-shadow: 0 4px 40px rgba(15, 118, 110, 0.08);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+/* Motion easing: cubic-bezier(0.16, 1, 0.3, 1) */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.3); }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.anim-float {
-  animation: float 4s ease-in-out infinite;
+.animate-reveal {
+  animation: reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.animate-pulse {
-  animation: pulse 2s infinite;
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s, transform 0.6s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* PROCESS TIMELINE - NO LINE BETWEEN CIRCLES */
+/* PROCESS TIMELINE */
 .process-track {
   max-width: 900px;
   margin: 0 auto;
@@ -145,8 +165,8 @@ h1, h2, h3 {
   left: 27px;
   top: 24px;
   bottom: 24px;
-  width: 2px;
-  background: linear-gradient(to bottom, #14b8a6, #e2e8f0);
+  width: 1px;
+  background: linear-gradient(to bottom, var(--color-accent-light), var(--color-hairline));
   z-index: 0;
   pointer-events: none;
 }
@@ -161,27 +181,27 @@ h1, h2, h3 {
 }
 
 .process-num {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
+  background: var(--color-paper);
+  border: 1px solid var(--color-hairline);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-tight);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: 16px;
-  color: #64748b;
+  color: var(--color-muted);
   flex-shrink: 0;
-  transition: all 0.3s;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .process-step:hover .process-num,
 .process-step.active .process-num {
-  background: #0f766e;
-  border-color: #0f766e;
-  color: #ffffff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-paper);
 }
 
 .process-content {
@@ -190,15 +210,15 @@ h1, h2, h3 {
 }
 
 .process-title {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
   margin-bottom: 4px;
-  color: #0f172a;
+  color: var(--color-ink);
 }
 
 .process-desc {
-  font-size: 14px;
-  color: #475569;
+  font-size: 15px;
+  color: var(--color-muted);
   max-width: 500px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
