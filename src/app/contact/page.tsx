@@ -89,12 +89,12 @@ export default function ContactPage() {
                   Schedule a 30-minute demo with our automation experts.
                 </p>
                 <a
-                  href="https://calendly.com/cuzec/demo"
+                  href="https://calendar.app.google/fEJpyVjydUgHbBgP7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full px-5 py-2.5 rounded-lg bg-accent hover:bg-accent-dark text-white text-sm font-medium transition-colors"
                 >
-                  Schedule on Calendly
+                  Book a Time Slot
                 </a>
               </Card>
             </div>
