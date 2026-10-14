@@ -59,7 +59,7 @@ export default async function BlogDetailPage({
             <Badge>{post.category}</Badge>
             <span className="text-sm text-muted">{post.readingTime} min read</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 max-w-4xl">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6 max-w-4xl">
             {post.title}
           </h1>
           <div className="flex items-center gap-4">
@@ -107,7 +107,7 @@ export default async function BlogDetailPage({
       {related.length > 0 && (
         <Section className="bg-card/30">
           <Container>
-            <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+            <h2 className="text-2xl font-semibold mb-6">Related Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {related.map((p) => (
                 <BlogCard key={p.slug} post={p} />

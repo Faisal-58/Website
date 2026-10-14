@@ -5,19 +5,53 @@ import { Section, Container, Card } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Mail, MessageCircle, Linkedin, MapPin, Calendar } from "lucide-react";
 
+const WEB3FORMS_ACCESS_KEY = "37be53af-7089-470a-8cdd-df061b2d68b7";
+
 export default function ContactPage() {
   const [formState, setFormState] = useState({ name: "", email: "", company: "", message: "" });
   const [demoState, setDemoState] = useState({ name: "", email: "", company: "", useCase: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState<"contact" | "demo" | null>(null);
+  const [error, setError] = useState<"contact" | "demo" | null>(null);
+
+  // Web3Forms delivers submissions to info@cuzec.io. The access key is public by design.
+  const sendToWeb3Forms = async (
+    form: "contact" | "demo",
+    subject: string,
+    fields: Record<string, string>
+  ) => {
+    setSending(form);
+    setError(null);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject,
+          from_name: "CUZEC Website",
+          replyto: fields.email,
+          ...fields,
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message);
+      setSubmitted(true);
+    } catch {
+      setError(form);
+    } finally {
+      setSending(null);
+    }
+  };
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    sendToWeb3Forms("contact", `New message from ${formState.name}`, formState);
   };
 
   const handleDemoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    sendToWeb3Forms("demo", `Demo request from ${demoState.name} (${demoState.company})`, demoState);
   };
 
   return (
@@ -28,7 +62,7 @@ export default function ContactPage() {
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Contact
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
             Get in Touch
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
@@ -43,7 +77,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="space-y-6">
-              <h2 className="text-xl font-bold">Contact Information</h2>
+              <h2 className="text-xl font-semibold">Contact Information</h2>
 
               <a
                 href="mailto:info@cuzec.io"
@@ -103,7 +137,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               {submitted ? (
                 <Card className="text-center py-12">
-                  <h3 className="text-xl font-bold mb-2">Thank You!</h3>
+                  <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
                   <p className="text-muted">
                     We&apos;ve received your message and will get back to you within 24 hours.
                   </p>
@@ -111,7 +145,7 @@ export default function ContactPage() {
               ) : (
                 <div className="space-y-8">
                   <form onSubmit={handleContactSubmit}>
-                    <h2 className="text-xl font-bold mb-6">Send a Message</h2>
+                    <h2 className="text-xl font-semibold mb-6">Send a Message</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <input
                         type="text"
@@ -145,13 +179,19 @@ export default function ContactPage() {
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-lg bg-card border border-border text-sm focus:outline-none focus:border-accent/50 mb-4 resize-none"
                     />
-                    <Button type="submit" variant="primary" size="lg">
-                      Send Message
+                    <Button type="submit" variant="primary" size="lg" disabled={sending !== null}>
+                      {sending === "contact" ? "Sending..." : "Send Message"}
                     </Button>
+                    {error === "contact" && (
+                      <p className="text-sm text-red-700 mt-3">
+                        Something went wrong. Please email us at{" "}
+                        <a href="mailto:info@cuzec.io" className="underline">info@cuzec.io</a>.
+                      </p>
+                    )}
                   </form>
 
                   <form onSubmit={handleDemoSubmit} className="pt-8 border-t border-border">
-                    <h2 className="text-xl font-bold mb-6">Request a Demo</h2>
+                    <h2 className="text-xl font-semibold mb-6">Request a Demo</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <input
                         type="text"
@@ -186,9 +226,15 @@ export default function ContactPage() {
                       onChange={(e) => setDemoState({ ...demoState, useCase: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-lg bg-card border border-border text-sm focus:outline-none focus:border-accent/50 mb-4 resize-none"
                     />
-                    <Button type="submit" variant="primary" size="lg">
-                      Request Demo
+                    <Button type="submit" variant="primary" size="lg" disabled={sending !== null}>
+                      {sending === "demo" ? "Sending..." : "Request Demo"}
                     </Button>
+                    {error === "demo" && (
+                      <p className="text-sm text-red-700 mt-3">
+                        Something went wrong. Please email us at{" "}
+                        <a href="mailto:info@cuzec.io" className="underline">info@cuzec.io</a>.
+                      </p>
+                    )}
                   </form>
                 </div>
               )}

@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
     <>
       <section className="py-24 md:py-32">
         <Container>
-          <h1 className="text-4xl font-bold tracking-tight mb-6">Privacy Policy</h1>
+          <h1 className="text-4xl font-semibold tracking-tight mb-6">Privacy Policy</h1>
           <p className="text-muted mb-8">Last updated: May 31, 2026</p>
         </Container>
       </section>
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
         <Container>
           <div className="max-w-3xl space-y-8 text-muted leading-relaxed">
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">Information We Collect</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Information We Collect</h2>
               <p>
                 We collect information you provide directly, such as name, email, company name,
                 and messages submitted through our contact forms. We also collect usage data
@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">How We Use Your Information</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">How We Use Your Information</h2>
               <p>
                 We use collected information to respond to inquiries, provide services,
                 improve our website, send relevant communications, and comply with legal
@@ -36,25 +36,25 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">Data Security</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Data Security</h2>
               <p>
                 We implement industry-standard security measures including encryption,
                 access controls, and regular security audits to protect your data.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">Your Rights</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Your Rights</h2>
               <p>
                 You have the right to access, correct, or delete your personal data.
-                Contact us at hello@cuzec.com to exercise these rights.
+                Contact us at info@cuzec.io to exercise these rights.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-foreground mb-3">Contact</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">Contact</h2>
               <p>
                 For privacy-related questions, contact us at{" "}
-                <a href="mailto:hello@cuzec.com" className="text-accent-light hover:text-accent">
-                  hello@cuzec.com
+                <a href="mailto:info@cuzec.io" className="text-accent-light hover:text-accent">
+                  info@cuzec.io
                 </a>
                 .
               </p>

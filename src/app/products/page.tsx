@@ -21,7 +21,7 @@ export default function ProductsPage() {
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Products
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
             Enterprise Automation Products
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">

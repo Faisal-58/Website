@@ -169,7 +169,7 @@ export function CTASection({
         <div className="relative rounded-2xl border border-border bg-card overflow-hidden glow">
           <div className="absolute inset-0 grid-pattern opacity-50" />
           <div className="relative px-8 py-16 md:px-16 md:py-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">{title}</h2>
             <p className="text-muted text-lg max-w-2xl mx-auto mb-8">{description}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button href={primaryHref} variant="primary" size="lg">

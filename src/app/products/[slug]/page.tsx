@@ -46,7 +46,7 @@ export default async function ProductDetailPage({
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
           <Badge className="mb-4">{product.category}</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
             {product.name}
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-8">{product.description}</p>
@@ -73,7 +73,7 @@ export default async function ProductDetailPage({
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Product Overview</h2>
+              <h2 className="text-2xl font-semibold mb-4">Product Overview</h2>
               <p className="text-muted leading-relaxed mb-6">{product.description}</p>
               <h3 className="font-semibold mb-3">Features</h3>
               <ul className="space-y-2">
@@ -86,7 +86,7 @@ export default async function ProductDetailPage({
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4">Problem Solved</h2>
+              <h2 className="text-2xl font-semibold mb-4">Problem Solved</h2>
               <p className="text-muted leading-relaxed">{product.problem}</p>
               <div className="mt-6">
                 <h3 className="font-semibold mb-3">Technology Stack</h3>
@@ -109,7 +109,7 @@ export default async function ProductDetailPage({
       {/* How It Works + Workflow */}
       <Section className="bg-card/30">
         <Container>
-          <h2 className="text-2xl font-bold mb-8">How It Works</h2>
+          <h2 className="text-2xl font-semibold mb-8">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {product.howItWorks.map((step, i) => (
               <div key={step} className="text-center">
@@ -121,7 +121,7 @@ export default async function ProductDetailPage({
             ))}
           </div>
 
-          <h3 className="text-xl font-bold mb-6">Workflow Diagram</h3>
+          <h3 className="text-xl font-semibold mb-6">Workflow Diagram</h3>
           <div className="flex flex-col md:flex-row items-center gap-4 overflow-x-auto pb-4">
             {product.workflowSteps.map((step, i) => (
               <div key={step.title} className="flex items-center gap-4">
@@ -142,7 +142,7 @@ export default async function ProductDetailPage({
       {product.demoVideo && (
         <Section>
           <Container>
-            <h2 className="text-2xl font-bold mb-6">Demo Video</h2>
+            <h2 className="text-2xl font-semibold mb-6">Demo Video</h2>
             <DemoVideoEmbed url={product.demoVideo} title={product.name} />
           </Container>
         </Section>
@@ -152,7 +152,7 @@ export default async function ProductDetailPage({
       {product.faq.length > 0 && (
         <Section className="bg-card/30">
           <Container>
-            <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+            <h2 className="text-2xl font-semibold mb-6">FAQ</h2>
             <div className="space-y-4 max-w-3xl">
               {product.faq.map((item) => (
                 <Card key={item.question}>
@@ -169,7 +169,7 @@ export default async function ProductDetailPage({
       {caseStudy && (
         <Section>
           <Container>
-            <h2 className="text-2xl font-bold mb-4">Related Case Study</h2>
+            <h2 className="text-2xl font-semibold mb-4">Related Case Study</h2>
             <Card hover className="max-w-2xl">
               <Badge className="mb-3">{caseStudy.industry}</Badge>
               <h3 className="text-lg font-semibold mb-2">{caseStudy.title}</h3>

@@ -19,7 +19,7 @@ export default function AboutPage() {
             <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
               About CUZEC
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
               We Exist to Make Business{" "}
               <span className="gradient-text">Run Itself</span>
             </h1>

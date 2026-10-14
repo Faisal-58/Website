@@ -15,8 +15,6 @@ export const products: Product[] = [
       "CUZEC AI Agent is an enterprise-grade autonomous agent platform that handles complex multi-step business processes. From customer support to data analysis, our AI agents learn your workflows and execute them with precision.",
     category: "AI Agents",
     featured: true,
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    liveUrl: "https://demo.cuzec.com/ai-agent",
     features: [
       "Autonomous task execution",
       "Multi-step workflow orchestration",
@@ -42,7 +40,6 @@ export const products: Product[] = [
       { title: "Output", description: "Completed task delivered with full audit trail" },
     ],
     screenshots: ["/screenshots/ai-agent-1.png", "/screenshots/ai-agent-2.png"],
-    documentation: "https://docs.cuzec.com/ai-agent",
     faq: [
       {
         question: "How long does it take to deploy an AI agent?",
@@ -63,8 +60,6 @@ export const products: Product[] = [
       "Build, deploy, and manage sophisticated business workflows without code. Our visual workflow engine connects your entire tech stack and automates processes across departments.",
     category: "Workflow Automation",
     featured: true,
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    liveUrl: "https://demo.cuzec.com/workflow-engine",
     features: [
       "Drag-and-drop workflow builder",
       "Conditional logic and branching",
@@ -89,7 +84,6 @@ export const products: Product[] = [
       { title: "Notify", description: "Stakeholders alerted of completion or exceptions" },
     ],
     screenshots: ["/screenshots/workflow-1.png", "/screenshots/workflow-2.png"],
-    documentation: "https://docs.cuzec.com/workflow-engine",
     faq: [
       {
         question: "Do I need coding skills to use Workflow Engine?",
@@ -106,8 +100,6 @@ export const products: Product[] = [
       "CRM Autopilot eliminates manual CRM tasks by automatically updating records, scoring leads, scheduling follow-ups, and generating reports — all without human intervention.",
     category: "CRM Tools",
     featured: true,
-    demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    liveUrl: "https://demo.cuzec.com/crm-autopilot",
     features: [
       "Automatic lead scoring",
       "Smart follow-up scheduling",
@@ -133,7 +125,6 @@ export const products: Product[] = [
       { title: "Follow-up", description: "Automated follow-ups until conversion" },
     ],
     screenshots: ["/screenshots/crm-1.png"],
-    documentation: "https://docs.cuzec.com/crm-autopilot",
     faq: [
       {
         question: "Which CRM platforms are supported?",

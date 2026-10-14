@@ -45,7 +45,7 @@ export default async function ServiceDetailPage({
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
           <Badge className="mb-4">Service</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
             {service.name}
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-8">{service.description}</p>
@@ -59,7 +59,7 @@ export default async function ServiceDetailPage({
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Service Overview</h2>
+              <h2 className="text-2xl font-semibold mb-4">Service Overview</h2>
               <p className="text-muted leading-relaxed mb-6">{service.overview}</p>
               <h3 className="font-semibold mb-3">Workflow Example</h3>
               <Card className="bg-accent/5 border-accent/20">
@@ -67,7 +67,7 @@ export default async function ServiceDetailPage({
               </Card>
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4">Benefits</h2>
+              <h2 className="text-2xl font-semibold mb-4">Benefits</h2>
               <ul className="space-y-3 mb-8">
                 {service.benefits.map((b) => (
                   <li key={b} className="flex items-start gap-2 text-muted">
@@ -96,7 +96,7 @@ export default async function ServiceDetailPage({
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Challenges</h2>
+              <h2 className="text-2xl font-semibold mb-4">Challenges</h2>
               <ul className="space-y-3">
                 {service.challenges.map((c) => (
                   <li key={c} className="flex items-start gap-2 text-sm text-muted">
@@ -106,7 +106,7 @@ export default async function ServiceDetailPage({
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4">Our Solutions</h2>
+              <h2 className="text-2xl font-semibold mb-4">Our Solutions</h2>
               <ul className="space-y-3">
                 {service.solutions.map((s) => (
                   <li key={s} className="flex items-start gap-2 text-sm text-muted">
@@ -121,7 +121,7 @@ export default async function ServiceDetailPage({
 
       <Section>
         <Container>
-          <h2 className="text-2xl font-bold mb-6">Automation Process</h2>
+          <h2 className="text-2xl font-semibold mb-6">Automation Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {service.automationProcess.map((step) => (
               <div key={step.step} className="text-center">
@@ -138,7 +138,7 @@ export default async function ServiceDetailPage({
 
       <Section className="bg-card/30">
         <Container>
-          <h2 className="text-2xl font-bold mb-6">Implementation Process</h2>
+          <h2 className="text-2xl font-semibold mb-6">Implementation Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {service.implementationProcess.map((step) => (
               <Card key={step.step}>
@@ -155,7 +155,7 @@ export default async function ServiceDetailPage({
 
       <Section>
         <Container>
-          <h2 className="text-2xl font-bold mb-4">Use Cases</h2>
+          <h2 className="text-2xl font-semibold mb-4">Use Cases</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {service.useCases.map((uc) => (
               <div
@@ -172,7 +172,7 @@ export default async function ServiceDetailPage({
       {relatedCaseStudies.length > 0 && (
         <Section className="bg-card/30">
           <Container>
-            <h2 className="text-2xl font-bold mb-6">Case Studies</h2>
+            <h2 className="text-2xl font-semibold mb-6">Case Studies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedCaseStudies.map(
                 (study) => study && <CaseStudyCard key={study.slug} study={study} />
@@ -185,7 +185,7 @@ export default async function ServiceDetailPage({
       {service.faq.length > 0 && (
         <Section>
           <Container>
-            <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+            <h2 className="text-2xl font-semibold mb-6">FAQ</h2>
             <div className="space-y-4 max-w-3xl">
               {service.faq.map((item) => (
                 <Card key={item.question}>

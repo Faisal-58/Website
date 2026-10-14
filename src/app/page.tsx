@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Section, Container } from "@/components/ui/Section";
 import {
   ProductCardCompact,
@@ -54,7 +55,7 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.15]">
             Automate Everything.{" "}
             <span className="gradient-text">Scale Without Limits</span>
           </h1>
@@ -65,12 +66,17 @@ export default function HomePage() {
           </p>
 
           <div className="flex gap-3 flex-wrap justify-center mb-16">
-            <button className="bg-[#0F172A] hover:bg-[#1e293b] text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all">
+            <a
+              href="https://calendar.app.google/fEJpyVjydUgHbBgP7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#0F172A] hover:bg-[#1e293b] text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all"
+            >
               Book a Demo
-            </button>
-            <button className="border-2 border-[#E2E8F0] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3.5 rounded-xl text-sm font-semibold transition-all">
+            </a>
+            <Link href="/products" className="border-2 border-[#E2E8F0] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3.5 rounded-xl text-sm font-semibold transition-all">
               Explore Products
-            </button>
+            </Link>
           </div>
 
           {/* NETWORK CANVAS - ONLY HERE */}
@@ -113,9 +119,9 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center">
-            <button className="border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
+            <Link href="/products" className="inline-block border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
               View All Products
-            </button>
+            </Link>
           </div>
         </Container>
       </section>
@@ -243,9 +249,9 @@ export default function HomePage() {
           </div>
           
           <div className="text-center">
-            <button className="border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-white text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
+            <Link href="/case-studies" className="inline-block border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-white text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
               View All Case Studies
-            </button>
+            </Link>
           </div>
         </Container>
       </section>

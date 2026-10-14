@@ -39,7 +39,7 @@ export default function ResourcesPage() {
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Resources
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
             Resources & Downloads
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
@@ -62,7 +62,7 @@ export default function ResourcesPage() {
             <Container>
               <div className="flex items-center gap-3 mb-8">
                 <Icon className="w-5 h-5 text-accent-light" />
-                <h2 className="text-2xl font-bold">{typeLabels[type]}</h2>
+                <h2 className="text-2xl font-semibold">{typeLabels[type]}</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {items.map((resource) => (

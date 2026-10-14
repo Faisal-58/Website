@@ -20,7 +20,7 @@ export default function BlogPage() {
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Blog
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
             Insights & Guides
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
