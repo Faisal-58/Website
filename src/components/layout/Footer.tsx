@@ -33,9 +33,9 @@ export function Footer() {
               <Image
                 src="/logo.png"
                 alt="CUZEC Logo"
-                width={140}
-                height={140}
-                className="w-[140px] h-[140px]"
+                width={969}
+                height={314}
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-sm">

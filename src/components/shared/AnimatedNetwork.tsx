@@ -65,7 +65,7 @@ export function AnimatedNetworkCanvas() {
           label: NODE_LABELS[i % NODE_LABELS.length],
           pulse: Math.random() * Math.PI * 2,
           color:
-            i % 3 === 0 ? "#0F766E" : i % 3 === 1 ? "#14B8A6" : "#0891B2",
+            i % 3 === 0 ? "#2B13CF" : i % 3 === 1 ? "#7460FF" : "#5A3FF0",
         });
       }
     };
@@ -97,7 +97,7 @@ export function AnimatedNetworkCanvas() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(15,118,110,${alpha})`;
+            ctx.strokeStyle = `rgba(43,19,207,${alpha})`;
             ctx.lineWidth = 1;
             ctx.stroke();
 

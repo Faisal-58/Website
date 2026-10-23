@@ -47,9 +47,9 @@ export function Header() {
             <Image
               src="/logo.png"
               alt="CUZEC Logo"
-              width={190}
-              height={190}
-              className="w-[190px] h-[190px]"
+              width={969}
+              height={314}
+              className="h-11 w-auto"
               priority
             />
           </Link>

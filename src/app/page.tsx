@@ -47,9 +47,9 @@ export default function HomePage() {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-80 hero-glow pointer-events-none" />
         
         <div className="relative z-10 max-w-5xl">
-          <div className="inline-flex items-center gap-1.5 bg-[rgba(15,118,110,0.08)] border border-[rgba(15,118,110,0.2)] rounded-full px-3.5 py-1.5 mb-7">
-            <span className="w-1.5 h-1.5 bg-[#14B8A6] rounded-full animate-pulse" />
-            <span className="text-xs font-semibold text-[#0F766E] tracking-wide uppercase">
+          <div className="inline-flex items-center gap-1.5 bg-[rgba(43,19,207,0.08)] border border-[rgba(43,19,207,0.2)] rounded-full px-3.5 py-1.5 mb-7">
+            <span className="w-1.5 h-1.5 bg-[#7460FF] rounded-full animate-pulse" />
+            <span className="text-xs font-semibold text-[#2B13CF] tracking-wide uppercase">
               AI Agents & Automation
             </span>
           </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#0F172A] hover:bg-[#1e293b] text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all"
+              className="bg-accent hover:bg-accent-dark text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all"
             >
               Book a Free Call
             </a>
@@ -88,7 +88,7 @@ export default function HomePage() {
       </section>
 
       {/* INDUSTRIES */}
-      <section id="industries" className="py-24 px-10 scroll-mt-20">
+      <section id="industries" className="py-24 px-10 scroll-mt-20 bg-[#EEF2F5]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="section-label">Industries</div>
@@ -104,7 +104,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24 px-10 bg-[#EEF2F5]">
+      <section className="py-24 px-10">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="section-label">Services</div>
@@ -119,70 +119,43 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* PROCESS - EXACT FROM HTML */}
+      {/* PROCESS */}
       <section style={{ background: "#EEF2F5", padding: "100px 40px" }}>
         <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 64px" }}>
           <div className="section-label">How We Work</div>
           <h2 className="section-title">From discovery to deployment in weeks.</h2>
-          <p className="section-subtitle">Our proven methodology takes you from workflow audit to live automation with minimal disruption to your operations.</p>
+          <p className="section-subtitle">Four steps from first call to live automation, with a fixed price agreed before we start.</p>
         </div>
         
         <div className="process-track">
           <div className="process-line" />
-          
+
           <div className="process-step active">
             <div className="process-num">01</div>
             <div className="process-content">
-              <div className="process-title">Discovery & Audit</div>
-              <div className="process-desc">We map your current processes, identify automation opportunities, and calculate ROI potential.</div>
+              <div className="process-title">Free Discovery Call</div>
+              <div className="process-desc">We learn how your business runs today and find where automation will save the most time.</div>
             </div>
           </div>
-          
           <div className="process-step">
             <div className="process-num">02</div>
             <div className="process-content">
-              <div className="process-title">Workflow Mapping</div>
-              <div className="process-desc">Detailed architecture of every trigger, condition, action, and exception in your future system.</div>
+              <div className="process-title">Design & Fixed Quote</div>
+              <div className="process-desc">We map the workflow, design the solution and give you a fixed price before any work starts.</div>
             </div>
           </div>
-          
           <div className="process-step">
             <div className="process-num">03</div>
             <div className="process-content">
-              <div className="process-title">Automation Design</div>
-              <div className="process-desc">We design the logic, data models, and integration architecture before writing a single line of code.</div>
+              <div className="process-title">Build & Test</div>
+              <div className="process-desc">We build the agents, workflows and integrations, and test them against real scenarios and edge cases.</div>
             </div>
           </div>
-          
           <div className="process-step">
             <div className="process-num">04</div>
             <div className="process-content">
-              <div className="process-title">Development</div>
-              <div className="process-desc">Full-stack development of workflows, AI agents, integrations, and custom logic in your chosen tools.</div>
-            </div>
-          </div>
-          
-          <div className="process-step">
-            <div className="process-num">05</div>
-            <div className="process-content">
-              <div className="process-title">Testing & QA</div>
-              <div className="process-desc">Comprehensive testing across all edge cases, error states, and volume scenarios before go-live.</div>
-            </div>
-          </div>
-          
-          <div className="process-step">
-            <div className="process-num">06</div>
-            <div className="process-content">
-              <div className="process-title">Deployment</div>
-              <div className="process-desc">Staged rollout with monitoring, team training, and documentation to ensure smooth adoption.</div>
-            </div>
-          </div>
-          
-          <div className="process-step">
-            <div className="process-num">07</div>
-            <div className="process-content">
-              <div className="process-title">Optimization</div>
-              <div className="process-desc">Ongoing monitoring, performance tuning, and iteration as your business evolves and scales.</div>
+              <div className="process-title">Launch & Support</div>
+              <div className="process-desc">We go live, train your team and support you for 2 months, then keep improving as you grow.</div>
             </div>
           </div>
         </div>
@@ -199,7 +172,7 @@ export default function HomePage() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
             {technologies.map((tech) => (
-              <div key={tech.name} className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#14B8A6] hover:-translate-y-0.5 transition-all">
+              <div key={tech.name} className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#7460FF] hover:-translate-y-0.5 transition-all">
                 <div className="flex justify-center mb-2">
                   {getTechIcon(tech.name)}
                 </div>
@@ -238,14 +211,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {testimonials.map((t) => (
               <div key={t.author} className="bg-white border border-[#E2E8F0] rounded-2xl p-7 relative">
-                <div className="text-6xl text-[rgba(15,118,110,0.06)] font-black absolute top-0 left-5 leading-none">
+                <div className="text-6xl text-[rgba(43,19,207,0.06)] font-black absolute top-0 left-5 leading-none">
                   &quot;
                 </div>
                 <p className="text-sm text-[#475569] leading-relaxed mb-5 relative z-10">
                   {t.quote}
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0F766E] to-[#14B8A6] flex items-center justify-center text-white text-xs font-bold">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2B13CF] to-[#7460FF] flex items-center justify-center text-white text-xs font-bold">
                     {t.author.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>

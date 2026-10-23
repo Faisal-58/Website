@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo.png",
-        width: 32,
-        height: 32,
+        width: 969,
+        height: 314,
         alt: "CUZEC Logo",
       },
     ],
