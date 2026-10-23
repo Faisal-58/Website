@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import { Section, SectionHeader, Container, Card, Badge } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -74,7 +75,34 @@ export function ProjectPage({ project }: { project: Project }) {
         </Container>
       </Section>
 
-      <Section className="bg-card/30">
+      {project.screenshots && (
+        <Section className="bg-card/30">
+          <Container>
+            <SectionHeader label="Screenshots" title={`See ${project.name} in action`} />
+            <div className="max-w-5xl mx-auto space-y-12">
+              {project.screenshots.map((shot) => (
+                <figure key={shot.src}>
+                  <div className="rounded-xl border border-border bg-white overflow-hidden shadow-lg shadow-accent/5">
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={shot.width}
+                      height={shot.height}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <figcaption className="text-sm text-muted mt-3 text-center">{shot.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+            {project.screenshotsNote && (
+              <p className="text-xs text-muted text-center mt-10">{project.screenshotsNote}</p>
+            )}
+          </Container>
+        </Section>
+      )}
+
+      <Section>
         <Container>
           <SectionHeader label="The Problem" title={project.problemsTitle} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -116,23 +144,6 @@ export function ProjectPage({ project }: { project: Project }) {
               ))}
             </ul>
 
-            {project.builtWith && (
-              <div className="mt-8 pt-6 border-t border-border">
-                <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-3">
-                  Built with
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.builtWith.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2.5 py-1 rounded-md bg-background border border-border text-muted"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
 
             {project.note && (
               <p className="mt-8 text-sm text-muted border-l-2 border-accent/40 pl-4">

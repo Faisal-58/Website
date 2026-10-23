@@ -18,7 +18,8 @@ export interface Project {
   steps: { title: string; desc: string }[];
   featuresTitle: string;
   features: string[];
-  builtWith?: string[];
+  screenshots?: { src: string; alt: string; caption: string; width: number; height: number }[];
+  screenshotsNote?: string;
   note?: string;
   cta: { title: string; description: string };
 }
@@ -108,7 +109,7 @@ export const projects: Project[] = [
     highlight: {
       label: "From our demo bid package",
       title: "The cheapest bid on paper was the most expensive",
-      body: "In our US plumbing demo package, Bidder A's quote looked cheapest at $750,700. Once BidLevel priced the items it left out, its true cost was $874,500, the most expensive of the four bidders.",
+      body: "In our US plumbing demo package, the quote that looked cheapest on paper ($750,700) became the most expensive ($874,500) once BidLevel priced the items it left out.",
     },
     results: [
       { value: "~1 min", label: "to level 4 quotes, a job that takes 1–3 days by hand" },
@@ -161,7 +162,37 @@ export const projects: Project[] = [
       "Exports to Excel, your own bid-tab template, or a 1-page PDF summary",
       "Your logo and brand colours on the app and reports",
     ],
-    builtWith: ["Claude AI (Anthropic)"],
+    screenshots: [
+      {
+        src: "/projects/bidlevel-3-grid.png",
+        alt: "BidLevel leveling grid comparing three plumbing bids against a scope checklist",
+        caption: "The leveling grid: every bidder checked against the scope checklist, with gaps priced and flags listed on the right.",
+        width: 1895,
+        height: 865,
+      },
+      {
+        src: "/projects/bidlevel-4-totals.png",
+        alt: "Adjusted totals showing the lowest base bid ranked last after scope gaps are priced",
+        caption: "Adjusted totals: the lowest base bid ends up ranked last once its scope gaps are added.",
+        width: 1342,
+        height: 504,
+      },
+      {
+        src: "/projects/bidlevel-2-upload.png",
+        alt: "Quotes in PDF, scanned PDF, Excel and email formats being extracted",
+        caption: "Upload quotes in any format: PDF, scanned paper, Excel or email. Each one is matched to the right bidder.",
+        width: 1340,
+        height: 528,
+      },
+      {
+        src: "/projects/bidlevel-1-setup.png",
+        alt: "New bid package form with trade, region, award date and bond settings",
+        caption: "Set up a package in seconds: trade, region, award date, retainage and bond requirements.",
+        width: 1920,
+        height: 874,
+      },
+    ],
+    screenshotsNote: "Screenshots use a demo bid package. All company and project names are fictional.",
     cta: {
       title: "Send us a past bid package",
       description:
@@ -229,7 +260,37 @@ export const projects: Project[] = [
       "Automated evaluations and a CI pipeline to test the agent's answers",
       "Usage logging and statistics",
     ],
-    builtWith: ["Claude AI agent", "Python", "FastAPI", "Tavily web search"],
+    screenshots: [
+      {
+        src: "/projects/health-1-home.png",
+        alt: "Global Health Navigator home screen: find the best country for your medical treatment",
+        caption: "Patients start from one simple page: describe the condition, budget and passport.",
+        width: 1897,
+        height: 765,
+      },
+      {
+        src: "/projects/health-2-input.png",
+        alt: "Patient describing an urgent heart bypass case with budget and passport",
+        caption: "Plain-language input, with quick examples for common procedures.",
+        width: 1220,
+        height: 702,
+      },
+      {
+        src: "/projects/health-3-working.png",
+        alt: "AI agent progress: identifying specialty, comparing costs, checking visas, finding hospitals",
+        caption: "The agent works through each step: specialty, costs, visas, hospitals, then the report.",
+        width: 1220,
+        height: 600,
+      },
+      {
+        src: "/projects/health-4-safety.png",
+        alt: "Agent asking for angiogram results and flight safety before recommending heart surgery abroad",
+        caption: "Safety first: for an urgent heart case, the agent asks for angiogram results and checks whether flying is safe before recommending anything.",
+        width: 1220,
+        height: 667,
+      },
+    ],
+    screenshotsNote: "Example output from a demo. Not medical advice.",
     note: "Global Health Navigator supports research and planning. It does not replace advice from a doctor.",
     cta: {
       title: "Want an AI agent for your health business?",
