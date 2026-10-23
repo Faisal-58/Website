@@ -1,69 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Play } from "lucide-react";
-import type { Product } from "@/types";
+import { ArrowRight, Play } from "lucide-react";
 import { Card, Badge } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { BOOKING_URL, industries } from "@/data/site";
-
-export function ProductCard({ product }: { product: Product }) {
-  return (
-    <Card hover className="flex flex-col h-full">
-      <div className="flex items-start justify-between mb-3">
-        <Badge>{product.category}</Badge>
-        {product.featured && (
-          <span className="text-xs text-accent-light font-medium">Featured</span>
-        )}
-      </div>
-      <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-      <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
-        {product.shortDescription}
-      </p>
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {product.techStack.slice(0, 3).map((tech) => (
-          <span
-            key={tech}
-            className="text-xs px-2 py-0.5 rounded bg-background border border-border text-muted"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-      <div className="flex items-center gap-2 pt-4 border-t border-border">
-        <Button href={`/products/${product.slug}`} variant="primary" size="sm" className="flex-1">
-          View Product
-        </Button>
-        {product.liveUrl && (
-          <a
-            href={product.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg border border-border hover:border-accent/50 text-muted hover:text-foreground transition-colors"
-            aria-label="Live demo"
-          >
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        )}
-      </div>
-    </Card>
-  );
-}
-
-export function ProductCardCompact({ product }: { product: Product }) {
-  return (
-    <Link href={`/products/${product.slug}`} className="group block">
-      <Card hover>
-        <Badge className="mb-3">{product.category}</Badge>
-        <h3 className="text-base font-semibold mb-1 group-hover:text-accent-light transition-colors">
-          {product.name}
-        </h3>
-        <p className="text-sm text-muted line-clamp-2">{product.shortDescription}</p>
-        <span className="inline-flex items-center gap-1 text-sm text-accent-light mt-3 group-hover:gap-2 transition-all">
-          Learn more <ArrowRight className="w-4 h-4" />
-        </span>
-      </Card>
-    </Link>
-  );
-}
 
 export function ServiceCard({ service }: { service: import("@/types").Service }) {
   return (

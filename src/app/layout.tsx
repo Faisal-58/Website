@@ -13,12 +13,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cuzec.io"),
   title: {
-    default: "CUZEC — Enterprise Automation Platform",
+    default: "CUZEC — AI Agents for Real Estate, Construction, Healthcare & Coaching",
     template: "%s | CUZEC",
   },
   description:
-    "CUZEC builds enterprise-grade automation solutions. AI agents, workflow automation, CRM automation, and more.",
-  keywords: ["automation", "AI agents", "workflow automation", "enterprise", "CUZEC"],
+    "CUZEC builds AI agents and automations for real estate, construction, healthcare and coaching businesses, connected to the tools you already use.",
+  keywords: ["AI agents", "automation", "real estate AI", "construction bid leveling", "healthcare AI", "coaching automation", "CUZEC"],
   openGraph: {
     type: "website",
     locale: "en_US",

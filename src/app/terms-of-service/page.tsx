@@ -29,7 +29,7 @@ export default function TermsOfServicePage() {
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Services</h2>
               <p>
-                CUZEC provides enterprise automation consulting, development, and managed
+                CUZEC provides automation consulting, development, and managed
                 services. Specific service terms are outlined in individual service agreements.
               </p>
             </div>

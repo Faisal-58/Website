@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { Section, Container } from "@/components/ui/Section";
 import {
-  ProductCardCompact,
   IndustriesGrid,
   ServiceCard,
   CaseStudyCard,
   CTASection,
 } from "@/components/shared/Cards";
 import { AnimatedNetworkCanvas } from "@/components/shared/AnimatedNetwork";
-import { getFeaturedProducts } from "@/data/products";
 import { services } from "@/data/services";
 import { getFeaturedCaseStudies } from "@/data/case-studies";
 import { BOOKING_URL } from "@/data/site";
@@ -39,7 +37,6 @@ function getTechIcon(techName: string) {
 }
 
 export default function HomePage() {
-  const featuredProducts = getFeaturedProducts();
   const featuredCaseStudies = getFeaturedCaseStudies();
 
   return (
@@ -53,18 +50,18 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-1.5 bg-[rgba(15,118,110,0.08)] border border-[rgba(15,118,110,0.2)] rounded-full px-3.5 py-1.5 mb-7">
             <span className="w-1.5 h-1.5 bg-[#14B8A6] rounded-full animate-pulse" />
             <span className="text-xs font-semibold text-[#0F766E] tracking-wide uppercase">
-              Enterprise Automation
+              AI Agents & Automation
             </span>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.15]">
-            Automate Everything.{" "}
-            <span className="gradient-text">Scale Without Limits</span>
+            AI agents for{" "}
+            <span className="gradient-text">real estate, construction, healthcare and coaching</span>
           </h1>
 
           <p className="text-lg md:text-xl text-[#475569] max-w-xl mx-auto mb-10 leading-relaxed">
-            CUZEC builds enterprise-grade automation solutions powered by AI agents,
-            intelligent workflows, and deep system integrations.
+            We build AI agents and automations that handle the repetitive work in your
+            business, connected to the tools you already use.
           </p>
 
           <div className="flex gap-3 flex-wrap justify-center mb-16">
@@ -74,10 +71,10 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="bg-[#0F172A] hover:bg-[#1e293b] text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all"
             >
-              Book a Demo
+              Book a Free Call
             </a>
-            <Link href="/products" className="border-2 border-[#E2E8F0] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3.5 rounded-xl text-sm font-semibold transition-all">
-              Explore Products
+            <Link href="/case-studies" className="border-2 border-[#E2E8F0] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3.5 rounded-xl text-sm font-semibold transition-all">
+              See Our Work
             </Link>
           </div>
 
@@ -90,23 +87,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PRODUCTS */}
-      <section className="py-24 px-10">
+      {/* INDUSTRIES */}
+      <section id="industries" className="py-24 px-10 scroll-mt-20">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="section-label">Products</div>
-            <h2 className="section-title">Automation Products Built for Enterprise</h2>
-            <p className="section-subtitle">Purpose-built products that automate your most critical business processes.</p>
+            <div className="section-label">Industries</div>
+            <h2 className="section-title">Built for the way your industry works</h2>
+            <p className="section-subtitle">
+              We focus on four industries, so we already know the workflows, the tools and where time gets lost.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto mb-10">
-            {featuredProducts.map((product) => (
-              <ProductCardCompact key={product.slug} product={product} />
-            ))}
-          </div>
-          <div className="text-center">
-            <Link href="/products" className="inline-block border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
-              View All Products
-            </Link>
+          <div className="max-w-6xl mx-auto">
+            <IndustriesGrid />
           </div>
         </Container>
       </section>
@@ -214,22 +206,6 @@ export default function HomePage() {
                 <div className="text-xs font-semibold text-[#475569]">{tech.name}</div>
               </div>
             ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="py-24 px-10 bg-[#EEF2F5]">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="section-label">Industries</div>
-            <h2 className="section-title">Built for the way your industry works</h2>
-            <p className="section-subtitle">
-              We focus on four industries, so we already know the workflows, the tools and where time gets lost.
-            </p>
-          </div>
-          <div className="max-w-6xl mx-auto">
-            <IndustriesGrid />
           </div>
         </Container>
       </section>

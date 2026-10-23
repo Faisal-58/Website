@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-import { products, productCategories } from "@/data/products";
+import { BOOKING_URL, industries } from "@/data/site";
 
 const navLinks = [
-  { href: "/products", label: "Products", mega: "products" },
+  { href: "/#industries", label: "Industries", mega: "industries" },
   { href: "/case-studies", label: "Our Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -73,16 +73,16 @@ export function Header() {
                   {link.mega && <ChevronDown className="w-3.5 h-3.5" />}
                 </Link>
 
-                {link.mega === "products" && activeMega === "products" && (
-                  <MegaMenuProducts />
+                {link.mega === "industries" && activeMega === "industries" && (
+                  <MegaMenuIndustries />
                 )}
               </div>
             ))}
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button href="/contact" variant="primary" size="sm">
-              Book a Demo
+            <Button href={BOOKING_URL} variant="primary" size="sm">
+              Book a Free Call
             </Button>
           </div>
 
@@ -103,7 +103,7 @@ export function Header() {
 
 function MegaMenuWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[600px]">
+    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[480px]">
       <div className="rounded-lg border border-hairline bg-paper/95 backdrop-blur-lg shadow-xl p-6">
         {children}
       </div>
@@ -111,58 +111,29 @@ function MegaMenuWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
-function MegaMenuProducts() {
-  const featured = products.filter((p) => p.featured).slice(0, 3);
-
+function MegaMenuIndustries() {
   return (
     <MegaMenuWrapper>
-      <div className="grid grid-cols-2 gap-6">
-        <div>
-          <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-3">
-            Categories
-          </p>
-          <ul className="space-y-1">
-            {productCategories.map((cat) => (
-              <li key={cat}>
-                <Link
-                  href={`/products?category=${encodeURIComponent(cat)}`}
-                  className="block px-2 py-1.5 text-sm text-muted hover:text-ink hover:bg-mist rounded transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
-                >
-                  {cat}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-3">
-            Featured Products
-          </p>
-          <ul className="space-y-3">
-            {featured.map((product) => (
-              <li key={product.slug}>
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="group block p-2 rounded hover:bg-mist transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
-                >
-                  <p className="text-sm font-medium group-hover:text-accent-light transition-colors">
-                    {product.name}
-                  </p>
-                  <p className="text-xs text-muted mt-0.5 line-clamp-1">
-                    {product.shortDescription}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div className="grid grid-cols-2 gap-2">
+        {industries.map((industry) => (
+          <Link
+            key={industry.href}
+            href={industry.href}
+            className="group block p-3 rounded hover:bg-mist transition-colors focus:outline-none focus:ring-2 focus:ring-accent"
+          >
+            <p className="text-sm font-medium group-hover:text-accent-light transition-colors">
+              {industry.name}
+            </p>
+            <p className="text-xs text-muted mt-0.5">{industry.project}</p>
+          </Link>
+        ))}
       </div>
       <div className="mt-4 pt-4 border-t border-hairline">
         <Link
-          href="/products"
+          href="/case-studies"
           className="flex items-center gap-1 text-sm text-accent-light hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent rounded"
         >
-          View all products <ArrowRight className="w-4 h-4" />
+          See all our work <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </MegaMenuWrapper>
@@ -184,8 +155,8 @@ function MobileNav({ onClose }: { onClose: () => void }) {
           </Link>
         ))}
         <div className="pt-3">
-          <Button href="/contact" variant="primary" size="md" className="w-full">
-            Book a Demo
+          <Button href={BOOKING_URL} variant="primary" size="md" className="w-full">
+            Book a Free Call
           </Button>
         </div>
       </nav>
