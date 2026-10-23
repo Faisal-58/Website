@@ -34,7 +34,7 @@ Companies that embrace intelligent automation are seeing:
 
 The best time to start your automation journey was yesterday. The second best time is now. Begin with a process audit to identify your highest-impact automation opportunities.`,
     category: "Industry Insights",
-    author: { name: "Hamza Sattar", role: "CEO" },
+    author: { name: "Hamza Sattar", role: "Founder" },
     publishedAt: "2026-05-15",
     featured: true,
     readingTime: 8,
@@ -77,7 +77,7 @@ The most effective automation strategies combine both. Use traditional automatio
 
 Start by categorizing your processes: rule-based, decision-heavy, or hybrid. This analysis will guide your automation investment decisions.`,
     category: "Best Practices",
-    author: { name: "Faisal Ijaz", role: "CTO" },
+    author: { name: "Faisal Ijaz", role: "Co-founder & CTO" },
     publishedAt: "2026-04-22",
     featured: true,
     readingTime: 6,
@@ -127,7 +127,7 @@ Results typically include:
 - Cleaner, more accurate CRM data
 - Higher forecast accuracy`,
     category: "Best Practices",
-    author: { name: "Hamza Sattar", role: "CEO" },
+    author: { name: "Hamza Sattar", role: "Founder" },
     publishedAt: "2026-03-18",
     featured: true,
     readingTime: 7,
@@ -180,51 +180,32 @@ export const blogCategories = ["Industry Insights", "Best Practices", "Case Stud
 export const teamMembers: TeamMember[] = [
   {
     name: "Hamza Sattar",
-    role: "CEO",
-    bio: "Leads Cuzec’s vision for customer-support automation across chat, voice, and integrations.",
-    image: "/team/hamza-sattar.jpg",
+    role: "Founder",
+    bio: "5+ years in technical business development and operations. Hamza works with every client to understand how their business runs, and makes sure each automation solves a real problem.",
+    education: "Bachelor's, GIK Institute (GIKI), Pakistan",
+    linkedin: "https://www.linkedin.com/in/hamza-sattar-9403b6267/",
   },
   {
     name: "Faisal Ijaz",
-    role: "CTO",
-    bio: "Owns product and engineering for Cuzec’s AI agents, workflows, and platform architecture.",
-    image: "/team/faisal-ijaz.jpg",
+    role: "Co-founder & CTO",
+    bio: "10+ years in software engineering, AI/ML and data, now focused on LLM-powered agents and open-source voice agents. Faisal leads the technical side: AI agents, n8n workflows and integrations.",
+    education: "Master's, Kiel University (CAU), Germany",
+    linkedin: "https://www.linkedin.com/in/faisal-ijaz-44524179/",
   },
 ];
 
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "CUZEC transformed our customer support operation. AI agents now handle 80% of inquiries, and our CSAT score jumped from 62% to 91%.",
-    author: "Michael Torres",
-    role: "VP of Customer Experience",
-    company: "Global Retail Co.",
-  },
-  {
-    quote:
-      "Our sales pipeline velocity tripled after implementing CUZEC's CRM automation. The ROI was evident within the first month.",
-    author: "Jennifer Walsh",
-    role: "Chief Revenue Officer",
-    company: "TechFlow SaaS",
-  },
-  {
-    quote:
-      "What used to take 45 minutes per shipment now takes 11 minutes. CUZEC's workflow automation scaled our capacity by 150% without adding staff.",
-    author: "Robert Singh",
-    role: "COO",
-    company: "SwiftLogistics",
-  },
-  {
-    quote:
-      "The team at CUZEC doesn't just build automations — they understand our business and design solutions that actually move the needle.",
-    author: "Amanda Foster",
-    role: "CEO",
-    company: "DataPulse Analytics",
-  },
-];
+// Real client testimonials only. The homepage section stays hidden while this is empty.
+// Example:
+// {
+//   quote: "Two or three lines from the client.",
+//   author: "Full Name",
+//   role: "Job Title",
+//   company: "Company Name",
+// },
+export const testimonials: Testimonial[] = [];
 
 export const technologies: Technology[] = [
-  { name: "OpenAI GPT-4", category: "ai", description: "" },
+  { name: "OpenAI", category: "ai", description: "" },
   { name: "Claude", category: "ai", description: "" },
   { name: "n8n", category: "integration", description: "" },
   { name: "Slack", category: "platform", description: "" },

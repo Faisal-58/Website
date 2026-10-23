@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Section, Container } from "@/components/ui/Section";
 import {
   ProductCardCompact,
+  IndustriesGrid,
   ServiceCard,
   CaseStudyCard,
   CTASection,
@@ -10,6 +11,7 @@ import { AnimatedNetworkCanvas } from "@/components/shared/AnimatedNetwork";
 import { getFeaturedProducts } from "@/data/products";
 import { services } from "@/data/services";
 import { getFeaturedCaseStudies } from "@/data/case-studies";
+import { BOOKING_URL } from "@/data/site";
 import { testimonials, technologies } from "@/data/blog";
 import {
   Brain,
@@ -24,7 +26,7 @@ import {
 
 function getTechIcon(techName: string) {
   const iconMap: Record<string, React.ReactNode> = {
-    "OpenAI GPT-4": <Brain className="w-8 h-8 text-orange-500" />,
+    "OpenAI": <Brain className="w-8 h-8 text-orange-500" />,
     Claude: <Zap className="w-8 h-8 text-amber-500" />,
     n8n: <Network className="w-8 h-8 text-red-500" />,
     Slack: <MessageCircle className="w-8 h-8 text-blue-600" />,
@@ -67,7 +69,7 @@ export default function HomePage() {
 
           <div className="flex gap-3 flex-wrap justify-center mb-16">
             <a
-              href="https://calendar.app.google/fEJpyVjydUgHbBgP7"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#0F172A] hover:bg-[#1e293b] text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all"
@@ -85,23 +87,6 @@ export default function HomePage() {
               <AnimatedNetworkCanvas />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* TRUST */}
-      <section className="py-12 px-10 border-b border-[#E2E8F0]">
-        <div className="text-center text-xs font-semibold text-[#64748B] uppercase tracking-widest mb-7">
-          Trusted by forward-thinking enterprises
-        </div>
-        <div className="flex flex-wrap gap-4 justify-center items-center max-w-5xl mx-auto">
-          {["Global Retail Co.", "TechFlow SaaS", "SwiftLogistics", "DataPulse Analytics"].map((name) => (
-            <div
-              key={name}
-              className="px-5 py-2.5 rounded-lg border border-[#E2E8F0] text-sm font-semibold text-[#64748B] bg-white hover:border-[#14B8A6] hover:text-[#0F766E] hover:bg-[rgba(15,118,110,0.04)] transition-all"
-            >
-              {name}
-            </div>
-          ))}
         </div>
       </section>
 
@@ -233,30 +218,40 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* CASE STUDIES */}
+      {/* INDUSTRIES */}
       <section className="py-24 px-10 bg-[#EEF2F5]">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="section-label">Case Studies</div>
-            <h2 className="section-title">Results that compound over time</h2>
-            <p className="section-subtitle">Every engagement delivers measurable outcomes. See what we&apos;ve built for businesses like yours.</p>
+            <div className="section-label">Industries</div>
+            <h2 className="section-title">Built for the way your industry works</h2>
+            <p className="section-subtitle">
+              We focus on four industries, so we already know the workflows, the tools and where time gets lost.
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto mb-10">
-            {featuredCaseStudies.map((study) => (
-              <CaseStudyCard key={study.slug} study={study} />
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Link href="/case-studies" className="inline-block border-2 border-[#E2E8F0] hover:border-[#64748B] hover:bg-white text-[#0F172A] px-7 py-3 rounded-xl text-sm font-semibold transition-all">
-              View All Case Studies
-            </Link>
+          <div className="max-w-6xl mx-auto">
+            <IndustriesGrid />
           </div>
         </Container>
       </section>
 
-      {/* TESTIMONIALS */}
+      {featuredCaseStudies.length > 0 && (
+        <section className="py-24 px-10">
+          <Container>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="section-label">Case Studies</div>
+              <h2 className="section-title">Results that compound over time</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+              {featuredCaseStudies.map((study) => (
+                <CaseStudyCard key={study.slug} study={study} />
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* TESTIMONIALS (hidden until real ones are added in data/blog.ts) */}
+      {testimonials.length > 0 && (
       <section className="py-24 px-10">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -287,6 +282,7 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+      )}
 
       <CTASection />
     </>

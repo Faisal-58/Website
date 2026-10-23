@@ -6,11 +6,17 @@ const footerLinks = {
     { href: "/about", label: "About" },
     { href: "/products", label: "Products" },
     { href: "/services", label: "Services" },
-    { href: "/case-studies", label: "Case Studies" },
+    { href: "/case-studies", label: "Our Work" },
     { href: "/technology", label: "Technology" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
     { href: "/resources", label: "Resources" },
+  ],
+  industries: [
+    { href: "/real-estate", label: "Real Estate" },
+    { href: "/construction", label: "Construction" },
+    { href: "/healthcare", label: "Healthcare" },
+    { href: "/coaching", label: "Coaching" },
   ],
   legal: [
     { href: "/privacy-policy", label: "Privacy Policy" },
@@ -22,7 +28,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-card/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center mb-6">
               <Image
@@ -43,6 +49,22 @@ export function Footer() {
             <h3 className="text-sm font-semibold mb-4">Company</h3>
             <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-muted hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold mb-4">Industries</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.industries.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -90,12 +112,6 @@ export function Footer() {
               className="text-xs text-muted hover:text-foreground transition-colors"
             >
               info@cuzec.io
-            </a>
-            <a
-              href="tel:+923085007407"
-              className="text-xs text-muted hover:text-foreground transition-colors"
-            >
-              +923085007407
             </a>
           </div>
         </div>

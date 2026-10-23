@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { Section, Container, Card } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Mail, MessageCircle, Linkedin, MapPin, Calendar } from "lucide-react";
+import { Mail, Linkedin, MapPin, Calendar } from "lucide-react";
+import { BOOKING_URL } from "@/data/site";
 
 const WEB3FORMS_ACCESS_KEY = "37be53af-7089-470a-8cdd-df061b2d68b7";
 
@@ -88,14 +89,6 @@ export default function ContactPage() {
               </a>
 
               <a
-                href="tel:+923085007407"
-                className="flex items-center gap-3 text-muted hover:text-foreground transition-colors"
-              >
-                <MessageCircle className="w-5 h-5 text-accent-light" />
-                +923085007407
-              </a>
-
-              <a
                 href="https://linkedin.com/company/cuzec"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -108,9 +101,8 @@ export default function ContactPage() {
               <div className="flex items-start gap-3 text-muted">
                 <MapPin className="w-5 h-5 text-accent-light shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium text-foreground">Office</p>
-                  <p className="text-sm">DHA Phase 6</p>
-                  <p className="text-sm">Lahore, Pakistan</p>
+                  <p className="font-medium text-foreground">Location</p>
+                  <p className="text-sm">Remote team, based in Lahore, Pakistan</p>
                 </div>
               </div>
 
@@ -123,7 +115,7 @@ export default function ContactPage() {
                   Schedule a 30-minute demo with our automation experts.
                 </p>
                 <a
-                  href="https://calendar.app.google/fEJpyVjydUgHbBgP7"
+                  href={BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center w-full px-5 py-2.5 rounded-lg bg-accent hover:bg-accent-dark text-white text-sm font-medium transition-colors"

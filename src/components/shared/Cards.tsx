@@ -3,6 +3,7 @@ import { ArrowRight, ExternalLink, Play } from "lucide-react";
 import type { Product } from "@/types";
 import { Card, Badge } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { BOOKING_URL, industries } from "@/data/site";
 
 export function ProductCard({ product }: { product: Product }) {
   return (
@@ -148,13 +149,40 @@ export function BlogCard({ post }: { post: import("@/types").BlogPost }) {
   );
 }
 
+export function IndustriesGrid() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {industries.map((industry) => (
+        <Link key={industry.name} href={industry.href} className="group block h-full">
+          <Card hover className="h-full flex flex-col">
+            <h3 className="text-lg font-semibold mb-3 group-hover:text-accent-light transition-colors">
+              {industry.name}
+            </h3>
+            <ul className="space-y-1.5 flex-1">
+              {industry.automations.map((a) => (
+                <li key={a} className="text-sm text-muted flex items-start gap-2">
+                  <span className="text-accent mt-0.5">•</span>
+                  {a}
+                </li>
+              ))}
+            </ul>
+            <span className="inline-flex items-center gap-1 text-sm text-accent-light mt-4 group-hover:gap-2 transition-all">
+              See {industry.project} <ArrowRight className="w-4 h-4" />
+            </span>
+          </Card>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
 export function CTASection({
-  title = "Ready to Transform Your Business?",
-  description = "Book a demo and discover how CUZEC automation can drive measurable results for your organization.",
-  primaryLabel = "Book a Demo",
-  primaryHref = "/contact",
-  secondaryLabel = "View Case Studies",
-  secondaryHref = "/case-studies",
+  title = "Ready to Automate Your Business?",
+  description = "Book a free 30-minute call. Tell us how things work today and we'll show you what can be automated.",
+  primaryLabel = "Book a Free Call",
+  primaryHref = BOOKING_URL,
+  secondaryLabel = "Send a Message",
+  secondaryHref = "/contact",
 }: {
   title?: string;
   description?: string;

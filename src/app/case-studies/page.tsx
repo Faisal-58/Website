@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Section, Container } from "@/components/ui/Section";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Section, Container, Card, Badge } from "@/components/ui/Section";
 import { CaseStudyGrid } from "@/components/case-studies/CaseStudyGrid";
 import { CTASection } from "@/components/shared/Cards";
 import { caseStudies } from "@/data/case-studies";
+import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Case Studies",
-  description: "See how CUZEC automation delivers measurable results for enterprise clients.",
+  title: "Our Work",
+  description: "Automation projects and working demos built by the CUZEC team.",
 };
 
 export default function CaseStudiesPage() {
@@ -16,45 +19,54 @@ export default function CaseStudiesPage() {
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
-            Case Studies
+            Our Work
           </span>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-            Proof of Results
+            See What We Build
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
-            Real outcomes from real clients. Explore how CUZEC automation drives
-            measurable business impact across industries.
+            Products, demos and client projects we&apos;ve built across real estate,
+            construction, healthcare and coaching. Client details stay confidential.
           </p>
         </Container>
       </section>
 
       <Section className="border-t border-border">
         <Container>
-          <CaseStudyGrid studies={caseStudies} />
-        </Container>
-      </Section>
-
-      <Section className="bg-card/30">
-        <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "9,500+", label: "Hours Saved" },
-              { value: "$7.3M", label: "Client Impact" },
-              { value: "80%", label: "Avg. Automation Rate" },
-              { value: "3x", label: "Avg. Efficiency Gain" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-bold text-accent-light">{stat.value}</p>
-                <p className="text-sm text-muted mt-1">{stat.label}</p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <Link key={project.slug} href={`/${project.slug}`} className="group block h-full">
+                <Card hover className="h-full flex flex-col">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <Badge>{project.industry}</Badge>
+                    <span className="text-xs text-muted">{project.status}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-accent-light transition-colors">
+                    {project.name}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
+                    {project.cardSummary}
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-sm text-accent-light group-hover:gap-2 transition-all">
+                    Learn more <ArrowRight className="w-4 h-4" />
+                  </span>
+                </Card>
+              </Link>
             ))}
           </div>
+
+          {caseStudies.length > 0 && (
+            <div className="mt-16">
+              <h2 className="text-2xl font-semibold mb-6">Client Case Studies</h2>
+              <CaseStudyGrid studies={caseStudies} />
+            </div>
+          )}
         </Container>
       </Section>
 
       <CTASection
-        title="Want Results Like These?"
-        description="Let's discuss how CUZEC can deliver similar outcomes for your business."
+        title="Have a process you want automated?"
+        description="Tell us how it works today and we'll show you what an automated version could look like."
       />
     </>
   );

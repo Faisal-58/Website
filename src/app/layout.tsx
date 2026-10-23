@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.cuzec.io"),
   title: {
     default: "CUZEC — Enterprise Automation Platform",
     template: "%s | CUZEC",

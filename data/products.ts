@@ -23,7 +23,7 @@ export const products: Product[] = [
       "Integration with 100+ platforms",
       "Custom agent training",
     ],
-    techStack: ["OpenAI GPT-4", "Claude", "n8n", "Python", "Node.js"],
+    techStack: ["OpenAI", "Claude", "n8n", "Python", "Node.js"],
     problem:
       "Businesses spend countless hours on repetitive cognitive tasks that require human judgment but follow predictable patterns.",
     howItWorks: [

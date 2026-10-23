@@ -10,7 +10,7 @@ import { products, productCategories } from "@/data/products";
 
 const navLinks = [
   { href: "/products", label: "Products", mega: "products" },
-  { href: "/case-studies", label: "Case Studies" },
+  { href: "/case-studies", label: "Our Work" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
