@@ -1,17 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
-  const lenisRef = useRef<Lenis | null>(null);
-
   useEffect(() => {
-    // Respect prefers-reduced-motion
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -20,41 +18,25 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    // Initialize Lenis for smooth scrolling
+    // Default Lenis lerp. A custom easing used to return negative values for
+    // the first half of each gesture, so the page scrolled backward, then jumped.
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => {
-        // cubic-bezier(0.16, 1, 0.3, 1)
-        return t === 0
-          ? 0
-          : t === 1
-            ? 1
-            : t < 0.5
-              ? 2 * t * t * t * (4 * t - 3)
-              : 1 + (t - 1) * (2 * (t - 1) ** 2 * (4 * (t - 1) + 3));
-      },
-      smoothWheel: true,
+      autoRaf: false,
+      anchors: true,
     });
 
-    lenisRef.current = lenis;
-
-    // Disable GSAP's built-in lag smoothing for precise sync
-    gsap.ticker.lagSmoothing(0);
-
-    // Keep ScrollTrigger in sync with Lenis scroll
     lenis.on("scroll", ScrollTrigger.update);
 
-    // Update GSAP ticker with Lenis RAF
-    const update = () => {
-      lenis.raf(Date.now());
+    const onTick = (time: number) => {
+      lenis.raf(time * 1000);
     };
 
-    gsap.ticker.add(update);
+    gsap.ticker.add(onTick);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      gsap.ticker.remove(update);
+      gsap.ticker.remove(onTick);
       lenis.destroy();
-      lenisRef.current = null;
     };
   }, []);
 

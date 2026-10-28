@@ -1,182 +1,147 @@
 import Link from "next/link";
-import { Section, Container } from "@/components/ui/Section";
+import { ArrowRight, BarChart3, Bot, Layers, Play, Puzzle } from "lucide-react";
+import { Container } from "@/components/ui/Section";
 import {
   IndustriesGrid,
-  ServiceCard,
   CaseStudyCard,
   CTASection,
 } from "@/components/shared/Cards";
-import { AnimatedNetworkCanvas } from "@/components/shared/AnimatedNetwork";
-import { services } from "@/data/services";
+import { LaptopWorkflow } from "@/components/home/LaptopWorkflow";
 import { getFeaturedCaseStudies } from "@/data/case-studies";
 import { BOOKING_URL } from "@/data/site";
 import { testimonials, technologies } from "@/data/blog";
-import {
-  Brain,
-  Zap,
-  Network,
-  MessageCircle,
-  Globe,
-  TrendingUp,
-  Map,
-  Mail,
-} from "lucide-react";
 
-function getTechIcon(techName: string) {
-  const iconMap: Record<string, React.ReactNode> = {
-    "OpenAI": <Brain className="w-8 h-8 text-orange-500" />,
-    Claude: <Zap className="w-8 h-8 text-amber-500" />,
-    n8n: <Network className="w-8 h-8 text-red-500" />,
-    Slack: <MessageCircle className="w-8 h-8 text-blue-600" />,
-    WhatsApp: <MessageCircle className="w-8 h-8 text-green-500" />,
-    GoHighLevel: <TrendingUp className="w-8 h-8 text-purple-600" />,
-    "Google Maps": <Map className="w-8 h-8 text-blue-500" />,
-    "Google Workspace": <Mail className="w-8 h-8 text-yellow-500" />,
-  };
-  return iconMap[techName] || <Globe className="w-8 h-8 text-gray-500" />;
-}
+const features = [
+  { href: "/services/ai-agents", label: "AI Agents", icon: Bot },
+  { href: "/services/workflow-automation", label: "Process Automation", icon: Layers },
+  { href: "/technology", label: "Integrations", icon: Puzzle },
+  { href: "/case-studies", label: "Business Growth", icon: BarChart3 },
+];
 
 export default function HomePage() {
   const featuredCaseStudies = getFeaturedCaseStudies();
 
   return (
     <>
-      {/* HERO */}
-      <section className="hero-glow relative min-h-screen flex flex-col items-center justify-center px-10 md:px-10 py-32 text-center overflow-hidden">
-        <div className="absolute inset-0 hero-grid" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-80 hero-glow pointer-events-none" />
-        
-        <div className="relative z-10 max-w-5xl">
-          <div className="inline-flex items-center gap-1.5 bg-[rgba(43,19,207,0.08)] border border-[rgba(43,19,207,0.2)] rounded-full px-3.5 py-1.5 mb-7">
-            <span className="w-1.5 h-1.5 bg-[#7460FF] rounded-full animate-pulse" />
-            <span className="text-xs font-semibold text-[#2B13CF] tracking-wide uppercase">
-              AI Agents & Automation
-            </span>
-          </div>
+      <section className="px-3 pb-6 pt-3 sm:px-4 md:px-6">
+        <div className="relative overflow-hidden rounded-[28px] border border-[#14B8A6]/45 bg-[#061A1B] shadow-[0_0_80px_rgba(20,184,166,0.16)]">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_72%_58%,rgba(20,184,166,0.28),transparent_62%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_12%_0%,rgba(15,118,110,0.35),transparent_60%)]" />
 
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.15]">
-            AI agents for{" "}
-            <span className="gradient-text">real estate, construction, healthcare and coaching</span>
-          </h1>
+          <div className="relative grid items-center gap-10 px-6 py-10 sm:px-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(280px,480px)] lg:px-14 lg:py-16">
+            <div className="max-w-[680px]">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-mint/40 bg-[#0F766E]/30 px-3.5 py-1.5">
+                <span className="text-mint text-xs">✦</span>
+                <span className="font-display text-xs font-medium tracking-wide text-ink">
+                  AI Automation Agency
+                </span>
+              </div>
 
-          <p className="text-lg md:text-xl text-[#475569] max-w-xl mx-auto mb-10 leading-relaxed">
-            We build AI agents and automations that handle the repetitive work in your
-            business, connected to the tools you already use.
-          </p>
+              <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[56px]">
+                AI Automation for
+                <span className="mt-1 block text-mint">Modern Businesses.</span>
+              </h1>
 
-          <div className="flex gap-3 flex-wrap justify-center mb-16">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-accent hover:bg-accent-dark text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-all"
-            >
-              Book a Free Call
-            </a>
-            <Link href="/case-studies" className="border-2 border-[#E2E8F0] hover:bg-[#EEF2F5] text-[#0F172A] px-7 py-3.5 rounded-xl text-sm font-semibold transition-all">
-              See Our Work
-            </Link>
-          </div>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-ink/80 sm:text-lg">
+                Automate workflows, connect your tools, and let AI handle the busy work — so you can focus on growth.
+              </p>
 
-          {/* NETWORK CANVAS - ONLY HERE */}
-          <div className="w-full max-w-3xl mx-auto border border-[#E2E8F0] rounded-3xl bg-white overflow-hidden glow">
-            <div className="h-72">
-              <AnimatedNetworkCanvas />
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3 font-display text-sm font-semibold text-[#061A1B] shadow-[0_0_24px_rgba(163,255,203,0.3)] transition hover:bg-[#c9ffdf]"
+                >
+                  Get Started <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link
+                  href="/case-studies"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-mint/50 px-5 py-3 font-display text-sm font-semibold text-ink transition hover:bg-mint/10"
+                >
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full border border-mint/70">
+                    <Play className="h-2.5 w-2.5 fill-mint text-mint" />
+                  </span>
+                  Watch Demo
+                </Link>
+              </div>
             </div>
+
+            <LaptopWorkflow />
+          </div>
+
+          <div className="relative grid grid-cols-2 border-t border-mint/20 md:grid-cols-4">
+            {features.map(({ href, label, icon: Icon }) => (
+              <Link
+                key={label}
+                href={href}
+                className="flex items-center justify-center gap-3 border-mint/15 px-4 py-5 text-ink transition hover:bg-mint/10 md:border-r md:last:border-r-0 [&:nth-child(odd)]:border-r md:[&:nth-child(odd)]:border-r"
+              >
+                <Icon className="h-5 w-5 text-mint" strokeWidth={1.75} />
+                <span className="font-display text-sm font-medium sm:text-base">{label}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* INDUSTRIES */}
-      <section id="industries" className="py-24 px-10 scroll-mt-20 bg-[#EEF2F5]">
+      <section id="industries" className="scroll-mt-20 px-6 py-16 sm:px-10">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="mx-auto mb-8 max-w-6xl">
             <div className="section-label">Industries</div>
             <h2 className="section-title">Built for the way your industry works</h2>
-            <p className="section-subtitle">
+            <p className="section-subtitle max-w-2xl">
               We focus on four industries, so we already know the workflows, the tools and where time gets lost.
             </p>
           </div>
-          <div className="max-w-6xl mx-auto">
+          <div className="mx-auto max-w-6xl">
             <IndustriesGrid />
           </div>
         </Container>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-24 px-10">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="section-label">Services</div>
-            <h2 className="section-title">End-to-End Automation Services</h2>
-            <p className="section-subtitle">From strategy to deployment, we handle every aspect of your automation journey.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {services.slice(0, 6).map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* PROCESS */}
-      <section style={{ background: "#EEF2F5", padding: "100px 40px" }}>
-        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 64px" }}>
+      <section className="border-t border-mint/15 px-6 py-16 sm:px-10">
+        <div className="mx-auto mb-8 max-w-6xl">
           <div className="section-label">How We Work</div>
           <h2 className="section-title">From discovery to deployment in weeks.</h2>
-          <p className="section-subtitle">Four steps from first call to live automation, with a fixed price agreed before we start.</p>
+          <p className="section-subtitle max-w-2xl">
+            Four steps from first call to live automation, with a fixed price agreed before we start.
+          </p>
         </div>
-        
-        <div className="process-track">
-          <div className="process-line" />
 
-          <div className="process-step active">
-            <div className="process-num">01</div>
-            <div className="process-content">
-              <div className="process-title">Free Discovery Call</div>
-              <div className="process-desc">We learn how your business runs today and find where automation will save the most time.</div>
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["01", "Free Discovery Call", "We learn how your business runs today and find where automation will save the most time."],
+            ["02", "Design & Fixed Quote", "We map the workflow, design the solution and give you a fixed price before any work starts."],
+            ["03", "Build & Test", "We build the agents, workflows and integrations, and test them against real scenarios and edge cases."],
+            ["04", "Launch & Support", "We go live, train your team and support you for 2 months, then keep improving as you grow."],
+          ].map(([num, title, desc]) => (
+            <div key={num} className="rounded-2xl border border-mint/20 bg-card p-5">
+              <div className="mb-3 font-display text-[13px] font-semibold tabular-nums text-mint">{num}</div>
+              <div className="mb-1 font-display text-base font-semibold text-ink">{title}</div>
+              <p className="text-[15px] leading-relaxed text-muted">{desc}</p>
             </div>
-          </div>
-          <div className="process-step">
-            <div className="process-num">02</div>
-            <div className="process-content">
-              <div className="process-title">Design & Fixed Quote</div>
-              <div className="process-desc">We map the workflow, design the solution and give you a fixed price before any work starts.</div>
-            </div>
-          </div>
-          <div className="process-step">
-            <div className="process-num">03</div>
-            <div className="process-content">
-              <div className="process-title">Build & Test</div>
-              <div className="process-desc">We build the agents, workflows and integrations, and test them against real scenarios and edge cases.</div>
-            </div>
-          </div>
-          <div className="process-step">
-            <div className="process-num">04</div>
-            <div className="process-content">
-              <div className="process-title">Launch & Support</div>
-              <div className="process-desc">We go live, train your team and support you for 2 months, then keep improving as you grow.</div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* TECH ECOSYSTEM - WITH LOGOS */}
-      <section className="py-24 px-10">
+      <section className="border-t border-mint/15 px-6 py-16 sm:px-10">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="mx-auto mb-8 max-w-4xl">
             <div className="section-label">Technology Ecosystem</div>
             <h2 className="section-title">Built on the tools you already use.</h2>
-            <p className="section-subtitle">We work across the entire modern SaaS stack. No rip-and-replace, no new tools to learn.</p>
+            <p className="section-subtitle max-w-2xl">
+              We work across the entire modern SaaS stack. No rip-and-replace, no new tools to learn.
+            </p>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl mx-auto">
+
+          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-4">
             {technologies.map((tech) => (
-              <div key={tech.name} className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center hover:border-[#7460FF] hover:-translate-y-0.5 transition-all">
-                <div className="flex justify-center mb-2">
-                  {getTechIcon(tech.name)}
-                </div>
-                <div className="text-xs font-semibold text-[#475569]">{tech.name}</div>
+              <div
+                key={tech.name}
+                className="rounded-2xl border border-mint/25 bg-card px-4 py-5 text-center transition hover:border-mint hover:shadow-[0_0_24px_rgba(20,184,166,0.18)]"
+              >
+                <div className="font-display text-sm font-semibold text-ink">{tech.name}</div>
               </div>
             ))}
           </div>
@@ -184,13 +149,13 @@ export default function HomePage() {
       </section>
 
       {featuredCaseStudies.length > 0 && (
-        <section className="py-24 px-10">
+        <section className="px-6 py-16 sm:px-10">
           <Container>
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="mx-auto mb-8 max-w-6xl">
               <div className="section-label">Case Studies</div>
               <h2 className="section-title">Results that compound over time</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-3">
               {featuredCaseStudies.map((study) => (
                 <CaseStudyCard key={study.slug} study={study} />
               ))}
@@ -199,38 +164,28 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* TESTIMONIALS (hidden until real ones are added in data/blog.ts) */}
       {testimonials.length > 0 && (
-      <section className="py-24 px-10">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="section-label">Testimonials</div>
-            <h2 className="section-title">Trusted by operators who move fast</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {testimonials.map((t) => (
-              <div key={t.author} className="bg-white border border-[#E2E8F0] rounded-2xl p-7 relative">
-                <div className="text-6xl text-[rgba(43,19,207,0.06)] font-black absolute top-0 left-5 leading-none">
-                  &quot;
-                </div>
-                <p className="text-sm text-[#475569] leading-relaxed mb-5 relative z-10">
-                  {t.quote}
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2B13CF] to-[#7460FF] flex items-center justify-center text-white text-xs font-bold">
-                    {t.author.split(" ").map((n) => n[0]).join("")}
-                  </div>
+        <section className="px-6 py-16 sm:px-10">
+          <Container>
+            <div className="mx-auto mb-8 max-w-5xl">
+              <div className="section-label">Testimonials</div>
+              <h2 className="section-title">Trusted by operators who move fast</h2>
+            </div>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3">
+              {testimonials.map((t) => (
+                <div key={t.author} className="relative rounded-2xl border border-mint/20 bg-card p-7">
+                  <p className="relative z-10 mb-5 text-sm leading-relaxed text-muted">{t.quote}</p>
                   <div>
-                    <p className="text-sm font-semibold">{t.author}</p>
-                    <p className="text-xs text-[#64748B]">{t.role}, {t.company}</p>
+                    <p className="text-sm font-semibold text-ink">{t.author}</p>
+                    <p className="text-xs text-muted">
+                      {t.role}, {t.company}
+                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              ))}
+            </div>
+          </Container>
+        </section>
       )}
 
       <CTASection />

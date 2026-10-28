@@ -4,9 +4,9 @@ import Image from "next/image";
 const footerLinks = {
   company: [
     { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/case-studies", label: "Our Work" },
-    { href: "/technology", label: "Technology" },
+    { href: "/services", label: "Solutions" },
+    { href: "/case-studies", label: "Use Cases" },
+    { href: "/technology", label: "Integrations" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
     { href: "/resources", label: "Resources" },
@@ -25,17 +25,17 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/50">
+    <footer className="border-t border-mint/20 bg-[#041314]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center mb-6">
               <Image
-                src="/logo.png"
-                alt="CUZEC Logo"
-                width={969}
-                height={314}
-                className="h-12 w-auto"
+              src="/cuzec-logo.png"
+              alt="Cuzec AI Automation"
+              width={515}
+              height={275}
+              className="h-12 w-auto"
               />
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-sm">

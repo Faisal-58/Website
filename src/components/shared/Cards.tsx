@@ -90,16 +90,16 @@ export function BlogCard({ post }: { post: import("@/types").BlogPost }) {
 
 export function IndustriesGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {industries.map((industry) => (
         <Link key={industry.name} href={industry.href} className="group block h-full">
           <Card hover className="h-full flex flex-col">
-            <h3 className="text-lg font-semibold mb-3 group-hover:text-accent-light transition-colors">
+            <h3 className="text-xl font-semibold mb-3 group-hover:text-accent-light transition-colors">
               {industry.name}
             </h3>
-            <ul className="space-y-1.5 flex-1">
+            <ul className="space-y-2 flex-1">
               {industry.automations.map((a) => (
-                <li key={a} className="text-sm text-muted flex items-start gap-2">
+                <li key={a} className="text-[15px] leading-[1.45] text-muted flex items-start gap-2">
                   <span className="text-accent mt-0.5">•</span>
                   {a}
                 </li>
@@ -118,7 +118,7 @@ export function IndustriesGrid() {
 export function CTASection({
   title = "Ready to Automate Your Business?",
   description = "Book a free 30-minute call. Tell us how things work today and we'll show you what can be automated.",
-  primaryLabel = "Book a Free Call",
+  primaryLabel = "Book a free 30-minute session",
   primaryHref = BOOKING_URL,
   secondaryLabel = "Send a Message",
   secondaryHref = "/contact",
@@ -138,13 +138,18 @@ export function CTASection({
           <div className="relative px-8 py-16 md:px-16 md:py-20 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">{title}</h2>
             <p className="text-muted text-lg max-w-2xl mx-auto mb-8">{description}</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col items-center gap-3">
               <Button href={primaryHref} variant="primary" size="lg">
                 {primaryLabel}
               </Button>
-              <Button href={secondaryHref} variant="outline" size="lg">
-                {secondaryLabel}
-              </Button>
+              {secondaryLabel ? (
+                <Link
+                  href={secondaryHref}
+                  className="text-sm font-semibold text-accent-light hover:underline"
+                >
+                  {secondaryLabel}
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>

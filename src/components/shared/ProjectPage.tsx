@@ -30,7 +30,7 @@ export function ProjectPage({ project }: { project: Project }) {
             <p className="text-lg text-muted leading-relaxed mb-8">{project.intro}</p>
             <div className="flex flex-wrap gap-3">
               <Button href={BOOKING_URL} variant="primary" size="lg">
-                Book a Free Call
+                Book a free 30-minute session
               </Button>
               <Button href="#how-it-works" variant="outline" size="lg">
                 How It Works
@@ -82,7 +82,7 @@ export function ProjectPage({ project }: { project: Project }) {
             <div className="max-w-5xl mx-auto space-y-12">
               {project.screenshots.map((shot) => (
                 <figure key={shot.src}>
-                  <div className="rounded-xl border border-border bg-white overflow-hidden shadow-lg shadow-accent/5">
+                  <div className="rounded-xl border border-border bg-card overflow-hidden shadow-lg shadow-accent/10">
                     <Image
                       src={shot.src}
                       alt={shot.alt}
@@ -157,7 +157,7 @@ export function ProjectPage({ project }: { project: Project }) {
       <CTASection
         title={project.cta.title}
         description={project.cta.description}
-        primaryLabel="Book a Free Call"
+        primaryLabel="Book a free 30-minute session"
         secondaryLabel="See All Our Work"
         secondaryHref="/case-studies"
       />
