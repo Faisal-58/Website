@@ -7,6 +7,7 @@ import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { BOOKING_URL, industries } from "@/data/site";
+import { services } from "@/data/services";
 
 const resourceLinks = [
   { href: "/resources", label: "Guides" },
@@ -57,7 +58,7 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-1 font-display">
             <Mega
               label="Solutions"
-              href="/services"
+              href="/#industries"
               open={activeMega === "solutions"}
               onOpen={() => setActiveMega("solutions")}
               onClose={() => setActiveMega(null)}
@@ -76,11 +77,32 @@ export function Header() {
                   </Link>
                 ))}
               </div>
+            </Mega>
+
+            <Mega
+              label="Services"
+              href="/services"
+              width="w-[440px]"
+              open={activeMega === "services"}
+              onOpen={() => setActiveMega("services")}
+              onClose={() => setActiveMega(null)}
+            >
+              <div className="grid grid-cols-2 gap-1">
+                {services.map((service) => (
+                  <Link
+                    key={service.slug}
+                    href={`/services/${service.slug}`}
+                    className="rounded-xl px-3 py-2.5 text-sm text-ink hover:bg-mint/10 hover:text-mint"
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
               <Link
                 href="/services"
                 className="mt-3 flex items-center gap-1 border-t border-hairline pt-3 text-sm text-mint"
               >
-                All solutions <ArrowRight className="w-4 h-4" />
+                All services <ArrowRight className="w-4 h-4" />
               </Link>
             </Mega>
 
@@ -146,6 +168,7 @@ function Mega({
   open,
   onOpen,
   onClose,
+  width = "w-[340px]",
   children,
 }: {
   label: string;
@@ -153,6 +176,7 @@ function Mega({
   open: boolean;
   onOpen: () => void;
   onClose: () => void;
+  width?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -165,7 +189,7 @@ function Mega({
         <ChevronDown className={cn("w-3.5 h-3.5 transition-transform", open && "rotate-180")} />
       </Link>
       {open && (
-        <div className="absolute top-full left-0 pt-2 w-[340px]">
+        <div className={cn("absolute top-full left-0 pt-2", width)}>
           <div className="rounded-2xl border border-mint/25 bg-[#082422]/95 backdrop-blur-lg p-3 shadow-[0_16px_50px_rgba(0,0,0,0.35)]">
             {children}
           </div>
@@ -177,7 +201,11 @@ function Mega({
 
 function MobileNav({ onClose }: { onClose: () => void }) {
   return (
-    <div className="lg:hidden border-t border-hairline bg-paper">
+    // Taller than a phone screen, so it scrolls on its own; data-lenis-prevent stops smooth scroll capturing it.
+    <div
+      data-lenis-prevent
+      className="lg:hidden border-t border-hairline bg-paper max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain"
+    >
       <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1 font-display">
         <p className="px-3 pt-2 text-xs uppercase tracking-wider text-mint">Solutions</p>
         {industries.map((industry) => (
@@ -190,9 +218,17 @@ function MobileNav({ onClose }: { onClose: () => void }) {
             {industry.name}
           </Link>
         ))}
-        <Link href="/services" onClick={onClose} className="block px-3 py-2 text-sm text-muted">
-          All solutions
-        </Link>
+        <p className="px-3 pt-3 text-xs uppercase tracking-wider text-mint">Services</p>
+        {services.map((service) => (
+          <Link
+            key={service.slug}
+            href={`/services/${service.slug}`}
+            onClick={onClose}
+            className="block px-3 py-2 text-sm text-ink hover:text-mint"
+          >
+            {service.name}
+          </Link>
+        ))}
         <Link href="/case-studies" onClick={onClose} className="block px-3 py-2.5 text-sm text-ink">
           Use Cases
         </Link>

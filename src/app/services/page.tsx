@@ -1,12 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container } from "@/components/ui/Section";
 import { ServiceCard, CTASection } from "@/components/shared/Cards";
 import { services } from "@/data/services";
+import { deliverySteps } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Services",
-  description: "CUZEC automation services — AI agents, workflow automation, CRM, WhatsApp, e-commerce, and more.",
-};
+  description:
+    "Cuzec automation services: AI agents, workflow automation, CRM, WhatsApp, e-commerce, lead and operations automation.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -21,8 +24,8 @@ export default function ServicesPage() {
             Automation Services
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
-            End-to-end automation services that transform how your business operates.
-            From strategy to deployment and ongoing optimization.
+            AI agents and automations built around the tools you already use. Fixed price,
+            live in 2–4 weeks, with 2 months of support after launch.
           </p>
         </Container>
       </section>
@@ -40,18 +43,14 @@ export default function ServicesPage() {
       <Section className="bg-card/30">
         <Container>
           <SectionHeader
-            label="Approach"
-            title="Every Service Includes"
-            description="Consistent deliverables across all our automation services."
+            label="How We Work"
+            title="Every project works the same way"
+            description="Four steps from first call to live automation, with a fixed price agreed before we start."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Process Audit", desc: "Comprehensive analysis of current workflows" },
-              { title: "Custom Design", desc: "Tailored automation architecture for your needs" },
-              { title: "Implementation", desc: "Full build, test, and deployment" },
-              { title: "Ongoing Support", desc: "Monitoring, optimization, and expansion" },
-            ].map((item) => (
-              <div key={item.title} className="p-6 rounded-xl border border-border bg-card">
+            {deliverySteps.map((item) => (
+              <div key={item.num} className="p-6 rounded-xl border border-border bg-card">
+                <div className="text-accent-light font-bold text-sm mb-2">{item.num}</div>
                 <h3 className="font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-muted">{item.desc}</p>
               </div>

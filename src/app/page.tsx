@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BarChart3, Bot, Layers, Play, Puzzle } from "lucide-react";
+import { ArrowRight, BarChart3, Bot, Layers, Puzzle } from "lucide-react";
 import { Container } from "@/components/ui/Section";
 import {
   IndustriesGrid,
@@ -8,8 +8,12 @@ import {
 } from "@/components/shared/Cards";
 import { LaptopWorkflow } from "@/components/home/LaptopWorkflow";
 import { getFeaturedCaseStudies } from "@/data/case-studies";
-import { BOOKING_URL } from "@/data/site";
+import { BOOKING_URL, deliverySteps } from "@/data/site";
 import { testimonials, technologies } from "@/data/blog";
+import { services } from "@/data/services";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({ title: DEFAULT_TITLE, description: DEFAULT_DESCRIPTION, path: "/" });
 
 const features = [
   { href: "/services/ai-agents", label: "AI Agents", icon: Bot },
@@ -59,10 +63,7 @@ export default function HomePage() {
                   href="/case-studies"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-mint/50 px-5 py-3 font-display text-sm font-semibold text-ink transition hover:bg-mint/10"
                 >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full border border-mint/70">
-                    <Play className="h-2.5 w-2.5 fill-mint text-mint" />
-                  </span>
-                  Watch Demo
+                  See Our Work <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -100,6 +101,48 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <section id="services" className="scroll-mt-20 border-t border-mint/15 px-6 py-16 sm:px-10">
+        <div className="mx-auto mb-8 max-w-6xl">
+          <div className="section-label">Services</div>
+          <h2 className="section-title">What we build</h2>
+          <p className="section-subtitle max-w-2xl">
+            AI agents and automations, connected to the tools you already use.
+          </p>
+        </div>
+
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="group flex flex-col rounded-2xl border border-mint/20 bg-card p-5 transition-colors hover:border-mint/50"
+            >
+              <div className="mb-1 font-display text-base font-semibold text-ink group-hover:text-mint">
+                {service.name}
+              </div>
+              <p className="mb-4 flex-1 text-sm leading-relaxed text-muted">{service.shortDescription}</p>
+              <span className="inline-flex items-center gap-1 text-sm text-mint">
+                Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col rounded-2xl border border-dashed border-mint/40 p-5 transition-colors hover:bg-mint/5"
+          >
+            <div className="mb-1 font-display text-base font-semibold text-ink">Not sure where to start?</div>
+            <p className="mb-4 flex-1 text-sm leading-relaxed text-muted">
+              Book a free 30-minute call and we&apos;ll show you what&apos;s worth automating first.
+            </p>
+            <span className="inline-flex items-center gap-1 text-sm text-mint">
+              Book a free call <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </a>
+        </div>
+      </section>
+
       <section className="border-t border-mint/15 px-6 py-16 sm:px-10">
         <div className="mx-auto mb-8 max-w-6xl">
           <div className="section-label">How We Work</div>
@@ -110,12 +153,7 @@ export default function HomePage() {
         </div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["01", "Free Discovery Call", "We learn how your business runs today and find where automation will save the most time."],
-            ["02", "Design & Fixed Quote", "We map the workflow, design the solution and give you a fixed price before any work starts."],
-            ["03", "Build & Test", "We build the agents, workflows and integrations, and test them against real scenarios and edge cases."],
-            ["04", "Launch & Support", "We go live, train your team and support you for 2 months, then keep improving as you grow."],
-          ].map(([num, title, desc]) => (
+          {deliverySteps.map(({ num, title, desc }) => (
             <div key={num} className="rounded-2xl border border-mint/20 bg-card p-5">
               <div className="mb-3 font-display text-[13px] font-semibold tabular-nums text-mint">{num}</div>
               <div className="mb-1 font-display text-base font-semibold text-ink">{title}</div>

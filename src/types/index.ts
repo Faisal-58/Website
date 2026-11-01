@@ -32,7 +32,8 @@ export interface Service {
   challenges: string[];
   solutions: string[];
   automationProcess: { step: number; title: string; description: string }[];
-  implementationProcess: { step: number; title: string; description: string }[];
+  // Slugs from data/projects.ts (our own projects that use this service)
+  projectSlugs: string[];
   caseStudySlugs: string[];
   faq: { question: string; answer: string }[];
 }

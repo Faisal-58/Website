@@ -4,6 +4,14 @@ export const BOOKING_URL = "https://calendar.app.google/fEJpyVjydUgHbBgP7";
 export const REAL_ESTATE_DEMO_VIDEO =
   "https://www.loom.com/embed/a97fd43b24874e67a6578192197436f1?hideEmbedTopBar=true";
 
+// How every project runs. Shown on the homepage and on every service page.
+export const deliverySteps = [
+  { num: "01", title: "Free Discovery Call", desc: "We learn how your business runs today and find where automation will save the most time." },
+  { num: "02", title: "Design & Fixed Quote", desc: "We map the workflow, design the solution and give you a fixed price before any work starts." },
+  { num: "03", title: "Build & Test", desc: "We build the agents, workflows and integrations, and test them against real scenarios and edge cases." },
+  { num: "04", title: "Launch & Support", desc: "We go live, train your team and support you for 2 months, then keep improving as you grow." },
+];
+
 export const industries = [
   {
     name: "Real Estate",

@@ -6,7 +6,10 @@ import { Button } from "@/components/ui/Button";
 import { CTASection, CaseStudyCard } from "@/components/shared/Cards";
 import { services, getServiceBySlug } from "@/data/services";
 import { getCaseStudyBySlug } from "@/data/case-studies";
+import { getProject } from "@/data/projects";
+import { BOOKING_URL, deliverySteps } from "@/data/site";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -20,10 +23,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return { title: "Service Not Found" };
-  return {
+  return pageMetadata({
     title: service.name,
     description: service.shortDescription,
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({
@@ -38,6 +42,7 @@ export default async function ServiceDetailPage({
   const relatedCaseStudies = service.caseStudySlugs
     .map((s) => getCaseStudyBySlug(s))
     .filter(Boolean);
+  const relatedProjects = service.projectSlugs.map(getProject);
 
   return (
     <>
@@ -49,8 +54,8 @@ export default async function ServiceDetailPage({
             {service.name}
           </h1>
           <p className="text-lg text-muted max-w-2xl mb-8">{service.description}</p>
-          <Button href="/contact" variant="primary" size="lg">
-            Get Started
+          <Button href={BOOKING_URL} variant="primary" size="lg">
+            Book a free 30-minute call
           </Button>
         </Container>
       </section>
@@ -96,7 +101,7 @@ export default async function ServiceDetailPage({
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Challenges</h2>
+              <h2 className="text-2xl font-semibold mb-4">Sound familiar?</h2>
               <ul className="space-y-3">
                 {service.challenges.map((c) => (
                   <li key={c} className="flex items-start gap-2 text-sm text-muted">
@@ -106,7 +111,7 @@ export default async function ServiceDetailPage({
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-semibold mb-4">Our Solutions</h2>
+              <h2 className="text-2xl font-semibold mb-4">What we build</h2>
               <ul className="space-y-3">
                 {service.solutions.map((s) => (
                   <li key={s} className="flex items-start gap-2 text-sm text-muted">
@@ -121,8 +126,8 @@ export default async function ServiceDetailPage({
 
       <Section>
         <Container>
-          <h2 className="text-2xl font-semibold mb-6">Automation Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <h2 className="text-2xl font-semibold mb-6">How it works</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {service.automationProcess.map((step) => (
               <div key={step.step} className="text-center">
                 <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mx-auto mb-3">
@@ -138,15 +143,16 @@ export default async function ServiceDetailPage({
 
       <Section className="bg-card/30">
         <Container>
-          <h2 className="text-2xl font-semibold mb-6">Implementation Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {service.implementationProcess.map((step) => (
-              <Card key={step.step}>
-                <div className="text-accent-light font-bold text-sm mb-2">
-                  Phase {step.step}
-                </div>
+          <h2 className="text-2xl font-semibold mb-2">How we work</h2>
+          <p className="text-muted mb-6">
+            Fixed price agreed before we start. Most projects go live within 2–4 weeks.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {deliverySteps.map((step) => (
+              <Card key={step.num}>
+                <div className="text-accent-light font-bold text-sm mb-2">{step.num}</div>
                 <h3 className="font-semibold mb-2">{step.title}</h3>
-                <p className="text-sm text-muted">{step.description}</p>
+                <p className="text-sm text-muted">{step.desc}</p>
               </Card>
             ))}
           </div>
@@ -168,6 +174,32 @@ export default async function ServiceDetailPage({
           </div>
         </Container>
       </Section>
+
+      {relatedProjects.length > 0 && (
+        <Section className="bg-card/30">
+          <Container>
+            <h2 className="text-2xl font-semibold mb-6">Projects we&apos;ve built</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {relatedProjects.map((project) => (
+                <Link key={project.slug} href={`/${project.slug}`} className="group block h-full">
+                  <Card hover className="h-full flex flex-col">
+                    <Badge className="mb-3 self-start">{project.industry}</Badge>
+                    <h3 className="font-semibold mb-2 group-hover:text-accent-light transition-colors">
+                      {project.name}
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
+                      {project.cardSummary}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-sm text-accent-light group-hover:gap-2 transition-all">
+                      See the project <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
 
       {relatedCaseStudies.length > 0 && (
         <Section className="bg-card/30">
@@ -200,7 +232,6 @@ export default async function ServiceDetailPage({
 
       <CTASection
         title={`Ready to get started with ${service.name}?`}
-        description="Book a consultation to discuss how this service can transform your operations."
       />
     </>
   );
