@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://www.cuzec.io";
 export const SITE_NAME = "Cuzec";
-export const DEFAULT_TITLE = "Cuzec: AI Agents for Real Estate, Construction, Healthcare & Coaching";
+export const DEFAULT_TITLE = "Cuzec: AI Automation for Real Estate, Construction & More";
 export const DEFAULT_DESCRIPTION =
   "Cuzec builds AI agents and automations for real estate, construction, healthcare and coaching businesses, connected to the tools you already use.";
 export const OG_IMAGE = { url: "/og-image.png", width: 1200, height: 630, alt: "Cuzec AI Automation" };
