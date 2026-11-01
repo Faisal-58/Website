@@ -34,7 +34,7 @@ Companies that embrace intelligent automation are seeing:
 
 The best time to start your automation journey was yesterday. The second best time is now. Begin with a process audit to identify your highest-impact automation opportunities.`,
     category: "Industry Insights",
-    author: { name: "Hamza Sattar", role: "Founder" },
+    author: { name: "Hamza Sattar", role: "Founder & CEO" },
     publishedAt: "2026-05-15",
     featured: true,
     readingTime: 8,
@@ -127,7 +127,7 @@ Results typically include:
 - Cleaner, more accurate CRM data
 - Higher forecast accuracy`,
     category: "Best Practices",
-    author: { name: "Hamza Sattar", role: "Founder" },
+    author: { name: "Hamza Sattar", role: "Founder & CEO" },
     publishedAt: "2026-03-18",
     featured: true,
     readingTime: 7,
@@ -160,19 +160,6 @@ export const resources: Resource[] = [
     category: "Templates",
     downloadUrl: "https://templates.cuzec.com/workflow",
   },
-];
-
-export const companyValues = [
-  { title: "Innovation", description: "Pushing the boundaries of what's possible" },
-  { title: "Excellence", description: "Committed to delivering exceptional results" },
-  { title: "Integrity", description: "Honest and ethical in all our dealings" },
-];
-
-export const processSteps = [
-  { step: 1, title: "Discovery", description: "Understand your processes" },
-  { step: 2, title: "Design", description: "Design the automation" },
-  { step: 3, title: "Implement", description: "Build and deploy" },
-  { step: 4, title: "Optimize", description: "Monitor and improve" },
 ];
 
 export const blogCategories = ["Industry Insights", "Best Practices", "Case Studies"];

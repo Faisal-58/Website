@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container } from "@/components/ui/Section";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { BlogCard, CTASection } from "@/components/shared/Cards";
 import { blogPosts, getFeaturedBlogPosts } from "@/data/blog";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog",
-  description: "Automation insights, guides, and industry trends from the CUZEC team.",
-};
+  description:
+    "Practical guides on AI agents, workflow automation and CRM automation from the Cuzec team.",
+  path: "/blog",
+});
 
 export default function BlogPage() {
   const featured = getFeaturedBlogPosts();

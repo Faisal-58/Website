@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, Container, Card, Badge } from "@/components/ui/Section";
@@ -7,10 +7,12 @@ import { CTASection } from "@/components/shared/Cards";
 import { caseStudies } from "@/data/case-studies";
 import { projects } from "@/data/projects";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Our Work",
-  description: "Automation projects and working demos built by the CUZEC team.",
-};
+  description:
+    "Automation projects and working demos built by the Cuzec team for real estate, construction, healthcare and coaching businesses.",
+  path: "/case-studies",
+});
 
 export default function CaseStudiesPage() {
   return (

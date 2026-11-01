@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { Section, SectionHeader, Container, Card } from "@/components/ui/Section";
 import { CTASection, IndustriesGrid } from "@/components/shared/Cards";
 import { teamMembers } from "@/data/blog";
 import { CalendarCheck, Clock, FileText, LifeBuoy, MessageSquare, Users } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = pageMetadata({
+  title: "About Us",
   description:
-    "CUZEC is a small automation team led by its founders. 40+ automations built for clients in the US, UK, Australia, Germany, Sweden and Qatar.",
-};
+    "Cuzec is a small AI automation team led by its two founders. 40+ automations built for clients in the US, UK, Australia, Germany, Sweden and Qatar.",
+  path: "/about",
+});
 
 const stats = [
   { value: "40+", label: "Automations built" },
@@ -59,7 +60,7 @@ export default function AboutPage() {
         <Container className="relative">
           <div className="max-w-3xl">
             <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
-              About CUZEC
+              About Cuzec
             </span>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
               Automation for businesses{" "}
@@ -72,7 +73,7 @@ export default function AboutPage() {
                 companies have teams to automate this. Most businesses don&apos;t.
               </p>
               <p>
-                We started CUZEC in 2026 to build those systems for them. Our team has built
+                We started Cuzec in 2026 to build those systems for them. Our team has built
                 40+ automations for clients in the US, UK, Australia, Germany, Sweden and Qatar.
               </p>
             </div>
@@ -98,7 +99,7 @@ export default function AboutPage() {
           <SectionHeader
             label="Team"
             title="Who you'll work with"
-            description="CUZEC is run by its two founders, who stay involved in every project."
+            description="Cuzec is run by its two founders, who stay involved in every project."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {teamMembers.map((member) => (

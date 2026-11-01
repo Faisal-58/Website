@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Container, Section } from "@/components/ui/Section";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy",
-  description: "CUZEC privacy policy — how we collect, use, and protect your data.",
-};
+  description:
+    "Cuzec privacy policy: how we collect, use and protect your data.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (

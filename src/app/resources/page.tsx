@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container, Card, Badge } from "@/components/ui/Section";
 import { CTASection } from "@/components/shared/Cards";
 import { resources } from "@/data/blog";
 import { Download, BookOpen, FileText, Lightbulb } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Resources",
-  description: "Automation guides, workflow templates, industry insights, and downloads from CUZEC.",
-};
+  description:
+    "Automation guides, workflow templates and downloads from the Cuzec team.",
+  path: "/resources",
+});
 
 const typeIcons = {
   guide: BookOpen,
@@ -44,7 +46,7 @@ export default function ResourcesPage() {
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
             Guides, templates, and insights to help you on your automation journey.
-            Free resources from the CUZEC team.
+            Free resources from the Cuzec team.
           </p>
         </Container>
       </section>

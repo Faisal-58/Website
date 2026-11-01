@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
-  description: "Get in touch with CUZEC. Book a demo call, send a message, or connect on LinkedIn.",
-};
+  description:
+    "Contact Cuzec: book a free 30-minute call, send a message or request a demo. We reply within 24 hours.",
+  path: "/contact",
+});
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return children;

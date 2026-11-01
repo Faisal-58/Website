@@ -10,6 +10,8 @@ import {
 } from "@/components/blog/BlogContent";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
 import { formatDate } from "@/lib/utils";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -23,17 +25,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
   if (!post) return { title: "Article Not Found" };
-  return {
+  return pageMetadata({
     title: post.title,
     description: post.excerpt,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: "article",
-      publishedTime: post.publishedAt,
-      authors: [post.author.name],
-    },
-  };
+    path: `/blog/${post.slug}`,
+    type: "article",
+    publishedTime: post.publishedAt,
+    authors: [post.author.name],
+  });
 }
 
 export default async function BlogDetailPage({
@@ -49,8 +48,22 @@ export default async function BlogDetailPage({
     .filter((p) => p.slug !== post.slug && p.category === post.category)
     .slice(0, 2);
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAt,
+    image: `${SITE_URL}/og-image.png`,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    author: { "@type": "Person", name: post.author.name, jobTitle: post.author.role },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+
   return (
     <>
+      <JsonLd data={articleJsonLd} />
       <ReadingProgress />
 
       <section className="relative py-24 md:py-32">
@@ -119,7 +132,7 @@ export default async function BlogDetailPage({
 
       <CTASection
         title="Ready to Automate?"
-        description="Put these insights into action. Book a demo to see CUZEC in action."
+        description="Put these insights into action. Book a demo to see Cuzec in action."
       />
     </>
   );

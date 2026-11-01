@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Container, Section } from "@/components/ui/Section";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Terms of Service",
-  description: "CUZEC terms of service — the terms governing use of our website and services.",
-};
+  description:
+    "The terms that govern use of the Cuzec website and services.",
+  path: "/terms-of-service",
+});
 
 export default function TermsOfServicePage() {
   return (
@@ -22,14 +24,14 @@ export default function TermsOfServicePage() {
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Acceptance of Terms</h2>
               <p>
-                By accessing or using CUZEC&apos;s website and services, you agree to be bound
+                By accessing or using Cuzec&apos;s website and services, you agree to be bound
                 by these Terms of Service. If you do not agree, please do not use our services.
               </p>
             </div>
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Services</h2>
               <p>
-                CUZEC provides automation consulting, development, and managed
+                Cuzec provides automation consulting, development, and managed
                 services. Specific service terms are outlined in individual service agreements.
               </p>
             </div>
@@ -37,14 +39,14 @@ export default function TermsOfServicePage() {
               <h2 className="text-xl font-semibold text-foreground mb-3">Intellectual Property</h2>
               <p>
                 All content, trademarks, and intellectual property on this website are owned
-                by CUZEC. Custom automation solutions developed for clients are governed by
+                by Cuzec. Custom automation solutions developed for clients are governed by
                 the terms of individual service agreements.
               </p>
             </div>
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Limitation of Liability</h2>
               <p>
-                CUZEC shall not be liable for any indirect, incidental, or consequential damages
+                Cuzec shall not be liable for any indirect, incidental, or consequential damages
                 arising from the use of our services. Our total liability is limited to the
                 amount paid for services in the preceding 12 months.
               </p>

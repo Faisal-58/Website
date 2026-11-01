@@ -30,7 +30,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           subject,
-          from_name: "CUZEC Website",
+          from_name: "Cuzec Website",
           replyto: fields.email,
           ...fields,
         }),
@@ -68,7 +68,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
             Ready to transform your business with automation? Reach out to our team
-            or book a demo to see CUZEC in action.
+            or book a demo to see Cuzec in action.
           </p>
         </Container>
       </section>

@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container, Card } from "@/components/ui/Section";
 import { TechNetworkVisualization } from "@/components/shared/Visualizations";
 import { CTASection } from "@/components/shared/Cards";
 import { technologies } from "@/data/blog";
 
-export const metadata: Metadata = {
-  title: "Technology",
-  description: "CUZEC's technology ecosystem — AI, automation platforms, integrations, and enterprise tools.",
-};
+export const metadata = pageMetadata({
+  title: "Integrations",
+  description:
+    "The AI models, automation platforms and business tools Cuzec connects, so your systems work together.",
+  path: "/technology",
+});
 
 const categories = [
   { key: "ai", label: "AI Stack", description: "Intelligent automation powered by leading AI models" },
@@ -40,7 +42,7 @@ export default function TechnologyPage() {
           <SectionHeader
             label="Network"
             title="Interactive Technology Network"
-            description="Explore how CUZEC connects your entire tech stack."
+            description="Explore how Cuzec connects your entire tech stack."
           />
           <div className="rounded-2xl border border-border bg-card overflow-hidden h-[500px]">
             <TechNetworkVisualization />
