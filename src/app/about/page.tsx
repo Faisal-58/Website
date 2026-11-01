@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Section, SectionHeader, Container, Card } from "@/components/ui/Section";
 import { CTASection, IndustriesGrid } from "@/components/shared/Cards";
 import { teamMembers } from "@/data/blog";
@@ -103,11 +104,21 @@ export default function AboutPage() {
             {teamMembers.map((member) => (
               <Card key={member.name} className="flex flex-col">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
-                    <span className="text-accent font-semibold">
-                      {member.name.split(" ").map((n) => n[0]).join("")}
-                    </span>
-                  </div>
+                  {member.image ? (
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={80}
+                      height={80}
+                      className="w-20 h-20 rounded-full object-cover border border-accent/30 shrink-0"
+                    />
+                  ) : (
+                    <div className="w-20 h-20 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                      <span className="text-accent font-semibold">
+                        {member.name.split(" ").map((n) => n[0]).join("")}
+                      </span>
+                    </div>
+                  )}
                   <div>
                     <h3 className="text-lg font-semibold">{member.name}</h3>
                     <p className="text-sm text-accent">{member.role}</p>
