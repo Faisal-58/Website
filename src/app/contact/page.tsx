@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Section, Container, Card } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Mail, Linkedin, MapPin, Calendar } from "lucide-react";
+import { Mail, Linkedin, MapPin, Calendar, Phone } from "lucide-react";
 import { BOOKING_URL } from "@/data/site";
 
 const WEB3FORMS_ACCESS_KEY = "37be53af-7089-470a-8cdd-df061b2d68b7";
@@ -30,7 +30,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           subject,
-          from_name: "CUZEC Website",
+          from_name: "Cuzec Website",
           replyto: fields.email,
           ...fields,
         }),
@@ -68,7 +68,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
             Ready to transform your business with automation? Reach out to our team
-            or book a demo to see CUZEC in action.
+            or book a demo to see Cuzec in action.
           </p>
         </Container>
       </section>
@@ -86,6 +86,14 @@ export default function ContactPage() {
               >
                 <Mail className="w-5 h-5 text-accent-light" />
                 info@cuzec.io
+              </a>
+
+              <a
+                href="tel:+923085007407"
+                className="flex items-center gap-3 text-muted hover:text-foreground transition-colors"
+              >
+                <Phone className="w-5 h-5 text-accent-light" />
+                +923085007407
               </a>
 
               <a

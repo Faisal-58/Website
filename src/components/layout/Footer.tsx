@@ -39,8 +39,8 @@ export function Footer() {
               />
             </Link>
             <p className="text-muted text-sm leading-relaxed max-w-sm">
-              Enterprise-grade automation solutions. AI agents, workflow automation,
-              and business transformation for companies that refuse to settle.
+              Cuzec builds AI agents and automations for real estate, construction, healthcare and
+              coaching businesses, connected to the tools clients already use.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} CUZEC. All rights reserved.
+            &copy; {new Date().getFullYear()} Cuzec. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a

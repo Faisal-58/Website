@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const nodes = [
-  { id: "cuzec", label: "CUZEC", x: 50, y: 50, size: 40, color: "#6366f1" },
+  { id: "cuzec", label: "Cuzec", x: 50, y: 50, size: 40, color: "#6366f1" },
   { id: "openai", label: "OpenAI", x: 20, y: 20, size: 28, color: "#10b981" },
   { id: "claude", label: "Claude", x: 80, y: 15, size: 28, color: "#f59e0b" },
   { id: "n8n", label: "n8n", x: 15, y: 55, size: 24, color: "#ef4444" },
@@ -133,7 +133,7 @@ export function EcosystemVisualization3D() {
           {/* Central hub */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
             <div className="w-24 h-24 rounded-2xl bg-accent/20 border border-accent/40 flex items-center justify-center animate-float glow">
-              <span className="text-accent-light font-bold text-lg">CUZEC</span>
+              <span className="text-accent-light font-bold text-lg">Cuzec</span>
             </div>
           </div>
 
