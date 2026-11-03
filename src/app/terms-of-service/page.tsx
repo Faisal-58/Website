@@ -1,16 +1,24 @@
-import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/Section";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service",
-  description: "CUZEC terms of service — the terms governing use of our website and services.",
-};
+export const metadata = pageMetadata({
+  title: "Terms of service",
+  description: "The terms for using the Cuzec website and services.",
+  path: "/terms-of-service",
+});
 
 export default function TermsOfServicePage() {
   return (
     <>
       <section className="py-24 md:py-32">
         <Container>
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Terms of service", path: "/terms-of-service" },
+            ]}
+          />
           <h1 className="text-4xl font-semibold tracking-tight mb-6">Terms of Service</h1>
           <p className="text-muted mb-8">Last updated: May 31, 2026</p>
         </Container>

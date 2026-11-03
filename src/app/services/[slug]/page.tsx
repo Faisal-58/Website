@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { CTASection, CaseStudyCard } from "@/components/shared/Cards";
 import { services, getServiceBySlug } from "@/data/services";
 import { getCaseStudyBySlug } from "@/data/case-studies";
+import { pageMetadata } from "@/lib/seo";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 
 export function generateStaticParams() {
@@ -19,11 +20,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  if (!service) return { title: "Service Not Found" };
-  return {
+  if (!service) {
+    return pageMetadata({
+      title: "Service not found",
+      description: "This service page does not exist.",
+      path: "/services",
+    });
+  }
+  return pageMetadata({
     title: service.name,
     description: service.shortDescription,
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({

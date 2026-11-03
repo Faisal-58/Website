@@ -1,12 +1,15 @@
-import type { Metadata } from "next";
 import { Section, SectionHeader, Container } from "@/components/ui/Section";
 import { ServiceCard, CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { services } from "@/data/services";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description: "CUZEC automation services — AI agents, workflow automation, CRM, WhatsApp, e-commerce, and more.",
-};
+export const metadata = pageMetadata({
+  title: "Automation services",
+  description:
+    "AI agents, workflow automation, CRM, WhatsApp, e-commerce, lead and operations automation.",
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
@@ -14,6 +17,12 @@ export default function ServicesPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/services" },
+            ]}
+          />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Services
           </span>

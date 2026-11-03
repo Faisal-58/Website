@@ -1,16 +1,24 @@
-import type { Metadata } from "next";
 import { Container, Section } from "@/components/ui/Section";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "CUZEC privacy policy — how we collect, use, and protect your data.",
-};
+export const metadata = pageMetadata({
+  title: "Privacy policy",
+  description: "How Cuzec collects, uses and protects your data.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
     <>
       <section className="py-24 md:py-32">
         <Container>
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Privacy policy", path: "/privacy-policy" },
+            ]}
+          />
           <h1 className="text-4xl font-semibold tracking-tight mb-6">Privacy Policy</h1>
           <p className="text-muted mb-8">Last updated: May 31, 2026</p>
         </Container>

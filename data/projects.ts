@@ -97,7 +97,7 @@ export const projects: Project[] = [
     industry: "Construction",
     name: "BidLevel AI",
     status: "Working product · now taking pilot clients",
-    metaTitle: "BidLevel AI: Subcontractor Bid Leveling for Construction",
+    metaTitle: "BidLevel AI for construction bids",
     metaDescription:
       "BidLevel AI compares subcontractor quotes against one scope checklist, flags what each bidder left out and shows the true cheapest bid, in about a minute.",
     title: "Level subcontractor bids in",

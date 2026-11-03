@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, Container, Card, Badge } from "@/components/ui/Section";
 import { CaseStudyGrid } from "@/components/case-studies/CaseStudyGrid";
 import { CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { caseStudies } from "@/data/case-studies";
 import { projects } from "@/data/projects";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Our Work",
-  description: "Automation projects and working demos built by the CUZEC team.",
-};
+export const metadata = pageMetadata({
+  title: "Demos and client work",
+  description: "Working demos and client projects built by the Cuzec team.",
+  path: "/case-studies",
+});
 
 export default function CaseStudiesPage() {
   return (
@@ -18,6 +20,12 @@ export default function CaseStudiesPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Our work", path: "/case-studies" },
+            ]}
+          />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Our Work
           </span>

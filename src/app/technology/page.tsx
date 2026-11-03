@@ -1,18 +1,20 @@
-import type { Metadata } from "next";
 import { Section, SectionHeader, Container, Card } from "@/components/ui/Section";
 import { TechNetworkVisualization } from "@/components/shared/Visualizations";
 import { CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { technologies } from "@/data/blog";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Technology",
-  description: "CUZEC's technology ecosystem — AI, automation platforms, integrations, and enterprise tools.",
-};
+export const metadata = pageMetadata({
+  title: "Connected tools",
+  description: "The AI, automation and messaging tools Cuzec connects to the systems a business already uses.",
+  path: "/technology",
+});
 
 const categories = [
   { key: "ai", label: "AI Stack", description: "Intelligent automation powered by leading AI models" },
   { key: "automation", label: "Automation Stack", description: "Best-in-class workflow automation platforms" },
-  { key: "platform", label: "Platforms", description: "Enterprise platforms we integrate with" },
+  { key: "platform", label: "Platforms", description: "Platforms we integrate with" },
   { key: "integration", label: "Integrations", description: "Communication, payment, and messaging integrations" },
 ] as const;
 
@@ -22,6 +24,12 @@ export default function TechnologyPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Technology", path: "/technology" },
+            ]}
+          />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Technology
           </span>
@@ -40,7 +48,7 @@ export default function TechnologyPage() {
           <SectionHeader
             label="Network"
             title="Interactive Technology Network"
-            description="Explore how CUZEC connects your entire tech stack."
+            description="Explore how Cuzec connects your entire tech stack."
           />
           <div className="rounded-2xl border border-border bg-card overflow-hidden h-[500px]">
             <TechNetworkVisualization />
@@ -83,8 +91,8 @@ export default function TechnologyPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: "100+ Integrations",
-                desc: "Pre-built connectors for the most popular business platforms.",
+                title: "Tools you already use",
+                desc: "We connect the platforms a business already runs, including the AI, automation and messaging tools listed above.",
               },
               {
                 title: "Custom API Development",

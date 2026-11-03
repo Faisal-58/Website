@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/shared/Cards";
 import { BOOKING_URL } from "@/data/site";
 import type { Project } from "@/data/projects";
+import { pageMetadata } from "@/lib/seo";
 
 export function projectMetadata(project: Project): Metadata {
-  return { title: project.metaTitle, description: project.metaDescription };
+  return pageMetadata({
+    title: project.metaTitle,
+    description: project.metaDescription,
+    path: `/${project.slug}`,
+  });
 }
 
 export function ProjectPage({ project }: { project: Project }) {

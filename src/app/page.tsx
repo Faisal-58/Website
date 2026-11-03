@@ -10,6 +10,14 @@ import { LaptopWorkflow } from "@/components/home/LaptopWorkflow";
 import { getFeaturedCaseStudies } from "@/data/case-studies";
 import { BOOKING_URL } from "@/data/site";
 import { testimonials, technologies } from "@/data/blog";
+import { HOME_DESCRIPTION, HOME_TITLE, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+  absolute: true,
+});
 
 const features = [
   { href: "/services/ai-agents", label: "AI Agents", icon: Bot },

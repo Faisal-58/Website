@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import { Section, SectionHeader, Container, Card } from "@/components/ui/Section";
 import { CTASection, IndustriesGrid } from "@/components/shared/Cards";
 import { teamMembers } from "@/data/blog";
+import { pageMetadata } from "@/lib/seo";
 import { CalendarCheck, Clock, FileText, LifeBuoy, MessageSquare, Users } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata = pageMetadata({
+  title: "About the team",
   description:
-    "CUZEC is a small automation team led by its founders. 40+ automations built for clients in the US, UK, Australia, Germany, Sweden and Qatar.",
-};
+    "Cuzec is a small automation team in Lahore, Pakistan, working remotely with clients mainly in the UK and US.",
+  path: "/about",
+});
 
 const stats = [
   { value: "40+", label: "Automations built" },

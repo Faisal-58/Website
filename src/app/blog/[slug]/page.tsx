@@ -9,6 +9,7 @@ import {
   MarkdownContent,
 } from "@/components/blog/BlogContent";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
+import { pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -22,13 +23,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
-  if (!post) return { title: "Article Not Found" };
-  return {
-    title: post.title,
+  if (!post) {
+    return pageMetadata({
+      title: "Article not found",
+      description: "This article does not exist.",
+      path: "/blog",
+    });
+  }
+  // The full headline is 61 characters once " | Cuzec" is added.
+  const title =
+    post.slug === "ai-agents-vs-traditional-automation"
+      ? "AI Agents vs Traditional Automation"
+      : post.title;
+  const meta = pageMetadata({
+    title,
     description: post.excerpt,
+    path: `/blog/${post.slug}`,
+  });
+  return {
+    ...meta,
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      ...meta.openGraph,
       type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author.name],
