@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Section, Container, Badge, Card } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { CTASection, CaseStudyCard } from "@/components/shared/Cards";
+import { Breadcrumbs, DeliveryNote, FaqBlock, RelatedLinks } from "@/components/seo/ContentBlocks";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { services, getServiceBySlug } from "@/data/services";
 import { getCaseStudyBySlug } from "@/data/case-studies";
-import { pageMetadata } from "@/lib/seo";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { servicePages } from "@/data/faqs";
+import { pageMetadata, sentenceCount, serviceJsonLd } from "@/lib/seo";
+import { CheckCircle2 } from "lucide-react";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -20,13 +22,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
-  if (!service) {
-    return pageMetadata({
-      title: "Service not found",
-      description: "This service page does not exist.",
-      path: "/services",
-    });
-  }
+  if (!service) return pageMetadata({ title: "Service not found", description: "This service page does not exist.", path: "/services" });
   return pageMetadata({
     title: service.name,
     description: service.shortDescription,
@@ -46,17 +42,35 @@ export default async function ServiceDetailPage({
   const relatedCaseStudies = service.caseStudySlugs
     .map((s) => getCaseStudyBySlug(s))
     .filter(Boolean);
+  const extra = servicePages[service.slug] ?? { faqs: [], related: [] };
+  const definition =
+    sentenceCount(service.description) >= 2
+      ? service.description
+      : `${service.description} ${service.overview}`;
 
   return (
     <>
+      <JsonLd data={serviceJsonLd(service.name, definition, `/services/${service.slug}`)} />
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/services" },
+              { name: service.name, path: `/services/${service.slug}` },
+            ]}
+          />
           <Badge className="mb-4">Service</Badge>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
             {service.name}
           </h1>
-          <p className="text-lg text-muted max-w-2xl mb-8">{service.description}</p>
+          <p className={`text-lg text-muted max-w-2xl ${sentenceCount(service.description) >= 2 ? "mb-8" : "mb-4"}`}>
+            {service.description}
+          </p>
+          {sentenceCount(service.description) < 2 && (
+            <p className="text-lg text-muted max-w-2xl mb-8">{service.overview}</p>
+          )}
           <Button href="/contact" variant="primary" size="lg">
             Get Started
           </Button>
@@ -190,21 +204,9 @@ export default async function ServiceDetailPage({
         </Section>
       )}
 
-      {service.faq.length > 0 && (
-        <Section>
-          <Container>
-            <h2 className="text-2xl font-semibold mb-6">FAQ</h2>
-            <div className="space-y-4 max-w-3xl">
-              {service.faq.map((item) => (
-                <Card key={item.question}>
-                  <h3 className="font-semibold mb-2">{item.question}</h3>
-                  <p className="text-sm text-muted">{item.answer}</p>
-                </Card>
-              ))}
-            </div>
-          </Container>
-        </Section>
-      )}
+      <DeliveryNote />
+      <FaqBlock items={extra.faqs} />
+      <RelatedLinks title="Related industries" links={extra.related} />
 
       <CTASection
         title={`Ready to get started with ${service.name}?`}

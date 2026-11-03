@@ -9,10 +9,9 @@ export const services: Service[] = [
       "Our AI Agent service deploys autonomous agents capable of handling multi-step business processes that traditionally require human judgment. From customer support to data analysis, AI agents work 24/7 with precision.",
     icon: "Bot",
     overview:
-      "CUZEC AI Agents are custom-built autonomous systems that understand your business context, make decisions, and execute workflows across your entire tech stack.",
+      "Cuzec AI agents are custom-built autonomous systems that understand your business context, make decisions, and execute workflows across your entire tech stack.",
     benefits: [
       "24/7 autonomous operation",
-      "Reduced operational costs by up to 70%",
       "Consistent quality and compliance",
       "Scalable without adding headcount",
       "Continuous learning and improvement",
@@ -53,12 +52,7 @@ export const services: Service[] = [
       { step: 4, title: "Optimize", description: "Ongoing optimization and expansion" },
     ],
     caseStudySlugs: ["retail-ai-automation"],
-    faq: [
-      {
-        question: "How accurate are AI agents?",
-        answer: "Our agents typically achieve 95%+ accuracy after training, with human review for edge cases.",
-      },
-    ],
+    faq: [],
   },
   {
     slug: "workflow-automation",
@@ -71,7 +65,6 @@ export const services: Service[] = [
       "We design and implement automated workflows that connect your CRM, ERP, communication tools, and custom systems into seamless, error-free processes.",
     benefits: [
       "Eliminate manual data entry",
-      "Reduce process errors by 90%",
       "Faster process completion times",
       "Full audit trail and compliance",
       "Easy to modify and scale",
@@ -122,9 +115,8 @@ export const services: Service[] = [
       "Our CRM Automation service automates routine CRM tasks while maintaining data quality and compliance. We connect your CRM to your entire business ecosystem for seamless lead management.",
     icon: "Users",
     overview:
-      "Sales teams spend 60%+ of their time on CRM data entry and administrative tasks. We automate these activities so your team can focus on selling.",
+      "We automate routine CRM tasks while maintaining data quality and compliance, so your team can focus on selling.",
     benefits: [
-      "Sales reps save 15+ hours per week",
       "Higher lead conversion rates",
       "Cleaner, more accurate CRM data",
       "Faster sales cycles",
@@ -173,12 +165,10 @@ export const services: Service[] = [
     name: "WhatsApp Automation",
     shortDescription: "Automate customer communication via WhatsApp Business API.",
     description:
-      "WhatsApp Business API enables enterprise-scale messaging automation with 98% open rates. We build conversational bots and workflow automation that turn WhatsApp into a revenue channel.",
+      "We build conversational bots and workflow automation on the WhatsApp Business API. They turn WhatsApp into a revenue channel.",
     icon: "MessageCircle",
-    overview:
-      "With 2 billion users and 98% message read rates, WhatsApp is your most effective communication channel. We unlock automation at scale.",
+    overview: "Connect WhatsApp to your CRM and systems.",
     benefits: [
-      "98% message open rates",
       "24/7 automated customer support",
       "Personalized broadcast campaigns",
       "Order and status updates",
