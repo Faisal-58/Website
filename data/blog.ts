@@ -180,16 +180,14 @@ export const blogCategories = ["Industry Insights", "Best Practices", "Case Stud
 export const teamMembers: TeamMember[] = [
   {
     name: "Hamza Sattar",
-    role: "Founder",
-    bio: "5+ years in technical business development and operations. Hamza works with every client to understand how their business runs, and makes sure each automation solves a real problem.",
-    education: "Bachelor's, GIK Institute (GIKI), Pakistan",
+    role: "CEO",
+    // TODO(hamza): bio was left blank. Do not render a bio until a real sentence is supplied.
     linkedin: "https://www.linkedin.com/in/hamza-sattar-9403b6267/",
   },
   {
     name: "Faisal Ijaz",
     role: "Co-founder & CTO",
-    bio: "10+ years in software engineering, AI/ML and data, now focused on LLM-powered agents and open-source voice agents. Faisal leads the technical side: AI agents, n8n workflows and integrations.",
-    education: "Master's, Kiel University (CAU), Germany",
+    // TODO(hamza): bio was left blank. Do not render a bio until a real sentence is supplied.
     linkedin: "https://www.linkedin.com/in/faisal-ijaz-44524179/",
   },
 ];

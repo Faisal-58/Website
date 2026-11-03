@@ -84,8 +84,8 @@ export interface Resource {
 
 export interface TeamMember {
   name: string;
-  role: string;
-  bio: string;
+  role?: string;
+  bio?: string;
   education?: string;
   linkedin?: string;
   image?: string;

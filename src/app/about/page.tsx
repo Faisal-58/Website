@@ -1,8 +1,10 @@
 import { Section, SectionHeader, Container, Card } from "@/components/ui/Section";
 import { CTASection, IndustriesGrid } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { teamMembers } from "@/data/blog";
-import { pageMetadata } from "@/lib/seo";
-import { CalendarCheck, Clock, FileText, LifeBuoy, MessageSquare, Users } from "lucide-react";
+import { pageMetadata, personJsonLd } from "@/lib/seo";
+import { CalendarCheck, Clock, FileText, LifeBuoy, Users } from "lucide-react";
 
 export const metadata = pageMetadata({
   title: "About the team",
@@ -12,9 +14,7 @@ export const metadata = pageMetadata({
 });
 
 const stats = [
-  { value: "40+", label: "Automations built" },
-  { value: "6", label: "Countries served" },
-  { value: "2–4 weeks", label: "Typical time to go live" },
+  { value: "In weeks", label: "From discovery to deployment" },
   { value: "2 months", label: "Support after launch" },
 ];
 
@@ -36,30 +36,38 @@ const howWeWork = [
   },
   {
     icon: Clock,
-    title: "Live in 2–4 weeks",
-    desc: "Most projects go live within 2–4 weeks. Simple automations can be ready in a few days.",
+    title: "Live in weeks",
+    desc: "From discovery to deployment in weeks.",
   },
   {
     icon: LifeBuoy,
     title: "2 months of support",
-    desc: "Every project includes 2 months of support after launch. Ongoing monthly support is available after that.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Quick replies",
-    desc: "We reply within 24 hours, usually much sooner, whatever your time zone.",
+    desc: "We go live, train your team and support you for 2 months, then keep improving as you grow.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
+      {teamMembers.map((member) =>
+        member.role ? (
+          <JsonLd
+            key={member.name}
+            data={personJsonLd({
+              name: member.name,
+              jobTitle: member.role,
+              sameAs: member.linkedin,
+            })}
+          />
+        ) : null
+      )}
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "About", path: "/about" }]} />
           <div className="max-w-3xl">
             <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
-              About CUZEC
+              About Cuzec
             </span>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
               Automation for businesses{" "}
@@ -72,8 +80,17 @@ export default function AboutPage() {
                 companies have teams to automate this. Most businesses don&apos;t.
               </p>
               <p>
-                We started CUZEC in 2026 to build those systems for them. Our team has built
-                40+ automations for clients in the US, UK, Australia, Germany, Sweden and Qatar.
+                We started Cuzec in 2026 to build those systems for them. We are based in
+                Lahore, Pakistan, deliver remotely, and work with clients mainly in the UK and US.
+              </p>
+              <p>
+                <a href="mailto:info@cuzec.io" className="text-accent hover:text-accent-dark">
+                  info@cuzec.io
+                </a>
+                {" · "}
+                <a href="tel:+923085007407" className="text-accent hover:text-accent-dark">
+                  +923085007407
+                </a>
               </p>
             </div>
           </div>
@@ -82,7 +99,7 @@ export default function AboutPage() {
 
       <section className="border-y border-border bg-card/30">
         <Container className="py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 gap-8 text-center max-w-xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-2xl md:text-3xl font-semibold text-accent">{stat.value}</p>
@@ -98,7 +115,7 @@ export default function AboutPage() {
           <SectionHeader
             label="Team"
             title="Who you'll work with"
-            description="CUZEC is run by its two founders, who stay involved in every project."
+            description="Cuzec is run by its two founders, who stay involved in every project."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {teamMembers.map((member) => (
@@ -111,14 +128,13 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">{member.name}</h3>
-                    <p className="text-sm text-accent">{member.role}</p>
+                    {member.role ? <p className="text-sm text-accent">{member.role}</p> : null}
                   </div>
                 </div>
-                <p className="text-sm text-muted leading-relaxed mb-4 flex-1">{member.bio}</p>
+                {member.bio ? (
+                  <p className="text-sm text-muted leading-relaxed mb-4 flex-1">{member.bio}</p>
+                ) : null}
                 <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-2">
-                  {member.education && (
-                    <p className="text-xs text-muted">{member.education}</p>
-                  )}
                   {member.linkedin && (
                     <a
                       href={member.linkedin}
