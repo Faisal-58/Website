@@ -1,0 +1,36 @@
+# Cuzec AI Automation
+
+Cuzec builds AI agents and automations for real estate, construction, healthcare and coaching businesses, connected to the tools clients already use. The team is based in Lahore, Pakistan, delivers remotely, and works with clients mainly in the UK and US. Email info@cuzec.io. Phone +923085007407. A project starts with a free 30-minute discovery call, a fixed quote before work starts, and 2 months of support after launch.
+
+## Services
+
+- [AI Agents](https://www.cuzec.io/services/ai-agents): Custom AI agents for multi-step business processes
+- [Workflow Automation](https://www.cuzec.io/services/workflow-automation): Connect systems and automate end-to-end processes
+- [CRM Automation](https://www.cuzec.io/services/crm-automation): Automate routine CRM tasks and follow-ups
+- [WhatsApp Automation](https://www.cuzec.io/services/whatsapp-automation): Conversational bots and workflows on the WhatsApp Business API
+- [E-commerce Automation](https://www.cuzec.io/services/ecommerce-automation): Order, inventory and customer-message automation
+- [Lead Automation](https://www.cuzec.io/services/lead-automation): Capture, qualify and nurture leads
+- [Operations Automation](https://www.cuzec.io/services/operations-automation): Internal operations such as onboarding and compliance tracking
+
+## Industries
+
+- [Real Estate](https://www.cuzec.io/real-estate): Working demo that qualifies property leads and matches them to listings
+- [Construction](https://www.cuzec.io/construction): BidLevel AI, a working demo now taking pilot clients, for subcontractor bid leveling
+- [Healthcare](https://www.cuzec.io/healthcare): Global Health Navigator, a working demo that helps patients plan treatment abroad
+- [Coaching](https://www.cuzec.io/coaching): AI operations platform built for one coaching client
+
+## Use Cases
+
+- [Our work](https://www.cuzec.io/case-studies): Working demos and the coaching client project
+
+## Blog
+
+- [Blog](https://www.cuzec.io/blog): Notes on automation, AI agents and CRM
+
+## About
+
+- [About](https://www.cuzec.io/about): Team, Lahore office and how a project runs
+
+## Contact
+
+- [Contact](https://www.cuzec.io/contact): Email info@cuzec.io, phone +923085007407, and the booking link
