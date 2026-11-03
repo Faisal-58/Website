@@ -3,6 +3,8 @@ import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { HOME_DESCRIPTION, HOME_TITLE, organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,24 +20,32 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cuzec.io"),
   title: {
-    default: "CUZEC — AI Agents for Real Estate, Construction, Healthcare & Coaching",
-    template: "%s | CUZEC",
+    default: HOME_TITLE,
+    template: "%s | Cuzec",
   },
-  description:
-    "CUZEC builds AI agents and automations for real estate, construction, healthcare and coaching businesses, connected to the tools you already use.",
-  keywords: ["AI agents", "automation", "real estate AI", "construction bid leveling", "healthcare AI", "coaching automation", "CUZEC"],
+  description: HOME_DESCRIPTION,
+  alternates: { canonical: "https://www.cuzec.io" },
+  keywords: ["AI agents", "automation", "real estate AI", "construction bid leveling", "healthcare AI", "coaching automation", "Cuzec"],
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "CUZEC",
+    siteName: "Cuzec",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
     images: [
       {
-        url: "/cuzec-logo.png",
-        width: 515,
-        height: 275,
-        alt: "CUZEC Logo",
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Cuzec",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: ["/og.png"],
   },
 };
 
@@ -46,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="min-h-screen flex flex-col">
+        <JsonLd data={organizationJsonLd} />
         <SmoothScroll>
           <Header />
           <main className="flex-1">{children}</main>
