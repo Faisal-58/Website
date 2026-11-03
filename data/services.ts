@@ -62,7 +62,7 @@ export const services: Service[] = [
       "Workflow Automation connects your disconnected systems and automates multi-step business processes. From simple task routing to complex cross-platform orchestration, we eliminate manual handoffs.",
     icon: "GitBranch",
     overview:
-      "We design and implement automated workflows that connect your CRM, ERP, communication tools, and custom systems into seamless, error-free processes.",
+      "We design and implement automated workflows that connect a client's CRM, communication tools, and custom systems into seamless, error-free processes.",
     benefits: [
       "Eliminate manual data entry",
       "Faster process completion times",
@@ -87,7 +87,6 @@ export const services: Service[] = [
     ],
     solutions: [
       "Visual workflow design and documentation",
-      "Pre-built integrations for 100+ platforms",
       "Error handling and automatic retry logic",
       "Real-time monitoring and alerting",
     ],
@@ -112,10 +111,10 @@ export const services: Service[] = [
     name: "CRM Automation",
     shortDescription: "Automate CRM operations to accelerate your sales pipeline.",
     description:
-      "Our CRM Automation service automates routine CRM tasks while maintaining data quality and compliance. We connect your CRM to your entire business ecosystem for seamless lead management.",
+      "Cuzec CRM automation handles routine CRM tasks while maintaining data quality and compliance. Cuzec connects CRM automation to GoHighLevel, HubSpot, and n8n.",
     icon: "Users",
     overview:
-      "We automate routine CRM tasks while maintaining data quality and compliance, so your team can focus on selling.",
+      "Cuzec automates routine CRM tasks while maintaining data quality and compliance, and connects CRM automation to GoHighLevel, HubSpot, and n8n.",
     benefits: [
       "Higher lead conversion rates",
       "Cleaner, more accurate CRM data",
@@ -131,7 +130,7 @@ export const services: Service[] = [
       "Activity logging and insights",
       "Pipeline stage automation",
     ],
-    technologies: ["HubSpot", "n8n"],
+    technologies: ["GoHighLevel", "HubSpot", "n8n"],
     challenges: [
       "Manual data entry and updates",
       "Leads get assigned to wrong reps",

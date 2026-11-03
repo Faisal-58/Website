@@ -206,10 +206,11 @@ export const testimonials: Testimonial[] = [];
 export const technologies: Technology[] = [
   { name: "OpenAI", category: "ai", description: "" },
   { name: "Claude", category: "ai", description: "" },
-  { name: "n8n", category: "integration", description: "" },
+  { name: "n8n", category: "automation", description: "" },
   { name: "Slack", category: "platform", description: "" },
   { name: "WhatsApp", category: "integration", description: "" },
   { name: "GoHighLevel", category: "platform", description: "" },
+  { name: "HubSpot", category: "platform", description: "" },
   { name: "Google Maps", category: "integration", description: "" },
   { name: "Google Workspace", category: "platform", description: "" },
 ];

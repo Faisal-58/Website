@@ -4,25 +4,27 @@ import { useEffect, useRef } from "react";
 
 const nodes = [
   { id: "cuzec", label: "Cuzec", x: 50, y: 50, size: 40, color: "#6366f1" },
-  { id: "openai", label: "OpenAI", x: 20, y: 20, size: 28, color: "#10b981" },
-  { id: "claude", label: "Claude", x: 80, y: 15, size: 28, color: "#f59e0b" },
-  { id: "n8n", label: "n8n", x: 15, y: 55, size: 24, color: "#ef4444" },
-  { id: "make", label: "Make", x: 85, y: 45, size: 24, color: "#8b5cf6" },
-  { id: "zapier", label: "Zapier", x: 75, y: 75, size: 24, color: "#f97316" },
-  { id: "shopify", label: "Shopify", x: 30, y: 80, size: 24, color: "#22c55e" },
-  { id: "hubspot", label: "HubSpot", x: 55, y: 85, size: 24, color: "#f97316" },
-  { id: "slack", label: "Slack", x: 90, y: 70, size: 22, color: "#a855f7" },
-  { id: "stripe", label: "Stripe", x: 10, y: 35, size: 22, color: "#6366f1" },
-  { id: "whatsapp", label: "WhatsApp", x: 40, y: 10, size: 22, color: "#22c55e" },
-  { id: "google", label: "Google", x: 65, y: 25, size: 22, color: "#3b82f6" },
-  { id: "microsoft", label: "Microsoft", x: 25, y: 70, size: 22, color: "#0ea5e9" },
+  { id: "openai", label: "OpenAI", x: 50, y: 14, size: 28, color: "#10b981" },
+  { id: "claude", label: "Claude", x: 80, y: 24, size: 28, color: "#f59e0b" },
+  { id: "n8n", label: "n8n", x: 90, y: 52, size: 24, color: "#ef4444" },
+  { id: "slack", label: "Slack", x: 76, y: 80, size: 22, color: "#a855f7" },
+  { id: "whatsapp", label: "WhatsApp", x: 50, y: 88, size: 22, color: "#22c55e" },
+  { id: "gohighlevel", label: "GoHighLevel", x: 24, y: 80, size: 22, color: "#f97316" },
+  { id: "hubspot", label: "HubSpot", x: 10, y: 52, size: 24, color: "#fb923c" },
+  { id: "maps", label: "Google Maps", x: 20, y: 24, size: 22, color: "#3b82f6" },
+  { id: "workspace", label: "Google Workspace", x: 32, y: 12, size: 20, color: "#0ea5e9" },
 ];
 
 const connections = [
-  ["cuzec", "openai"], ["cuzec", "claude"], ["cuzec", "n8n"], ["cuzec", "make"],
-  ["cuzec", "zapier"], ["cuzec", "shopify"], ["cuzec", "hubspot"], ["cuzec", "slack"],
-  ["cuzec", "stripe"], ["cuzec", "whatsapp"], ["cuzec", "google"], ["cuzec", "microsoft"],
-  ["n8n", "openai"], ["make", "shopify"], ["zapier", "hubspot"],
+  ["cuzec", "openai"],
+  ["cuzec", "claude"],
+  ["cuzec", "n8n"],
+  ["cuzec", "slack"],
+  ["cuzec", "whatsapp"],
+  ["cuzec", "gohighlevel"],
+  ["cuzec", "hubspot"],
+  ["cuzec", "maps"],
+  ["cuzec", "workspace"],
 ];
 
 export function TechNetworkVisualization({ className = "" }: { className?: string }) {
@@ -39,9 +41,12 @@ export function TechNetworkVisualization({ className = "" }: { className?: strin
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     const draw = () => {

@@ -15,7 +15,7 @@ const categories = [
   { key: "ai", label: "AI Stack", description: "Intelligent automation powered by leading AI models" },
   { key: "automation", label: "Automation Stack", description: "Best-in-class workflow automation platforms" },
   { key: "platform", label: "Platforms", description: "Platforms we integrate with" },
-  { key: "integration", label: "Integrations", description: "Communication, payment, and messaging integrations" },
+  { key: "integration", label: "Integrations", description: "Communication and messaging integrations" },
 ] as const;
 
 export default function TechnologyPage() {
@@ -48,7 +48,7 @@ export default function TechnologyPage() {
           <SectionHeader
             label="Network"
             title="Interactive Technology Network"
-            description="Explore how Cuzec connects your entire tech stack."
+            description="See how Cuzec connects the tools on this page."
           />
           <div className="rounded-2xl border border-border bg-card overflow-hidden h-[500px]">
             <TechNetworkVisualization />
@@ -86,7 +86,7 @@ export default function TechnologyPage() {
           <SectionHeader
             label="Approach"
             title="Platform Agnostic Integration"
-            description="We don't lock you into a single platform. We choose the best tool for each job."
+            description="Cuzec connects the tools listed on this page."
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
@@ -114,7 +114,7 @@ export default function TechnologyPage() {
 
       <CTASection
         title="Need a Custom Integration?"
-        description="We build integrations for any platform. Let's discuss your tech stack."
+        description="Tell us which of these tools your business already uses."
       />
     </>
   );

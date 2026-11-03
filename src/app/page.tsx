@@ -139,7 +139,7 @@ export default function HomePage() {
             <div className="section-label">Technology Ecosystem</div>
             <h2 className="section-title">Built on the tools you already use.</h2>
             <p className="section-subtitle max-w-2xl">
-              We work across the entire modern SaaS stack. No rip-and-replace, no new tools to learn.
+              Cuzec connects the tools below to the systems a business already uses.
             </p>
           </div>
 

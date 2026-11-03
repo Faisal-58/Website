@@ -249,7 +249,7 @@ export const servicePages: Record<
       {
         question: "Which tools does Cuzec connect for CRM automation?",
         answer:
-          "Cuzec connects CRM automation to HubSpot and n8n.",
+          "Cuzec connects CRM automation to GoHighLevel, HubSpot, and n8n.",
       },
       {
         question: "How long is a Cuzec CRM audit?",
@@ -304,7 +304,8 @@ export const servicePages: Record<
       },
       {
         question: "Which platforms does Cuzec connect for e-commerce automation?",
-        answer: "Cuzec connects e-commerce automation to n8n.",
+        answer:
+          "Cuzec runs e-commerce automation on n8n, covering inventory sync, order processing, customer communications, returns, and analytics.",
       },
     ],
     // TODO(hamza): no industry page on the site is an e-commerce vertical, so this page does not link to one.
