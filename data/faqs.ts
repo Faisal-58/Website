@@ -62,7 +62,7 @@ export const industryPages: Record<
       {
         question: "What did that sample testing show?",
         answer:
-          "On those sample bid packages, it took ~1 min to level 4 quotes, a job that takes 1–3 days by hand. In that testing, 100% of planted exclusions were caught and 95–98% of scope items were judged correctly. The same sample packages account for 6 trades with US and UK scope checklists ready.",
+          "On sample bid packages Cuzec built, with known answers and planted traps, it took ~1 min to level 4 quotes, a job that takes 1–3 days by hand. In that testing, 100% of planted exclusions were caught and 95–98% of scope items were judged correctly. BidLevel has scope checklists ready for 6 trades, covering US and UK scope.",
       },
       {
         question: "What quote formats can be uploaded?",
@@ -99,7 +99,7 @@ export const industryPages: Record<
       {
         question: "What safety checks are described?",
         answer:
-          "Heart surgery: asks for angiogram results and warns about flying in urgent cases. Cancer: never recommends a country on cost alone.",
+          "For heart surgery, Global Health Navigator asks for angiogram results and warns about flying in urgent cases. For cancer, Global Health Navigator never recommends a country on cost alone.",
       },
       {
         question: "What do the screenshots show?",
@@ -162,32 +162,32 @@ export const servicePages: Record<
       {
         question: "What is the AI Agents service?",
         answer:
-          "Cuzec AI agents are custom-built autonomous systems that understand your business context, make decisions, and execute workflows.",
+          "Cuzec AI agents are custom-built autonomous systems that understand a client's business context, make decisions, and execute workflows.",
       },
       {
-        question: "What work can an agent handle?",
+        question: "What work can a Cuzec AI agent handle?",
         answer:
-          "The AI Agents service deploys autonomous agents capable of handling multi-step business processes that traditionally require human judgment, from customer support to data analysis.",
+          "Cuzec deploys AI agents for multi-step business processes that traditionally require human judgment, from customer support to data analysis.",
       },
       {
-        question: "What does a workflow look like?",
+        question: "What does a Cuzec AI agent workflow look like?",
         answer:
-          "A customer inquiry is one workflow: the AI analyzes intent, retrieves relevant data, generates a response, updates the CRM, and escalates if needed.",
+          "For a customer inquiry, a Cuzec AI agent analyzes intent, retrieves relevant data, generates a response, updates the CRM, and escalates if needed.",
       },
       {
-        question: "Which jobs are listed as use cases?",
+        question: "What jobs do Cuzec AI agents handle?",
         answer:
-          "The listed use cases are customer support automation, document processing and analysis, lead qualification and routing, data entry and validation, and report generation.",
+          "Cuzec AI agents handle customer support, document processing and analysis, lead qualification and routing, data entry and validation, and report generation.",
       },
       {
         question: "Does a person still take critical decisions?",
         answer:
-          "Yes. A person remains in the loop for critical decisions.",
+          "Cuzec keeps a person in the loop for critical decisions.",
       },
       {
-        question: "How does a first project run?",
+        question: "How does a first Cuzec AI agents project run?",
         answer:
-          "A first project starts with an assessment, a 2-week process audit and opportunity mapping, then a pilot, a 4-week pilot with one workflow.",
+          "A first Cuzec AI agents project starts with a 2-week process audit and opportunity mapping, then a 4-week pilot with one workflow.",
       },
     ],
     related: [
@@ -202,26 +202,26 @@ export const servicePages: Record<
       {
         question: "What is workflow automation?",
         answer:
-          "Workflow Automation connects your disconnected systems and automates multi-step business processes. From simple task routing to complex cross-platform orchestration, we eliminate manual handoffs.",
+          "Cuzec workflow automation connects disconnected systems and automates multi-step business processes, from simple task routing to complex cross-platform orchestration, and it removes manual handoffs.",
       },
       {
-        question: "What does a workflow look like?",
+        question: "What does a Cuzec workflow look like?",
         answer:
-          "One workflow starts with a new lead form submission. The data is validated, the contact is enriched, the lead is scored, it is assigned to a rep, a welcome email is sent, and a CRM record is created.",
+          "In one Cuzec workflow, a new lead form submission is validated, the contact is enriched, the lead is scored and assigned to a rep, a welcome email is sent, and a CRM record is created.",
       },
       {
-        question: "Which processes are listed?",
+        question: "Which processes does Cuzec workflow automation cover?",
         answer:
-          "The processes listed are employee onboarding, invoice processing, approval workflows, data synchronization, and report generation.",
+          "Cuzec workflow automation covers employee onboarding, invoice processing, approval workflows, data synchronization, and report generation.",
       },
       {
-        question: "How long do design and build take on this page?",
+        question: "How long do design and build take?",
         answer:
-          "On this page, design is a 3-week workflow design and approval, and implementation is 4-6 weeks of development and integration.",
+          "A Cuzec workflow project includes a 3-week design and approval stage, then 4-6 weeks of development and integration.",
       },
       {
-        question: "What happens in the process audit?",
-        answer: "The process audit maps all business processes and system touchpoints.",
+        question: "What happens in a Cuzec process audit?",
+        answer: "A Cuzec process audit maps all business processes and system touchpoints.",
       },
     ],
     related: [
@@ -234,26 +234,26 @@ export const servicePages: Record<
       {
         question: "What does CRM automation cover?",
         answer:
-          "Our CRM Automation service automates routine CRM tasks while maintaining data quality and compliance. We connect your CRM to your entire business ecosystem for seamless lead management.",
+          "Cuzec CRM automation handles routine CRM tasks while maintaining data quality and compliance, and it connects the CRM for lead management.",
       },
       {
-        question: "What does a signup workflow look like?",
+        question: "What does a Cuzec CRM signup workflow look like?",
         answer:
-          "When a prospect signs up, the data is auto-populated, the lead is auto-scored, it is assigned to the right rep, an automated follow-up email is sent, and a calendar invite is sent.",
+          "When a prospect signs up, Cuzec CRM automation fills in the data, scores the lead, assigns it to the right rep, sends a follow-up email, and sends a calendar invite.",
       },
       {
-        question: "Which jobs are listed as use cases?",
+        question: "What does Cuzec CRM automation cover?",
         answer:
-          "The listed use cases are lead scoring and routing, automated follow-up workflows, CRM data enrichment, activity logging and insights, and pipeline stage automation.",
+          "Cuzec CRM automation covers lead scoring and routing, automated follow-up, CRM data enrichment, activity logging and insights, and pipeline stage automation.",
       },
       {
-        question: "Which CRMs are named?",
+        question: "Which tools does Cuzec connect for CRM automation?",
         answer:
-          "The tools named on this page are HubSpot, Salesforce, Pipedrive, Zapier, and n8n.",
+          "Cuzec connects CRM automation to HubSpot, Salesforce, Pipedrive, Zapier, and n8n.",
       },
       {
-        question: "How long is the audit on this page?",
-        answer: "The CRM audit on this page is a 2-week CRM process and data audit.",
+        question: "How long is a Cuzec CRM audit?",
+        answer: "A Cuzec CRM audit is a 2-week process and data audit.",
       },
     ],
     related: [
@@ -266,21 +266,21 @@ export const servicePages: Record<
       {
         question: "What is WhatsApp automation?",
         answer:
-          "We build conversational bots and workflow automation on the WhatsApp Business API. They turn WhatsApp into a revenue channel.",
+          "Cuzec builds conversational bots and workflow automation on the WhatsApp Business API, and those bots turn WhatsApp into a revenue channel.",
       },
       {
-        question: "What does a message flow look like?",
+        question: "What does a Cuzec WhatsApp message flow look like?",
         answer:
-          "When a customer sends a message, the chatbot responds instantly, information is collected, a CRM record is created, a follow-up is scheduled, and a payment link is sent.",
+          "When a customer sends a WhatsApp message, Cuzec's chatbot responds instantly, collects information, creates a CRM record, schedules a follow-up, and sends a payment link.",
       },
       {
-        question: "Which jobs are listed as use cases?",
+        question: "What does Cuzec WhatsApp automation cover?",
         answer:
-          "The listed use cases are customer support automation, order status notifications, appointment reminders, lead qualification, and broadcast campaigns.",
+          "Cuzec WhatsApp automation covers customer support, order status notifications, appointment reminders, lead qualification, and broadcast campaigns.",
       },
       {
-        question: "What gets connected?",
-        answer: "WhatsApp is connected to your CRM and systems.",
+        question: "What does Cuzec connect to WhatsApp?",
+        answer: "Cuzec connects WhatsApp to the CRM and to the client's other systems.",
       },
     ],
     related: [{ href: "/real-estate", label: "AI lead qualification for real estate agencies" }],
@@ -290,21 +290,21 @@ export const servicePages: Record<
       {
         question: "What does e-commerce automation cover?",
         answer:
-          "E-commerce Automation streamlines every aspect of online retail — inventory sync, order processing, customer communications, returns, and analytics — across all your sales channels.",
+          "Cuzec e-commerce automation covers inventory sync, order processing, customer communications, returns, and analytics across sales channels.",
       },
       {
-        question: "What does an order workflow look like?",
+        question: "What does a Cuzec e-commerce order workflow look like?",
         answer:
-          "When an order is placed, payment is verified, inventory is reserved, fulfillment is triggered, a shipping label is created, and the customer is notified.",
+          "When an order is placed, Cuzec e-commerce automation verifies payment, reserves inventory, triggers fulfillment, creates a shipping label, and notifies the customer.",
       },
       {
-        question: "Which jobs are listed as use cases?",
+        question: "What else does Cuzec e-commerce automation cover?",
         answer:
-          "The listed use cases are multi-channel order management, inventory automation, returns processing, customer notifications, and analytics and reporting.",
+          "Cuzec e-commerce automation also covers multi-channel order management, inventory automation, returns processing, customer notifications, and analytics and reporting.",
       },
       {
-        question: "Which platforms are named?",
-        answer: "The platforms named on this page are Shopify, WooCommerce, Stripe, n8n, and Make.",
+        question: "Which platforms does Cuzec connect for e-commerce automation?",
+        answer: "Cuzec connects e-commerce automation to Shopify, WooCommerce, Stripe, n8n, and Make.",
       },
     ],
     // TODO(hamza): no industry page on the site is an e-commerce vertical, so this page does not link to one.
@@ -315,22 +315,22 @@ export const servicePages: Record<
       {
         question: "What does lead automation do?",
         answer:
-          "Lead Automation ensures no lead falls through the cracks. We capture leads from all touchpoints, qualify them automatically, and nurture them with personalized workflows until they're sales-ready.",
+          "Cuzec lead automation captures leads from every touchpoint, qualifies them, and nurtures them until they are sales-ready, so a lead is not lost.",
       },
       {
-        question: "What does a lead workflow look like?",
+        question: "What does a Cuzec lead workflow look like?",
         answer:
-          "A lead workflow starts when a lead source is identified. The lead is auto-captured, its qualification is scored, it is enriched with data, it is assigned to a sales rep, and a nurture campaign is triggered.",
+          "Cuzec lead automation identifies the lead source, captures the lead, scores it, enriches the record, assigns it to a sales rep, and starts a nurture campaign.",
       },
       {
-        question: "Which jobs are listed as use cases?",
+        question: "What does Cuzec lead automation cover?",
         answer:
-          "The listed use cases are inbound lead capture, lead scoring and qualification, lead routing and assignment, lead nurturing workflows, and lead-to-customer handoff.",
+          "Cuzec lead automation covers inbound capture, scoring and qualification, routing and assignment, nurturing, and the handoff from lead to customer.",
       },
       {
-        question: "How does the build on this page run?",
+        question: "How does a Cuzec lead-automation build run?",
         answer:
-          "The build on this page audits current lead processes, designs automated lead workflows, implements and tests the automations, and launches with team training.",
+          "A Cuzec lead-automation build audits the current lead process, designs the workflows, implements and tests them, and launches with team training.",
       },
     ],
     related: [{ href: "/real-estate", label: "AI lead qualification for real estate agencies" }],
@@ -340,22 +340,22 @@ export const servicePages: Record<
       {
         question: "What does operations automation cover?",
         answer:
-          "Operations Automation handles the backbone of your business — employee onboarding, expense management, compliance tracking, and internal workflows — so your teams can focus on strategic work.",
+          "Cuzec operations automation covers employee onboarding, expense management, compliance tracking, and internal workflows, so a team can spend its time on strategic work.",
       },
       {
-        question: "What does an onboarding workflow look like?",
+        question: "What does a Cuzec onboarding workflow look like?",
         answer:
-          "An onboarding workflow starts with a new hire. The onboarding workflow is triggered, equipment is ordered, system access is provisioned, training is scheduled, and orientation is recorded.",
+          "For a new hire, Cuzec operations automation triggers onboarding, orders equipment, provisions system access, schedules training, and records orientation.",
       },
       {
-        question: "Which jobs are listed as use cases?",
+        question: "What does Cuzec operations automation cover?",
         answer:
-          "The listed use cases are employee onboarding, expense management, compliance tracking, internal request processing, and document management.",
+          "Cuzec operations automation covers employee onboarding, expense management, compliance tracking, internal requests, and document management.",
       },
       {
-        question: "What is selected first?",
+        question: "What does Cuzec automate first?",
         answer:
-          "The page says to identify the highest-impact automations first, then automate 5 highest-impact processes.",
+          "Cuzec starts by identifying the highest-impact operations, then automates the 5 highest-impact processes.",
       },
     ],
     related: [{ href: "/coaching", label: "AI operations platform for a coaching business" }],
