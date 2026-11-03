@@ -66,11 +66,12 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   category: string;
-  author: { name: string; role: string; avatar?: string };
+  author: { name: string; role?: string; avatar?: string };
   publishedAt: string;
   featured: boolean;
   readingTime: number;
   tags: string[];
+  relatedLinks: { href: string; label: string }[];
 }
 
 export interface Resource {

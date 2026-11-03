@@ -1,18 +1,19 @@
 import type { BlogPost, Resource, TeamMember, Testimonial, Technology } from "@/types";
 
+// TODO(hamza): posts have publishedAt only. There is no modified date, so pages show "Published" and not a last-updated date.
 export const blogPosts: BlogPost[] = [
   {
     slug: "future-of-business-automation",
     title: "The Future of Business Automation in 2026",
     excerpt:
-      "Explore how AI agents, intelligent workflows, and hyper-automation are reshaping how enterprises operate.",
+      "Explore how AI agents, intelligent workflows, and hyper-automation are reshaping how businesses operate.",
     content: `## The Automation Revolution
 
-Business automation has evolved far beyond simple task schedulers and email triggers. In 2026, we're witnessing the convergence of AI agents, intelligent workflows, and hyper-automation that's fundamentally changing how enterprises operate.
+Business automation has evolved far beyond simple task schedulers and email triggers. In 2026, we're witnessing the convergence of AI agents, intelligent workflows, and hyper-automation that's fundamentally changing how businesses operate.
 
 ### From Rules to Intelligence
 
-Traditional automation followed rigid if-then rules. Today's AI-powered automation understands context, makes decisions, and adapts to changing conditions. This shift from deterministic to intelligent automation is the single biggest change in enterprise technology.
+Traditional automation followed rigid if-then rules. Today's AI-powered automation understands context, makes decisions, and adapts to changing conditions. This shift from deterministic to intelligent automation is the single biggest change in business technology.
 
 ### Key Trends Shaping 2026
 
@@ -22,23 +23,19 @@ Traditional automation followed rigid if-then rules. Today's AI-powered automati
 
 **Natural Language Interfaces** allow business users to create and modify automations by simply describing what they want in plain English.
 
-### What This Means for Your Business
-
-Companies that embrace intelligent automation are seeing:
-- 60-80% reduction in manual processing time
-- 90%+ accuracy in automated tasks
-- 3-5x improvement in process completion speed
-- Significant cost savings without sacrificing quality
-
 ### Getting Started
 
 The best time to start your automation journey was yesterday. The second best time is now. Begin with a process audit to identify your highest-impact automation opportunities.`,
     category: "Industry Insights",
-    author: { name: "Hamza Sattar", role: "Founder" },
+    author: { name: "Hamza Sattar", role: "CEO" },
     publishedAt: "2026-05-15",
     featured: true,
     readingTime: 8,
-    tags: ["automation", "AI", "enterprise", "future"],
+    tags: ["automation", "AI", "operations", "future"],
+    relatedLinks: [
+      { href: "/services/workflow-automation", label: "Workflow automation for end-to-end processes" },
+      { href: "/real-estate", label: "AI lead qualification for real estate agencies" },
+    ],
   },
   {
     slug: "ai-agents-vs-traditional-automation",
@@ -82,6 +79,10 @@ Start by categorizing your processes: rule-based, decision-heavy, or hybrid. Thi
     featured: true,
     readingTime: 6,
     tags: ["AI", "automation", "strategy", "best practices"],
+    relatedLinks: [
+      { href: "/services/ai-agents", label: "AI agents for multi-step business processes" },
+      { href: "/construction", label: "BidLevel AI for construction bid leveling" },
+    ],
   },
   {
     slug: "crm-automation-best-practices",
@@ -90,7 +91,7 @@ Start by categorizing your processes: rule-based, decision-heavy, or hybrid. Thi
       "Follow these proven practices to implement CRM automation that actually improves sales productivity and deal velocity.",
     content: `## Why CRM Automation Matters
 
-Sales teams spend 65% of their time on non-selling activities. CRM automation reclaims that time by handling data entry, follow-ups, and routine tasks. But automation for automation's sake often fails. The best CRM automation directly supports your sales process.
+CRM automation handles data entry, follow-ups, and routine tasks. But automation for automation's sake often fails. The best CRM automation directly supports your sales process.
 
 ### Best Practice #1: Start with Your Top 3 Processes
 
@@ -98,8 +99,6 @@ Don't try to automate everything at once. Identify your three highest-impact pro
 - Lead capture and qualification
 - Deal stage progression
 - Follow-up reminders
-
-These three typically account for 50% of manual CRM time.
 
 ### Best Practice #2: Maintain Data Quality
 
@@ -111,7 +110,7 @@ Sales teams are more likely to adopt automation they can modify. Build processes
 
 ### Best Practice #4: Measure Impact
 
-Define your baseline: How many hours per week do reps spend on manual CRM activities? Track this weekly. Good CRM automation reduces this by 40-60%.
+Define your baseline: How many hours per week do reps spend on manual CRM activities? Track this weekly.
 
 ### Best Practice #5: Iterate and Refine
 
@@ -122,16 +121,18 @@ Your first automation won't be perfect. Plan for regular reviews and adjustments
 The best CRM automation starts with understanding your current process deeply. Map every step, identify the manual bottlenecks, and automate those first.
 
 Results typically include:
-- 15+ hours saved per sales rep per week
-- 30% improvement in deal cycle time
 - Cleaner, more accurate CRM data
 - Higher forecast accuracy`,
     category: "Best Practices",
-    author: { name: "Hamza Sattar", role: "Founder" },
+    author: { name: "Hamza Sattar", role: "CEO" },
     publishedAt: "2026-03-18",
     featured: true,
     readingTime: 7,
     tags: ["CRM", "sales", "automation", "best practices"],
+    relatedLinks: [
+      { href: "/services/crm-automation", label: "CRM automation for pipeline work" },
+      { href: "/coaching", label: "AI operations platform for a coaching business" },
+    ],
   },
 ];
 

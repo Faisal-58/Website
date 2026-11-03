@@ -3,13 +3,15 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section, Container, Badge } from "@/components/ui/Section";
 import { CTASection, BlogCard } from "@/components/shared/Cards";
+import { Breadcrumbs, RelatedLinks } from "@/components/seo/ContentBlocks";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   ReadingProgress,
   TableOfContents,
   MarkdownContent,
 } from "@/components/blog/BlogContent";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
-import { pageMetadata } from "@/lib/seo";
+import { blogPostingJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -30,7 +32,7 @@ export async function generateMetadata({
       path: "/blog",
     });
   }
-  // The full headline is 61 characters once " | Cuzec" is added.
+  // The full headline "AI Agents vs Traditional Automation: When to Use Each" is 61 characters with the suffix.
   const title =
     post.slug === "ai-agents-vs-traditional-automation"
       ? "AI Agents vs Traditional Automation"
@@ -66,10 +68,18 @@ export default async function BlogDetailPage({
 
   return (
     <>
+      <JsonLd data={blogPostingJsonLd(post)} />
       <ReadingProgress />
 
       <section className="relative py-24 md:py-32">
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Blog", path: "/blog" },
+              { name: post.title, path: `/blog/${post.slug}` },
+            ]}
+          />
           <div className="flex items-center gap-3 mb-4">
             <Badge>{post.category}</Badge>
             <span className="text-sm text-muted">{post.readingTime} min read</span>
@@ -86,7 +96,8 @@ export default async function BlogDetailPage({
             <div>
               <p className="font-medium text-sm">{post.author.name}</p>
               <p className="text-xs text-muted">
-                {post.author.role} · {formatDate(post.publishedAt)}
+                {post.author.role ? `${post.author.role} · ` : ""}
+                Published {formatDate(post.publishedAt)}
               </p>
             </div>
           </div>
@@ -119,6 +130,8 @@ export default async function BlogDetailPage({
         </Container>
       </Section>
 
+      <RelatedLinks title="Related pages" links={post.relatedLinks} />
+
       {related.length > 0 && (
         <Section className="bg-card/30">
           <Container>
@@ -134,7 +147,7 @@ export default async function BlogDetailPage({
 
       <CTASection
         title="Ready to Automate?"
-        description="Put these insights into action. Book a demo to see CUZEC in action."
+        description="Put these insights into action. Book a free 30-minute session."
       />
     </>
   );
