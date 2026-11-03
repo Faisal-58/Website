@@ -11,9 +11,14 @@ import { getFeaturedCaseStudies } from "@/data/case-studies";
 import { BOOKING_URL, deliverySteps } from "@/data/site";
 import { testimonials, technologies } from "@/data/blog";
 import { services } from "@/data/services";
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, pageMetadata } from "@/lib/seo";
+import { HOME_DESCRIPTION, HOME_TITLE, pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({ title: DEFAULT_TITLE, description: DEFAULT_DESCRIPTION, path: "/" });
+export const metadata = pageMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+  absolute: true,
+});
 
 const features = [
   { href: "/services/ai-agents", label: "AI Agents", icon: Bot },
@@ -169,7 +174,7 @@ export default function HomePage() {
             <div className="section-label">Technology Ecosystem</div>
             <h2 className="section-title">Built on the tools you already use.</h2>
             <p className="section-subtitle max-w-2xl">
-              We work across the entire modern SaaS stack. No rip-and-replace, no new tools to learn.
+              Cuzec connects the tools below to the systems a business already uses.
             </p>
           </div>
 

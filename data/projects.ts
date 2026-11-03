@@ -82,7 +82,7 @@ export const projects: Project[] = [
     featuresTitle: "Fits into how you already work",
     features: [
       "Can be connected to WhatsApp",
-      "Can be connected to your CRM (GoHighLevel, HubSpot and others)",
+      "Can be connected to your CRM (GoHighLevel or HubSpot)",
       "Works from your own listings (spreadsheet, database or website)",
       "Asks your own qualifying questions, in your agency's tone",
     ],
@@ -96,8 +96,8 @@ export const projects: Project[] = [
     slug: "construction",
     industry: "Construction",
     name: "BidLevel AI",
-    status: "Working product · now taking pilot clients",
-    metaTitle: "BidLevel AI: Subcontractor Bid Leveling for Construction",
+    status: "Working demo · now taking pilot clients",
+    metaTitle: "BidLevel AI for construction bids",
     metaDescription:
       "BidLevel AI compares subcontractor quotes against one scope checklist, flags what each bidder left out and shows the true cheapest bid, in about a minute.",
     title: "Level subcontractor bids in",

@@ -3,8 +3,8 @@ import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { JsonLd } from "@/components/JsonLd";
-import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { HOME_DESCRIPTION, HOME_TITLE, SITE_URL, organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,53 +20,27 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: DEFAULT_TITLE,
-    template: `%s | ${SITE_NAME}`,
+    default: HOME_TITLE,
+    template: "%s | Cuzec",
   },
-  description: DEFAULT_DESCRIPTION,
-  applicationName: SITE_NAME,
+  description: HOME_DESCRIPTION,
+  applicationName: "Cuzec",
   robots: { index: true, follow: true },
+  alternates: { canonical: SITE_URL },
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: SITE_NAME,
-    images: [OG_IMAGE],
+    siteName: "Cuzec",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Cuzec AI Automation" }],
   },
   twitter: {
     card: "summary_large_image",
-    images: [OG_IMAGE.url],
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: ["/og-image.png"],
   },
-};
-
-// Tells Google the site's name, logo and contact details (shown in search results).
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#organization`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: `${SITE_URL}/icon.png`,
-      image: `${SITE_URL}/og-image.png`,
-      description: DEFAULT_DESCRIPTION,
-      email: "info@cuzec.io",
-      foundingDate: "2026",
-      address: { "@type": "PostalAddress", addressLocality: "Lahore", addressCountry: "PK" },
-      sameAs: ["https://linkedin.com/company/cuzec"],
-      founder: [
-        { "@type": "Person", name: "Hamza Sattar", jobTitle: "Founder & CEO" },
-        { "@type": "Person", name: "Faisal Ijaz", jobTitle: "Co-founder & CTO" },
-      ],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      publisher: { "@id": `${SITE_URL}/#organization` },
-    },
-  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

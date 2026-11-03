@@ -1,11 +1,12 @@
-import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, Container, Card, Badge } from "@/components/ui/Section";
 import { CaseStudyGrid } from "@/components/case-studies/CaseStudyGrid";
 import { CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { caseStudies } from "@/data/case-studies";
 import { projects } from "@/data/projects";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Our Work",
@@ -20,6 +21,12 @@ export default function CaseStudiesPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Our work", path: "/case-studies" },
+            ]}
+          />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Our Work
           </span>

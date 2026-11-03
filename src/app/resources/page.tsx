@@ -1,13 +1,13 @@
-import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container, Card, Badge } from "@/components/ui/Section";
 import { CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { resources } from "@/data/blog";
+import { pageMetadata } from "@/lib/seo";
 import { Download, BookOpen, FileText, Lightbulb } from "lucide-react";
 
 export const metadata = pageMetadata({
   title: "Resources",
-  description:
-    "Automation guides, workflow templates and downloads from the Cuzec team.",
+  description: "Automation guides, workflow templates and downloads from Cuzec.",
   path: "/resources",
 });
 
@@ -38,6 +38,12 @@ export default function ResourcesPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Resources", path: "/resources" },
+            ]}
+          />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Resources
           </span>

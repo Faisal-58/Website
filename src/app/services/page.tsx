@@ -1,8 +1,9 @@
-import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container } from "@/components/ui/Section";
 import { ServiceCard, CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { services } from "@/data/services";
 import { deliverySteps } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Services",
@@ -17,6 +18,12 @@ export default function ServicesPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/services" },
+            ]}
+          />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Services
           </span>
@@ -24,8 +31,8 @@ export default function ServicesPage() {
             Automation Services
           </h1>
           <p className="text-lg text-muted max-w-2xl leading-relaxed">
-            AI agents and automations built around the tools you already use. Fixed price,
-            live in 2–4 weeks, with 2 months of support after launch.
+            AI agents and automations built around the tools you already use. Delivery is
+            typically weeks, with a fixed quote agreed before work starts, and 2 months of support after launch.
           </p>
         </Container>
       </section>

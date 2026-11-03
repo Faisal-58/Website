@@ -9,7 +9,8 @@ import { getCaseStudyBySlug } from "@/data/case-studies";
 import { getProject } from "@/data/projects";
 import { BOOKING_URL, deliverySteps } from "@/data/site";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -46,6 +47,7 @@ export default async function ServiceDetailPage({
 
   return (
     <>
+      <JsonLd data={serviceJsonLd(service.name, service.description, `/services/${service.slug}`)} />
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
@@ -145,7 +147,7 @@ export default async function ServiceDetailPage({
         <Container>
           <h2 className="text-2xl font-semibold mb-2">How we work</h2>
           <p className="text-muted mb-6">
-            Fixed price agreed before we start. Most projects go live within 2–4 weeks.
+            Delivery is typically weeks, with a fixed quote agreed before work starts. Support continues for 2 months after launch.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {deliverySteps.map((step) => (

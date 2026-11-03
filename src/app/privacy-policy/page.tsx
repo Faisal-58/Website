@@ -1,10 +1,10 @@
-import { pageMetadata } from "@/lib/seo";
 import { Container, Section } from "@/components/ui/Section";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy",
-  description:
-    "Cuzec privacy policy: how we collect, use and protect your data.",
+  description: "How Cuzec collects, uses and protects your data.",
   path: "/privacy-policy",
 });
 
@@ -13,6 +13,12 @@ export default function PrivacyPolicyPage() {
     <>
       <section className="py-24 md:py-32">
         <Container>
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Privacy policy", path: "/privacy-policy" },
+            ]}
+          />
           <h1 className="text-4xl font-semibold tracking-tight mb-6">Privacy Policy</h1>
           <p className="text-muted mb-8">Last updated: May 31, 2026</p>
         </Container>
@@ -21,6 +27,7 @@ export default function PrivacyPolicyPage() {
       <Section className="border-t border-border pt-12">
         <Container>
           <div className="max-w-3xl space-y-8 text-muted leading-relaxed">
+            {/* TODO(hamza): legalName was left blank. This page does not name a legal entity until a legal name is supplied. */}
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Information We Collect</h2>
               <p>

@@ -1,48 +1,154 @@
 import type { Metadata } from "next";
 
 export const SITE_URL = "https://www.cuzec.io";
-export const SITE_NAME = "Cuzec";
-export const DEFAULT_TITLE = "Cuzec: AI Automation for Real Estate, Construction & More";
-export const DEFAULT_DESCRIPTION =
-  "Cuzec builds AI agents and automations for real estate, construction, healthcare and coaching businesses, connected to the tools you already use.";
-export const OG_IMAGE = { url: "/og-image.png", width: 1200, height: 630, alt: "Cuzec AI Automation" };
 
-// Child metadata replaces the parent's openGraph/twitter objects instead of merging,
-// so every page builds its full set here: title, description, canonical URL and social tags.
+export const HOME_TITLE = "AI agents for real estate, construction, healthcare";
+
+export const HOME_DESCRIPTION =
+  "Cuzec builds AI agents and automations for real estate, construction, healthcare and coaching businesses, connected to the tools clients already use.";
+
+const TITLE_SUFFIX = " | Cuzec";
+const OG_IMAGE = "/og-image.png";
+
+export function sentenceCount(text: string): number {
+  return text.split(/[.!?]+/).filter((part) => part.trim()).length;
+}
+
 export function pageMetadata({
   title,
   description,
   path,
-  type = "website",
-  publishedTime,
-  authors,
+  absolute = false,
 }: {
   title: string;
   description: string;
   path: string;
-  type?: "website" | "article";
-  publishedTime?: string;
-  authors?: string[];
+  absolute?: boolean;
 }): Metadata {
-  const socialTitle = path === "/" ? title : `${title} | ${SITE_NAME}`;
+  const fullTitle = absolute ? title : `${title}${TITLE_SUFFIX}`;
+  if (fullTitle.length > 60) {
+    throw new Error(`Title is ${fullTitle.length} characters: ${fullTitle}`);
+  }
+  if (description.length > 155) {
+    throw new Error(`Description is ${description.length} characters: ${description}`);
+  }
+  const canonical = path === "/" ? SITE_URL : `${SITE_URL}${path}`;
   return {
-    title: path === "/" ? { absolute: title } : title,
+    title: absolute ? { absolute: title } : title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical },
     openGraph: {
-      title: socialTitle,
+      title: fullTitle,
       description,
-      url: path,
-      siteName: SITE_NAME,
-      locale: "en_US",
-      images: [OG_IMAGE],
-      ...(type === "article" ? { type, publishedTime, authors } : { type }),
+      url: canonical,
+      siteName: "Cuzec",
+      type: "website",
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: "Cuzec AI Automation" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: socialTitle,
+      title: fullTitle,
       description,
-      images: [OG_IMAGE.url],
+      images: [OG_IMAGE],
     },
+  };
+}
+
+// TODO(hamza): legalName was left blank. Do not set Organization.legalName until a legal name is supplied.
+export const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Cuzec",
+  alternateName: "Cuzec AI Automation",
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon.png`,
+  image: `${SITE_URL}/og-image.png`,
+  email: "info@cuzec.io",
+  telephone: "+923085007407",
+  foundingDate: "2026",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  areaServed: ["GB", "US"],
+  founder: [
+    { "@type": "Person", name: "Hamza Sattar", jobTitle: "Founder & CEO" },
+    { "@type": "Person", name: "Faisal Ijaz", jobTitle: "Co-founder & CTO" },
+  ],
+  sameAs: ["https://linkedin.com/company/cuzec"],
+};
+
+export function personJsonLd(person: { name: string; jobTitle: string; sameAs?: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    jobTitle: person.jobTitle,
+    ...(person.sameAs ? { sameAs: [person.sameAs] } : {}),
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
+export function serviceJsonLd(name: string, description: string, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: `${SITE_URL}${path}`,
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: ["GB", "US"],
+  };
+}
+
+export function faqJsonLd(items: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+}
+
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.path === "/" ? SITE_URL : `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
+export function blogPostingJsonLd(post: {
+  title: string;
+  excerpt: string;
+  slug: string;
+  publishedAt: string;
+  author: { name: string; role?: string };
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: `${SITE_URL}/og-image.png`,
+    datePublished: post.publishedAt,
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+      ...(post.author.role ? { jobTitle: post.author.role } : {}),
+    },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
   };
 }

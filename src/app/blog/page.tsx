@@ -1,8 +1,9 @@
-import { pageMetadata } from "@/lib/seo";
 import { Section, SectionHeader, Container } from "@/components/ui/Section";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { BlogCard, CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
 import { blogPosts, getFeaturedBlogPosts } from "@/data/blog";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Blog",
@@ -19,6 +20,7 @@ export default function BlogPage() {
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs items={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]} />
           <span className="text-accent text-sm font-semibold tracking-wider uppercase mb-3 block">
             Blog
           </span>

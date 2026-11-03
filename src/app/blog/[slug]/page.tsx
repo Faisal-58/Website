@@ -3,15 +3,16 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Section, Container, Badge } from "@/components/ui/Section";
 import { CTASection, BlogCard } from "@/components/shared/Cards";
+import { Breadcrumbs, RelatedLinks } from "@/components/seo/ContentBlocks";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   ReadingProgress,
   TableOfContents,
   MarkdownContent,
 } from "@/components/blog/BlogContent";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
+import { blogPostingJsonLd, pageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
-import { pageMetadata, SITE_URL } from "@/lib/seo";
-import { JsonLd } from "@/components/JsonLd";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -24,15 +25,32 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
-  if (!post) return { title: "Article Not Found" };
-  return pageMetadata({
-    title: post.title,
+  if (!post) {
+    return pageMetadata({
+      title: "Article not found",
+      description: "This article does not exist.",
+      path: "/blog",
+    });
+  }
+  // The full headline "AI Agents vs Traditional Automation: When to Use Each" is 61 characters with the suffix.
+  const title =
+    post.slug === "ai-agents-vs-traditional-automation"
+      ? "AI Agents vs Traditional Automation"
+      : post.title;
+  const meta = pageMetadata({
+    title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-    type: "article",
-    publishedTime: post.publishedAt,
-    authors: [post.author.name],
   });
+  return {
+    ...meta,
+    openGraph: {
+      ...meta.openGraph,
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.author.name],
+    },
+  };
 }
 
 export default async function BlogDetailPage({
@@ -48,26 +66,20 @@ export default async function BlogDetailPage({
     .filter((p) => p.slug !== post.slug && p.category === post.category)
     .slice(0, 2);
 
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.publishedAt,
-    image: `${SITE_URL}/og-image.png`,
-    url: `${SITE_URL}/blog/${post.slug}`,
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
-    author: { "@type": "Person", name: post.author.name, jobTitle: post.author.role },
-    publisher: { "@id": `${SITE_URL}/#organization` },
-  };
-
   return (
     <>
-      <JsonLd data={articleJsonLd} />
+      <JsonLd data={blogPostingJsonLd(post)} />
       <ReadingProgress />
 
       <section className="relative py-24 md:py-32">
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Blog", path: "/blog" },
+              { name: post.title, path: `/blog/${post.slug}` },
+            ]}
+          />
           <div className="flex items-center gap-3 mb-4">
             <Badge>{post.category}</Badge>
             <span className="text-sm text-muted">{post.readingTime} min read</span>
@@ -84,7 +96,8 @@ export default async function BlogDetailPage({
             <div>
               <p className="font-medium text-sm">{post.author.name}</p>
               <p className="text-xs text-muted">
-                {post.author.role} · {formatDate(post.publishedAt)}
+                {post.author.role ? `${post.author.role} · ` : ""}
+                Published {formatDate(post.publishedAt)}
               </p>
             </div>
           </div>
@@ -117,6 +130,8 @@ export default async function BlogDetailPage({
         </Container>
       </Section>
 
+      <RelatedLinks title="Related pages" links={post.relatedLinks} />
+
       {related.length > 0 && (
         <Section className="bg-card/30">
           <Container>
@@ -132,7 +147,7 @@ export default async function BlogDetailPage({
 
       <CTASection
         title="Ready to Automate?"
-        description="Put these insights into action. Book a demo to see Cuzec in action."
+        description="Put these insights into action. Book a free 30-minute session."
       />
     </>
   );

@@ -1,10 +1,10 @@
-import { pageMetadata } from "@/lib/seo";
 import { Container, Section } from "@/components/ui/Section";
+import { Breadcrumbs } from "@/components/seo/ContentBlocks";
+import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Terms of Service",
-  description:
-    "The terms that govern use of the Cuzec website and services.",
+  title: "Terms of service",
+  description: "The terms for using the Cuzec website and services.",
   path: "/terms-of-service",
 });
 
@@ -13,6 +13,12 @@ export default function TermsOfServicePage() {
     <>
       <section className="py-24 md:py-32">
         <Container>
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Terms of service", path: "/terms-of-service" },
+            ]}
+          />
           <h1 className="text-4xl font-semibold tracking-tight mb-6">Terms of Service</h1>
           <p className="text-muted mb-8">Last updated: May 31, 2026</p>
         </Container>
@@ -21,6 +27,7 @@ export default function TermsOfServicePage() {
       <Section className="border-t border-border pt-12">
         <Container>
           <div className="max-w-3xl space-y-8 text-muted leading-relaxed">
+            {/* TODO(hamza): legalName was left blank. The company wording below stays as written until a legal name is supplied. */}
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Acceptance of Terms</h2>
               <p>

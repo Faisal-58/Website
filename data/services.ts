@@ -30,7 +30,7 @@ export const services: Service[] = [
       "Daily summaries and briefings",
       "Research and report writing",
     ],
-    technologies: ["OpenAI", "Claude", "n8n", "Python", "Your CRM and tools"],
+    technologies: ["OpenAI", "Claude", "n8n"],
     challenges: [
       "Your team spends hours answering the same questions",
       "Leads wait too long for a reply",
@@ -95,7 +95,7 @@ export const services: Service[] = [
       "Notifications and approvals",
       "Comparing quotes and documents",
     ],
-    technologies: ["n8n", "OpenAI", "Claude", "Google Workspace", "Slack", "Your existing tools"],
+    technologies: ["n8n", "OpenAI", "Claude", "Google Workspace", "Slack"],
     challenges: [
       "Copying the same data into several tools",
       "Mistakes from manual data entry",
@@ -120,7 +120,7 @@ export const services: Service[] = [
       {
         question: "Which tools can you connect?",
         answer:
-          "Most tools with an API, including CRMs, Google Workspace, Slack, WhatsApp and accounting tools. Tell us what you use on the first call and we'll confirm.",
+          "Cuzec connects workflow automation to n8n, Google Workspace, Slack, and WhatsApp.",
       },
       {
         question: "Can we change the workflow later?",
@@ -138,7 +138,7 @@ export const services: Service[] = [
       "A CRM only helps if it is up to date, and keeping it up to date takes time your team doesn't have. We automate the routine work, so every lead is recorded, followed up and moved forward without manual data entry.",
     icon: "Users",
     overview:
-      "We connect your CRM to your website, inbox, calendar and messaging, then automate the routine steps: adding leads, sending follow-ups, updating deal stages and reminding your team. We work with GoHighLevel, HubSpot and other CRMs with an API.",
+      "We connect your CRM to your website, inbox, calendar and messaging, then automate the routine steps: adding leads, sending follow-ups, updating deal stages and reminding your team. Cuzec connects CRM automation to GoHighLevel, HubSpot, and n8n.",
     benefits: [
       "Every lead recorded automatically",
       "Follow-ups sent on time, every time",
@@ -181,7 +181,7 @@ export const services: Service[] = [
       {
         question: "Which CRMs do you work with?",
         answer:
-          "GoHighLevel, HubSpot and most other CRMs with an API. If you don't have a CRM yet, we can help you choose one.",
+          "Cuzec connects CRM automation to GoHighLevel, HubSpot, and n8n.",
       },
       {
         question: "Will our existing data be affected?",
@@ -198,7 +198,7 @@ export const services: Service[] = [
       "Many customers prefer WhatsApp to email or phone calls. We build WhatsApp assistants that reply instantly, answer common questions, qualify leads and book appointments, and hand the conversation to your team when needed.",
     icon: "MessageCircle",
     overview:
-      "Using the official WhatsApp Business API, we connect WhatsApp to an AI assistant and your CRM. It replies in your tone, asks your qualifying questions, books appointments and sends reminders. Your team can see every conversation and take over at any time.",
+      "We connect WhatsApp to an AI assistant and your CRM. It replies in your tone, asks your qualifying questions, books appointments and sends reminders. Your team can see every conversation and take over at any time.",
     benefits: [
       "Instant replies, any time of day",
       "Customers stay on the app they already use",
@@ -216,7 +216,7 @@ export const services: Service[] = [
       "Order and booking updates",
       "Follow-up messages",
     ],
-    technologies: ["WhatsApp Business API", "OpenAI", "n8n", "GoHighLevel", "HubSpot"],
+    technologies: ["WhatsApp", "OpenAI", "n8n", "GoHighLevel", "HubSpot"],
     challenges: [
       "WhatsApp messages left unanswered after hours",
       "The same questions answered again and again",
@@ -241,7 +241,7 @@ export const services: Service[] = [
       {
         question: "Can we keep our current WhatsApp number?",
         answer:
-          "Usually yes. We'll check your number and set it up on the official WhatsApp Business API.",
+          "Usually yes. We'll check your number and set it up on WhatsApp.",
       },
       {
         question: "Can a person take over a conversation?",
@@ -258,7 +258,7 @@ export const services: Service[] = [
       "Running an online store means a lot of repetitive work behind the scenes: processing orders, updating stock, answering \"where is my order?\" and handling returns. We automate those steps so your team can focus on growing the store.",
     icon: "ShoppingCart",
     overview:
-      "We connect your store to your stock, shipping, accounting and messaging tools, and automate the routine steps in between. An AI assistant can answer common customer questions, such as order status and returns, using your real order data.",
+      "We connect your store to your stock, shipping and messaging tools, and automate the routine steps in between. An AI assistant can answer common customer questions, such as order status and returns, using your real order data.",
     benefits: [
       "Orders processed without manual steps",
       "Stock kept in sync across channels",
@@ -276,7 +276,7 @@ export const services: Service[] = [
       "Abandoned cart follow-ups",
       "Sales reports",
     ],
-    technologies: ["Shopify", "WooCommerce", "n8n", "OpenAI", "WhatsApp Business API"],
+    technologies: ["n8n", "OpenAI", "WhatsApp"],
     challenges: [
       "Orders processed by hand",
       "Stock out of sync between channels",
@@ -301,7 +301,7 @@ export const services: Service[] = [
       {
         question: "Which store platforms do you work with?",
         answer:
-          "Shopify, WooCommerce and most platforms with an API. Tell us your setup on the first call and we'll confirm.",
+          "Cuzec runs e-commerce automation on n8n, with OpenAI and WhatsApp where a workflow needs them.",
       },
     ],
   },
@@ -332,7 +332,7 @@ export const services: Service[] = [
       "Lead follow-up sequences",
       "Booking sales calls",
     ],
-    technologies: ["OpenAI", "Claude", "n8n", "GoHighLevel", "HubSpot", "WhatsApp Business API"],
+    technologies: ["OpenAI", "Claude", "n8n", "GoHighLevel", "HubSpot", "WhatsApp"],
     challenges: [
       "Leads waiting hours or days for a reply",
       "Time spent on leads that never buy",
