@@ -53,6 +53,7 @@ export function pageMetadata({
   };
 }
 
+// TODO(hamza): legalName was left blank. Do not set Organization.legalName until a legal name is supplied.
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",

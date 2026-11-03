@@ -52,17 +52,17 @@ export const industryPages: Record<
       {
         question: "What did the demo package show?",
         answer:
-          "In our US plumbing demo package, the quote that looked cheapest on paper ($750,700) became the most expensive ($874,500) once BidLevel priced the items it left out.",
+          "In Cuzec's own US plumbing demo package, a sample bid package we built rather than a real client bid, the quote that looked cheapest on paper ($750,700) became the most expensive ($874,500) once BidLevel priced the items it left out.",
       },
       {
         question: "How were the test figures measured?",
         answer:
-          "Measured on sample bid packages we built with known answers and planted traps. Next, we're validating it on real past bid packages.",
+          "The test figures were measured on sample bid packages Cuzec built, with known answers and planted traps, not on real client bids. Next, we're validating it on real past bid packages.",
       },
       {
         question: "What did that sample testing show?",
         answer:
-          "~1 min to level 4 quotes, a job that takes 1–3 days by hand. 100% of planted exclusions caught in testing. 95–98% of scope items judged correctly in testing. 6 trades with US and UK scope checklists ready.",
+          "On those sample bid packages, it took ~1 min to level 4 quotes, a job that takes 1–3 days by hand. In that testing, 100% of planted exclusions were caught and 95–98% of scope items were judged correctly. The same sample packages account for 6 trades with US and UK scope checklists ready.",
       },
       {
         question: "What quote formats can be uploaded?",
@@ -99,7 +99,7 @@ export const industryPages: Record<
       {
         question: "What safety checks are described?",
         answer:
-          "Heart surgery: asks for angiogram results and warns about flying in urgent cases. Cancer: never recommends a country on cost alone. Organ transplants: covers legal donor routes and tissue matching.",
+          "Heart surgery: asks for angiogram results and warns about flying in urgent cases. Cancer: never recommends a country on cost alone.",
       },
       {
         question: "What do the screenshots show?",
@@ -162,30 +162,32 @@ export const servicePages: Record<
       {
         question: "What is the AI Agents service?",
         answer:
-          "Cuzec AI agents are custom-built autonomous systems that understand your business context, make decisions, and execute workflows across your entire tech stack.",
+          "Cuzec AI agents are custom-built autonomous systems that understand your business context, make decisions, and execute workflows.",
       },
       {
         question: "What work can an agent handle?",
         answer:
-          "Our AI Agent service deploys autonomous agents capable of handling multi-step business processes that traditionally require human judgment. From customer support to data analysis, AI agents work 24/7 with precision.",
+          "The AI Agents service deploys autonomous agents capable of handling multi-step business processes that traditionally require human judgment, from customer support to data analysis.",
       },
       {
         question: "What does a workflow look like?",
         answer:
-          "Customer inquiry → AI analyzes intent → Retrieves relevant data → Generates response → Updates CRM → Escalates if needed.",
+          "A customer inquiry is one workflow: the AI analyzes intent, retrieves relevant data, generates a response, updates the CRM, and escalates if needed.",
       },
       {
         question: "Which jobs are listed as use cases?",
         answer:
-          "Customer support automation, document processing and analysis, lead qualification and routing, data entry and validation, and report generation.",
+          "The listed use cases are customer support automation, document processing and analysis, lead qualification and routing, data entry and validation, and report generation.",
       },
       {
         question: "Does a person still take critical decisions?",
-        answer: "Human-in-the-loop for critical decisions.",
+        answer:
+          "Yes. A person remains in the loop for critical decisions.",
       },
       {
         question: "How does a first project run?",
-        answer: "2-week process audit and opportunity mapping. 4-week pilot with one workflow.",
+        answer:
+          "A first project starts with an assessment, a 2-week process audit and opportunity mapping, then a pilot, a 4-week pilot with one workflow.",
       },
     ],
     related: [
@@ -205,20 +207,21 @@ export const servicePages: Record<
       {
         question: "What does a workflow look like?",
         answer:
-          "New lead form submission → Validate data → Enrich contact → Score lead → Assign to rep → Send welcome email → Create CRM record.",
+          "One workflow starts with a new lead form submission. The data is validated, the contact is enriched, the lead is scored, it is assigned to a rep, a welcome email is sent, and a CRM record is created.",
       },
       {
         question: "Which processes are listed?",
         answer:
-          "Employee onboarding, invoice processing, approval workflows, data synchronization, and report generation.",
+          "The processes listed are employee onboarding, invoice processing, approval workflows, data synchronization, and report generation.",
       },
       {
         question: "How long do design and build take on this page?",
-        answer: "3-week workflow design and approval. 4-6 weeks of development and integration.",
+        answer:
+          "On this page, design is a 3-week workflow design and approval, and implementation is 4-6 weeks of development and integration.",
       },
       {
         question: "What happens in the process audit?",
-        answer: "Map all business processes and system touchpoints.",
+        answer: "The process audit maps all business processes and system touchpoints.",
       },
     ],
     related: [
@@ -236,20 +239,21 @@ export const servicePages: Record<
       {
         question: "What does a signup workflow look like?",
         answer:
-          "Prospect signs up → Data auto-populated → Lead auto-scored → Assigned to right rep → Automated follow-up email → Calendar invite sent.",
+          "When a prospect signs up, the data is auto-populated, the lead is auto-scored, it is assigned to the right rep, an automated follow-up email is sent, and a calendar invite is sent.",
       },
       {
         question: "Which jobs are listed as use cases?",
         answer:
-          "Lead scoring and routing, automated follow-up workflows, CRM data enrichment, activity logging and insights, and pipeline stage automation.",
+          "The listed use cases are lead scoring and routing, automated follow-up workflows, CRM data enrichment, activity logging and insights, and pipeline stage automation.",
       },
       {
         question: "Which CRMs are named?",
-        answer: "HubSpot, Salesforce, Pipedrive, Zapier and n8n.",
+        answer:
+          "The tools named on this page are HubSpot, Salesforce, Pipedrive, Zapier, and n8n.",
       },
       {
         question: "How long is the audit on this page?",
-        answer: "2-week CRM process and data audit.",
+        answer: "The CRM audit on this page is a 2-week CRM process and data audit.",
       },
     ],
     related: [
@@ -267,16 +271,16 @@ export const servicePages: Record<
       {
         question: "What does a message flow look like?",
         answer:
-          "Customer sends message → Chatbot responds instantly → Info collected → CRM record created → Follow-up scheduled → Payment link sent.",
+          "When a customer sends a message, the chatbot responds instantly, information is collected, a CRM record is created, a follow-up is scheduled, and a payment link is sent.",
       },
       {
         question: "Which jobs are listed as use cases?",
         answer:
-          "Customer support automation, order status notifications, appointment reminders, lead qualification, and broadcast campaigns.",
+          "The listed use cases are customer support automation, order status notifications, appointment reminders, lead qualification, and broadcast campaigns.",
       },
       {
         question: "What gets connected?",
-        answer: "Connect WhatsApp to your CRM and systems.",
+        answer: "WhatsApp is connected to your CRM and systems.",
       },
     ],
     related: [{ href: "/real-estate", label: "AI lead qualification for real estate agencies" }],
@@ -291,16 +295,16 @@ export const servicePages: Record<
       {
         question: "What does an order workflow look like?",
         answer:
-          "Order placed → Payment verified → Inventory reserved → Fulfillment triggered → Shipping label created → Customer notified.",
+          "When an order is placed, payment is verified, inventory is reserved, fulfillment is triggered, a shipping label is created, and the customer is notified.",
       },
       {
         question: "Which jobs are listed as use cases?",
         answer:
-          "Multi-channel order management, inventory automation, returns processing, customer notifications, and analytics and reporting.",
+          "The listed use cases are multi-channel order management, inventory automation, returns processing, customer notifications, and analytics and reporting.",
       },
       {
         question: "Which platforms are named?",
-        answer: "Shopify, WooCommerce, Stripe, n8n and Make.",
+        answer: "The platforms named on this page are Shopify, WooCommerce, Stripe, n8n, and Make.",
       },
     ],
     // TODO(hamza): no industry page on the site is an e-commerce vertical, so this page does not link to one.
@@ -316,17 +320,17 @@ export const servicePages: Record<
       {
         question: "What does a lead workflow look like?",
         answer:
-          "Lead source identified → Auto-captured → Qualification scored → Enriched with data → Assigned to sales rep → Nurture campaign triggered.",
+          "A lead workflow starts when a lead source is identified. The lead is auto-captured, its qualification is scored, it is enriched with data, it is assigned to a sales rep, and a nurture campaign is triggered.",
       },
       {
         question: "Which jobs are listed as use cases?",
         answer:
-          "Inbound lead capture, lead scoring and qualification, lead routing and assignment, lead nurturing workflows, and lead-to-customer handoff.",
+          "The listed use cases are inbound lead capture, lead scoring and qualification, lead routing and assignment, lead nurturing workflows, and lead-to-customer handoff.",
       },
       {
         question: "How does the build on this page run?",
         answer:
-          "Audit current lead processes. Design automated lead workflows. Implement and test automations. Launch with team training.",
+          "The build on this page audits current lead processes, designs automated lead workflows, implements and tests the automations, and launches with team training.",
       },
     ],
     related: [{ href: "/real-estate", label: "AI lead qualification for real estate agencies" }],
@@ -341,16 +345,17 @@ export const servicePages: Record<
       {
         question: "What does an onboarding workflow look like?",
         answer:
-          "New hire → Onboarding workflow triggered → Equipment ordered → System access provisioned → Training scheduled → Orientation recorded.",
+          "An onboarding workflow starts with a new hire. The onboarding workflow is triggered, equipment is ordered, system access is provisioned, training is scheduled, and orientation is recorded.",
       },
       {
         question: "Which jobs are listed as use cases?",
         answer:
-          "Employee onboarding, expense management, compliance tracking, internal request processing, and document management.",
+          "The listed use cases are employee onboarding, expense management, compliance tracking, internal request processing, and document management.",
       },
       {
         question: "What is selected first?",
-        answer: "Identify highest-impact automations. Automate 5 highest-impact processes.",
+        answer:
+          "The page says to identify the highest-impact automations first, then automate 5 highest-impact processes.",
       },
     ],
     related: [{ href: "/coaching", label: "AI operations platform for a coaching business" }],

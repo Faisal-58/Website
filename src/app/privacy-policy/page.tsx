@@ -27,6 +27,7 @@ export default function PrivacyPolicyPage() {
       <Section className="border-t border-border pt-12">
         <Container>
           <div className="max-w-3xl space-y-8 text-muted leading-relaxed">
+            {/* TODO(hamza): legalName was left blank. This page does not name a legal entity until a legal name is supplied. */}
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Information We Collect</h2>
               <p>

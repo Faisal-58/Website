@@ -27,6 +27,7 @@ export default function TermsOfServicePage() {
       <Section className="border-t border-border pt-12">
         <Container>
           <div className="max-w-3xl space-y-8 text-muted leading-relaxed">
+            {/* TODO(hamza): legalName was left blank. The company wording below stays as written until a legal name is supplied. */}
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">Acceptance of Terms</h2>
               <p>
