@@ -82,7 +82,7 @@ export const projects: Project[] = [
     featuresTitle: "Fits into how you already work",
     features: [
       "Can be connected to WhatsApp",
-      "Can be connected to your CRM (GoHighLevel, HubSpot and others)",
+      "Can be connected to your CRM (GoHighLevel or HubSpot)",
       "Works from your own listings (spreadsheet, database or website)",
       "Asks your own qualifying questions, in your agency's tone",
     ],

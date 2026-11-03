@@ -25,7 +25,7 @@ export const services: Service[] = [
       "Data entry and validation",
       "Report generation",
     ],
-    technologies: ["OpenAI GPT-4", "Claude", "Python", "n8n", "Custom APIs"],
+    technologies: ["OpenAI", "Claude", "n8n"],
     challenges: [
       "Complex tasks require human-like judgment",
       "Scaling cognitive work is expensive",
@@ -46,8 +46,8 @@ export const services: Service[] = [
       { step: 5, title: "Optimize", description: "Continuously improve based on performance data" },
     ],
     implementationProcess: [
-      { step: 1, title: "Assessment", description: "2-week process audit and opportunity mapping" },
-      { step: 2, title: "Pilot", description: "4-week pilot with one workflow" },
+      { step: 1, title: "Assessment", description: "Process audit and opportunity mapping, typically weeks, with a fixed quote agreed before work starts" },
+      { step: 2, title: "Pilot", description: "Pilot with one workflow, typically weeks, with a fixed quote agreed before work starts" },
       { step: 3, title: "Scale", description: "Roll out across additional workflows" },
       { step: 4, title: "Optimize", description: "Ongoing optimization and expansion" },
     ],
@@ -78,7 +78,7 @@ export const services: Service[] = [
       "Data synchronization",
       "Report generation",
     ],
-    technologies: ["n8n", "Make", "Zapier", "Custom APIs", "Webhooks"],
+    technologies: ["n8n"],
     challenges: [
       "Processes span multiple disconnected systems",
       "Manual handoffs cause delays and errors",
@@ -100,8 +100,8 @@ export const services: Service[] = [
     ],
     implementationProcess: [
       { step: 1, title: "Discovery", description: "Comprehensive process mapping and analysis" },
-      { step: 2, title: "Design Phase", description: "3-week workflow design and approval" },
-      { step: 3, title: "Implementation", description: "4-6 weeks of development and integration" },
+      { step: 2, title: "Design Phase", description: "Workflow design and approval, typically weeks, with a fixed quote agreed before work starts" },
+      { step: 3, title: "Implementation", description: "Development and integration, typically weeks, with a fixed quote agreed before work starts" },
       { step: 4, title: "Rollout", description: "Phased deployment with team training" },
     ],
     caseStudySlugs: ["logistics-workflow-automation"],
@@ -131,7 +131,7 @@ export const services: Service[] = [
       "Activity logging and insights",
       "Pipeline stage automation",
     ],
-    technologies: ["HubSpot", "Salesforce", "Pipedrive", "Zapier", "n8n"],
+    technologies: ["HubSpot", "n8n"],
     challenges: [
       "Manual data entry and updates",
       "Leads get assigned to wrong reps",
@@ -152,8 +152,8 @@ export const services: Service[] = [
       { step: 5, title: "Monitor", description: "Monitor and optimize performance" },
     ],
     implementationProcess: [
-      { step: 1, title: "CRM Audit", description: "2-week CRM process and data audit" },
-      { step: 2, title: "Configuration", description: "3-week automation setup and configuration" },
+      { step: 1, title: "CRM Audit", description: "CRM process and data audit, typically weeks, with a fixed quote agreed before work starts" },
+      { step: 2, title: "Configuration", description: "Automation setup and configuration, typically weeks, with a fixed quote agreed before work starts" },
       { step: 3, title: "Integration", description: "Connect with other business systems" },
       { step: 4, title: "Deployment", description: "Launch with team training and support" },
     ],
@@ -163,9 +163,9 @@ export const services: Service[] = [
   {
     slug: "whatsapp-automation",
     name: "WhatsApp Automation",
-    shortDescription: "Automate customer communication via WhatsApp Business API.",
+    shortDescription: "Automate customer communication via WhatsApp.",
     description:
-      "We build conversational bots and workflow automation on the WhatsApp Business API. They turn WhatsApp into a revenue channel.",
+      "We build conversational bots and workflow automation on WhatsApp. They turn WhatsApp into a revenue channel.",
     icon: "MessageCircle",
     overview: "Connect WhatsApp to your CRM and systems.",
     benefits: [
@@ -183,7 +183,7 @@ export const services: Service[] = [
       "Lead qualification",
       "Broadcast campaigns",
     ],
-    technologies: ["WhatsApp Business API", "n8n", "Make", "Twilio", "Custom chatbots"],
+    technologies: ["WhatsApp", "n8n"],
     challenges: [
       "Poor customer support response times",
       "High SMS costs",
@@ -237,7 +237,7 @@ export const services: Service[] = [
       "Customer notifications",
       "Analytics and reporting",
     ],
-    technologies: ["Shopify", "WooCommerce", "Stripe", "n8n", "Make"],
+    technologies: ["n8n"],
     challenges: [
       "Managing orders across multiple channels",
       "Inventory sync issues",
@@ -291,7 +291,7 @@ export const services: Service[] = [
       "Lead nurturing workflows",
       "Lead-to-customer handoff",
     ],
-    technologies: ["HubSpot", "Salesforce", "Marketo", "n8n", "Zapier"],
+    technologies: ["HubSpot", "n8n"],
     challenges: [
       "Leads lost to slow response",
       "Poor lead qualification",
@@ -345,7 +345,7 @@ export const services: Service[] = [
       "Internal request processing",
       "Document management",
     ],
-    technologies: ["Workday", "ServiceNow", "Monday.com", "n8n", "Custom APIs"],
+    technologies: ["n8n"],
     challenges: [
       "Manual operational processes",
       "Compliance gaps and risks",

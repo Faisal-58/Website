@@ -5,32 +5,32 @@ export const industryPages: Record<
   "real-estate": {
     faqs: [
       {
-        question: "What does the real estate agent do?",
+        question: "What does the AI Lead Qualifier do?",
         answer:
           "Our AI agent talks to every new lead, finds out what they actually want, and suggests matching properties, so your agents spend their time on serious buyers.",
       },
       {
-        question: "Where do new leads come from?",
+        question: "Where do new AI Lead Qualifier leads come from?",
         answer:
           "From your website, a landing page or a chat. The AI agent replies straight away, any time of day.",
       },
       {
-        question: "What does it ask a lead?",
+        question: "What does the AI Lead Qualifier ask a lead?",
         answer:
           "It asks the questions your agents would ask: budget, preferred area, property type and timeline.",
       },
       {
-        question: "What happens after a lead is qualified?",
+        question: "What happens after the AI Lead Qualifier qualifies a lead?",
         answer:
           "Qualified leads reach your agents with a summary of what the buyer wants, ready for a call or viewing.",
       },
       {
-        question: "Which tools can it connect to?",
+        question: "Which tools can the AI Lead Qualifier connect to?",
         answer:
-          "It can be connected to WhatsApp and to your CRM (GoHighLevel, HubSpot and others). It works from your own listings (spreadsheet, database or website) and asks your own qualifying questions, in your agency's tone.",
+          "The AI Lead Qualifier can be connected to WhatsApp and to a CRM such as GoHighLevel or HubSpot. It works from the agency's own listings (spreadsheet, database or website) and asks the agency's own qualifying questions, in the agency's tone.",
       },
       {
-        question: "How do we see the demo?",
+        question: "How can someone see the AI Lead Qualifier demo?",
         answer:
           "Book a free 30-minute call. We'll walk through the demo and how it would work with your leads and listings.",
       },
@@ -50,27 +50,27 @@ export const industryPages: Record<
           "BidLevel AI compares subcontractor quotes against one scope checklist, flags what each bidder left out, prices the gaps and shows the true cheapest bid. Every flag links to the exact sentence in the original quote.",
       },
       {
-        question: "What did the demo package show?",
+        question: "What did the BidLevel AI demo package show?",
         answer:
           "In Cuzec's own US plumbing demo package, a sample bid package we built rather than a real client bid, the quote that looked cheapest on paper ($750,700) became the most expensive ($874,500) once BidLevel priced the items it left out.",
       },
       {
-        question: "How were the test figures measured?",
+        question: "How were the BidLevel AI test figures measured?",
         answer:
           "The test figures were measured on sample bid packages Cuzec built, with known answers and planted traps, not on real client bids. Next, we're validating it on real past bid packages.",
       },
       {
-        question: "What did that sample testing show?",
+        question: "What did BidLevel AI sample testing show?",
         answer:
           "On sample bid packages Cuzec built, with known answers and planted traps, it took ~1 min to level 4 quotes, a job that takes 1–3 days by hand. In that testing, 100% of planted exclusions were caught and 95–98% of scope items were judged correctly. BidLevel has scope checklists ready for 6 trades, covering US and UK scope.",
       },
       {
-        question: "What quote formats can be uploaded?",
+        question: "Which quote formats does BidLevel AI accept?",
         answer:
           "3–10 quotes in any format: PDF, scanned paper or photo, Excel, Word, or an email with attachments.",
       },
       {
-        question: "Can an estimator change a result?",
+        question: "Can an estimator change a BidLevel AI result?",
         answer: "Estimators can override any decision, and every change is logged.",
       },
     ],
@@ -87,27 +87,27 @@ export const industryPages: Record<
           "Global Health Navigator helps patients choose a country and hospital for their treatment. They describe their situation or upload a medical report, and get one structured plan: recommended countries, hospitals, costs and visa steps.",
       },
       {
-        question: "What can a patient start with?",
+        question: "What can a patient start with in Global Health Navigator?",
         answer:
           "From one sentence or an uploaded discharge summary, the agent works out the procedure, filters countries by budget, checks the visa requirements for that passport and finds real hospitals.",
       },
       {
-        question: "Does it replace a doctor?",
+        question: "Does Global Health Navigator replace a doctor?",
         answer:
           "Global Health Navigator supports research and planning. It does not replace advice from a doctor. Example output from a demo. Not medical advice.",
       },
       {
-        question: "What safety checks are described?",
+        question: "What safety checks does Global Health Navigator include?",
         answer:
           "For heart surgery, Global Health Navigator asks for angiogram results and warns about flying in urgent cases. For cancer, Global Health Navigator never recommends a country on cost alone.",
       },
       {
-        question: "What do the screenshots show?",
+        question: "What do the Global Health Navigator screenshots show?",
         answer:
           "Patients start from one simple page: describe the condition, budget and passport. The agent works through each step: specialty, costs, visas, hospitals, then the report.",
       },
       {
-        question: "How does a conversation start?",
+        question: "How does a Global Health Navigator conversation start?",
         answer:
           "We build AI agents for patient intake, research and follow-ups. Book a free call to talk through your use case.",
       },
@@ -117,31 +117,31 @@ export const industryPages: Record<
   coaching: {
     faqs: [
       {
-        question: "What was built for the coaching client?",
+        question: "What did Cuzec build for the coaching client?",
         answer:
           "We built a full AI operations platform for a coaching client: specialised AI agents for strategy, content and marketing, connected to the tools the business already runs on.",
       },
       {
-        question: "What does the platform take care of?",
+        question: "What does the Cuzec AI Operations Platform take care of?",
         answer:
           "From morning briefings to lead handling, the platform takes care of daily work automatically, while staying fully auditable and under human control.",
       },
       {
-        question: "Which tools is it connected to?",
+        question: "Which tools is the Cuzec AI Operations Platform connected to?",
         answer:
           "CRM, scheduling, SEO, forms and email marketing, through a standards-based integration layer, so the AI can take approved actions.",
       },
       {
-        question: "Who stays in control?",
+        question: "Who stays in control of the Cuzec AI Operations Platform?",
         answer: "Every action auditable, with a human in control.",
       },
       {
-        question: "Who owns the system?",
+        question: "Who owns the Cuzec coaching system?",
         answer:
           "This system was custom-built for one client and belongs to them. We keep client details confidential and never resell what we build for a client.",
       },
       {
-        question: "How does a new project start?",
+        question: "How does a new Cuzec project start?",
         answer: "Every system we build is custom. Book a free call and tell us where your time goes today.",
       },
     ],
@@ -180,14 +180,14 @@ export const servicePages: Record<
           "Cuzec AI agents handle customer support, document processing and analysis, lead qualification and routing, data entry and validation, and report generation.",
       },
       {
-        question: "Does a person still take critical decisions?",
+        question: "Does a person still take critical decisions with Cuzec AI agents?",
         answer:
           "Cuzec keeps a person in the loop for critical decisions.",
       },
       {
         question: "How does a first Cuzec AI agents project run?",
         answer:
-          "A first Cuzec AI agents project starts with a 2-week process audit and opportunity mapping, then a 4-week pilot with one workflow.",
+          "A first Cuzec AI agents project starts with a process audit and opportunity mapping, then a pilot with one workflow. It is typically weeks, with a fixed quote agreed before work starts.",
       },
     ],
     related: [
@@ -200,7 +200,7 @@ export const servicePages: Record<
   "workflow-automation": {
     faqs: [
       {
-        question: "What is workflow automation?",
+        question: "What is Cuzec workflow automation?",
         answer:
           "Cuzec workflow automation connects disconnected systems and automates multi-step business processes, from simple task routing to complex cross-platform orchestration, and it removes manual handoffs.",
       },
@@ -215,9 +215,9 @@ export const servicePages: Record<
           "Cuzec workflow automation covers employee onboarding, invoice processing, approval workflows, data synchronization, and report generation.",
       },
       {
-        question: "How long do design and build take?",
+        question: "How long do Cuzec workflow design and build take?",
         answer:
-          "A Cuzec workflow project includes a 3-week design and approval stage, then 4-6 weeks of development and integration.",
+          "Cuzec workflow design and build are typically weeks, with a fixed quote agreed before work starts.",
       },
       {
         question: "What happens in a Cuzec process audit?",
@@ -232,7 +232,7 @@ export const servicePages: Record<
   "crm-automation": {
     faqs: [
       {
-        question: "What does CRM automation cover?",
+        question: "What does Cuzec CRM automation include?",
         answer:
           "Cuzec CRM automation handles routine CRM tasks while maintaining data quality and compliance, and it connects the CRM for lead management.",
       },
@@ -249,11 +249,11 @@ export const servicePages: Record<
       {
         question: "Which tools does Cuzec connect for CRM automation?",
         answer:
-          "Cuzec connects CRM automation to HubSpot, Salesforce, Pipedrive, Zapier, and n8n.",
+          "Cuzec connects CRM automation to HubSpot and n8n.",
       },
       {
         question: "How long is a Cuzec CRM audit?",
-        answer: "A Cuzec CRM audit is a 2-week process and data audit.",
+        answer: "A Cuzec CRM audit is a process and data audit, typically weeks, with a fixed quote agreed before work starts.",
       },
     ],
     related: [
@@ -264,9 +264,9 @@ export const servicePages: Record<
   "whatsapp-automation": {
     faqs: [
       {
-        question: "What is WhatsApp automation?",
+        question: "What is Cuzec WhatsApp automation?",
         answer:
-          "Cuzec builds conversational bots and workflow automation on the WhatsApp Business API, and those bots turn WhatsApp into a revenue channel.",
+          "Cuzec builds conversational bots and workflow automation on WhatsApp, and the bots turn WhatsApp into a revenue channel.",
       },
       {
         question: "What does a Cuzec WhatsApp message flow look like?",
@@ -288,7 +288,7 @@ export const servicePages: Record<
   "ecommerce-automation": {
     faqs: [
       {
-        question: "What does e-commerce automation cover?",
+        question: "What does Cuzec e-commerce automation include?",
         answer:
           "Cuzec e-commerce automation covers inventory sync, order processing, customer communications, returns, and analytics across sales channels.",
       },
@@ -304,7 +304,7 @@ export const servicePages: Record<
       },
       {
         question: "Which platforms does Cuzec connect for e-commerce automation?",
-        answer: "Cuzec connects e-commerce automation to Shopify, WooCommerce, Stripe, n8n, and Make.",
+        answer: "Cuzec connects e-commerce automation to n8n.",
       },
     ],
     // TODO(hamza): no industry page on the site is an e-commerce vertical, so this page does not link to one.
@@ -313,7 +313,7 @@ export const servicePages: Record<
   "lead-automation": {
     faqs: [
       {
-        question: "What does lead automation do?",
+        question: "What does Cuzec lead automation do?",
         answer:
           "Cuzec lead automation captures leads from every touchpoint, qualifies them, and nurtures them until they are sales-ready, so a lead is not lost.",
       },
@@ -338,7 +338,7 @@ export const servicePages: Record<
   "operations-automation": {
     faqs: [
       {
-        question: "What does operations automation cover?",
+        question: "What does Cuzec operations automation handle?",
         answer:
           "Cuzec operations automation covers employee onboarding, expense management, compliance tracking, and internal workflows, so a team can spend its time on strategic work.",
       },
@@ -353,7 +353,7 @@ export const servicePages: Record<
           "Cuzec operations automation covers employee onboarding, expense management, compliance tracking, internal requests, and document management.",
       },
       {
-        question: "What does Cuzec automate first?",
+        question: "What does Cuzec operations automation automate first?",
         answer:
           "Cuzec starts by identifying the highest-impact operations, then automates the 5 highest-impact processes.",
       },

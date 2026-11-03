@@ -7,7 +7,7 @@ Cuzec builds AI agents and automations for real estate, construction, healthcare
 - [AI Agents](https://www.cuzec.io/services/ai-agents): Custom AI agents for multi-step business processes
 - [Workflow Automation](https://www.cuzec.io/services/workflow-automation): Connect systems and automate end-to-end processes
 - [CRM Automation](https://www.cuzec.io/services/crm-automation): Automate routine CRM tasks and follow-ups
-- [WhatsApp Automation](https://www.cuzec.io/services/whatsapp-automation): Conversational bots and workflows on the WhatsApp Business API
+- [WhatsApp Automation](https://www.cuzec.io/services/whatsapp-automation): Conversational bots and workflows on WhatsApp
 - [E-commerce Automation](https://www.cuzec.io/services/ecommerce-automation): Order, inventory and customer-message automation
 - [Lead Automation](https://www.cuzec.io/services/lead-automation): Capture, qualify and nurture leads
 - [Operations Automation](https://www.cuzec.io/services/operations-automation): Internal operations such as onboarding and compliance tracking
