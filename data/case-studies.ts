@@ -11,6 +11,7 @@ export const industries = [
   "Education",
 ] as const;
 
+// TODO(hamza): projects and case studies have no source dates. Do not invent a published or modified date.
 // Real client projects only. Pages and homepage sections hide themselves while this is empty.
 export const caseStudies: CaseStudy[] = [];
 

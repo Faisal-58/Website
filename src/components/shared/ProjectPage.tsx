@@ -4,9 +4,12 @@ import { CheckCircle2 } from "lucide-react";
 import { Section, SectionHeader, Container, Card, Badge } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { CTASection } from "@/components/shared/Cards";
+import { Breadcrumbs, DeliveryNote, FaqBlock, RelatedLinks } from "@/components/seo/ContentBlocks";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { BOOKING_URL } from "@/data/site";
+import { industryPages } from "@/data/faqs";
 import type { Project } from "@/data/projects";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, sentenceCount, serviceJsonLd } from "@/lib/seo";
 
 export function projectMetadata(project: Project): Metadata {
   return pageMetadata({
@@ -17,11 +20,22 @@ export function projectMetadata(project: Project): Metadata {
 }
 
 export function ProjectPage({ project }: { project: Project }) {
+  const extra = industryPages[project.slug];
+  const definition =
+    sentenceCount(project.intro) >= 2 ? project.intro : `${project.intro} ${project.steps[0].desc}`;
+
   return (
     <>
+      <JsonLd data={serviceJsonLd(project.name, definition, `/${project.slug}`)} />
       <section className="relative py-24 md:py-32">
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <Container className="relative">
+          <Breadcrumbs
+            items={[
+              { name: "Home", path: "/" },
+              { name: project.industry, path: `/${project.slug}` },
+            ]}
+          />
           <div className="max-w-3xl">
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="text-accent text-sm font-semibold tracking-wider uppercase">
@@ -32,7 +46,11 @@ export function ProjectPage({ project }: { project: Project }) {
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
               {project.title} <span className="gradient-text">{project.titleHighlight}</span>
             </h1>
-            <p className="text-lg text-muted leading-relaxed mb-8">{project.intro}</p>
+            <p className="text-lg text-muted leading-relaxed mb-4">{project.intro}</p>
+            {sentenceCount(project.intro) < 2 && (
+              <p className="text-lg text-muted leading-relaxed mb-8">{project.steps[0].desc}</p>
+            )}
+            {sentenceCount(project.intro) >= 2 && <div className="mb-4" />}
             <div className="flex flex-wrap gap-3">
               <Button href={BOOKING_URL} variant="primary" size="lg">
                 Book a free 30-minute session
@@ -158,6 +176,10 @@ export function ProjectPage({ project }: { project: Project }) {
           </div>
         </Container>
       </Section>
+
+      <DeliveryNote />
+      {extra && <FaqBlock items={extra.faqs} />}
+      {extra && <RelatedLinks title="Related services" links={extra.related} />}
 
       <CTASection
         title={project.cta.title}
